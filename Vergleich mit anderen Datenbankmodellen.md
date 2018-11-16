@@ -7,14 +7,15 @@ Neben dokumentenorientierten Datenbanken gibt es noch weitere Datenbankmodelle. 
 
 Relationale Datenbanken gehören zu den am weitesten verbreiteten Datenbankmodellen. Dargestellt werden sie häufig im Entity-Relationship-Modell nach Chen. Entwickelt wurde das relationale Datenbankmodell von Edgar F. Codd in den 1960er/70er Jahren. Oracle veröffentlichte einige Jahre später die erste funktioniertende Datenbank nach diesem Modell. Die Daten werden in 2-dimensionelle Tabellen gespeichert und über SQL abgefragt. Über einen Schlüssel (Primärschlüssel) und einem Fremdschlüssel (foreign Key) werden die Tabellen miteinander verknüpft. Ein Datensazt (Record) befindet sich immer innerhalb einer Tabellenzeile (Tupel). Des Weiteren beinhaltet jede Zeile eine Reihen von Merkmalen (Attributen). Diese stellen die Tabellenspalten dar. Anhand des Beispieles Dozenten und Vorlesungen soll eine relationale Datenbank visualisiert werden. Die tutor_id stellt in diesem Beispiel den foreign Key dar.
 
-###Tutor
+### Tutor
 
 | id | firstname	| lastname 	|
 |----|----------	|------------	|
 | 1  | Hans   	| Maier		|
 | 2  | Peter	 	| Müller		|
 
-###Lecture
+### Lecture
+
 | id | tutor_id	| lecture				|
 |----|----------	|-------------------|
 | 1  | 1  		| Quantencomputer  	|
