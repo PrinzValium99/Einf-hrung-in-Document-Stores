@@ -1,8 +1,13 @@
-# Titel der Arbeit
+# Einführung in Document-Stores
 Kurze Beschreibung des Inhaltes.
 
 ## Autoren
 
 | Name          | Matrikelnummer | Hochschule | E-Mail                     |
 |:--------------|:---------------|:-----------|:---------------------------|
-|Max Mustermann | 123456789      | Ostfalia   | max.mustermann@ostfalia.de |
+|Jessica Arnold | 20202139      | TH Brandenburg   | arnold@th-brandenburg.de
+Manuel Ermer | 20202107	 | TH Brandenburg | manuel.ermer@th-brandenburg.de
+Jan-Jasper Wagner | 868948 | Beuth Hochschule | s73520@beuth-hochschule.de
+
+
+
