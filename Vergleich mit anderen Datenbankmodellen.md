@@ -25,11 +25,11 @@ Relationale Datenbanken gehören zu den am weitesten verbreiteten Datenbankmodel
 
 
 
--
+<hr>
 http://www.info-wsf.de/index.php/Datenbankmodelle <br>
 https://blog.adacor.com/big-data-sql-nosql-richtig-einordnen_4308.html
 
--
+<hr>
 
 
 
