@@ -1,6 +1,6 @@
 # 5.Anwendung von Document Stores
 
-Im Folgenden sind einige häufige Beispiele aufgeführt, bei denen Document-Stores zur Anwendung kommen.
+Im Folgenden sind Beispiele aufgeführt, bei denen Document-Stores zur Anwendung kommen.
 
 ## 5.1 Benutzerprofile
 

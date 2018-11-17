@@ -7,7 +7,7 @@ Sie beruhen auf keinem festen Schema, das hingegen bei relationalen Datenbanken 
 Zu beachten ist, dass der Begriff NoSQL keineswegs „No" impliziert und nicht einfach mit „kein“
 gleichzusetzen ist. Für die meisten steht es für „Not only SQL“ – also nicht für ein Ende der Abfragesprache SQL.
 
-NoSQL Datenbanken können sich recht stark unterscheiden, da ihnen unterschiedliche Datenbankmodelle zu Grunde liegen. Die Unterschied, der sie von relationalen Datenbanken stark abgrenzen lässt und sie zusammenfassen lässt, liegt in der Schemafreiheit begründet. 
+NoSQL Datenbanken können sich recht stark unterscheiden, da ihnen unterschiedliche Datenmodelle zu Grunde liegen. Der Unterschied, der sie von relationalen Datenbanken scharf abgrenzen und vereinen lässt, liegt in der Schemafreiheit begründet. 
 
 <hr>
 [< Inhaltsverzeichnis](02_toc.md)		|   [Entwicklung und Ursprung >](04_Entwicklung-und-Ursprung.md)
