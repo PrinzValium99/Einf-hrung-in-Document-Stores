@@ -46,6 +46,6 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Ande
 
 
 
+------
 
-<hr>
 [< Einleitung](03_introduction.md)		|   [Datenmodell >](05_Datenmodell.md)

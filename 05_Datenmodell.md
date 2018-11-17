@@ -14,5 +14,6 @@ Wie bereits erwähnt sind dokumentenorientierte Datenbanken schemafrei, wobei da
 
 
 
-<hr>
-[< Entwicklung und Ursprung](04_Entwicklung-und-Ursprung.md)		|   [Vergleich mit anderen Datenbankmodellen >](06_Vergleich-mit-anderen Datenbankmodellen.md)
+------
+
+[< Entwicklung und Ursprung](04_Entwicklung-und-Ursprung.md)		|   [Vergleich mit anderen Datenbankmodellen >](06_Vergleich-mit-anderen-Datenbankmodellen.md)
