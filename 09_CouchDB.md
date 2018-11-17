@@ -1,11 +1,3 @@
-# 6 Übersicht wichtiger dokumentorientierter Datenbanken
-
-Im Gegensatz zu beispielsweise relationalen Datenbanken gibt es für dokumentenorientierte Datenbanken keine vergleichbare Standardisierung. Aus diesem Grund können unter den verschiedenen Systemen deutlich stärkere Unterschiede festgestellt werden. Im folgenden werden drei Document Store Datenbanksysteme näher behandelt, die laut DB-Engines Ranking zu den wichtigsten Vertretern ihrer Art gehören. [1, 7]
-
-
-
---- noch aufzählen, welche es so gibt
-
 ## 6.1 CouchDB ---> LOGO FEHLT NOCH
 
 ### 6.1.1 Beschreibung
@@ -96,19 +88,16 @@ function(doc) {
 }
 ```
 
-Die Map-Funktion bekommt ein Dokument als Parameter "doc" übergeben. Da die Map-Funktion auf alle Dokumente angewendet wird, muss anschließend geprüft werden, ob das übergebene Dokument die Schlüssel "tutor" und "lecture" enthält, um nur diese 
+Die Map-Funktion bekommt ein Dokument als Parameter "doc" übergeben. Da die Map-Funktion auf alle Dokumente angewendet wird, muss anschließend geprüft werden, ob das übergebene Dokument die Schlüssel "tutor" und "lecture" enthält, um die entsprechenden Dokumente herauszufiltern. Im Anschluss trägt die emit-Funktion ein Key/Value-Paar in die Ergebnismenge ein. Sind mehrere Einträge gewünscht, dann kann die emit-Funktion auch mehrere Male aufgerufen werden. Im Beispiel wird eine Kombination aus den beiden Eigenschaften "tutor" bzw. "lecture" in einem Array als Schlüssel zurückgegeben.
 
-Der Map-Funktion wird ein Parameter („doc“) übergeben, die ein Dokument darstellt. In der if-Anweisung wird überprüft, ob das Dokument bestimmte Schlüssel hat. Dies ist erforderlich, da die Map-Funktion auf alle Dokumente angewendet wird und nur Dokumente mit bestimmten Eigenschaften von Interesse sind. In diesem Beispiel sind es Dokumente, die die Eigenschaft „tutor“ und „lecture“ haben. Hiernach wird mit der emit-Funktion ein Schlüssel/Werte-Paar in die Ergebnismenge eingetragen. Die emit-Funktion kann innerhalb der Map-Funktion auch mehrere Male aufgerufen werden, wobei mehrere Einträge pro Dokument möglich sind. Von Bedeutung ist zudem, dass die Ergebnismenge nach dem Schlüssel sortiert zurückgegeben wird. In dem Beispiel wird eine Kombination aus der Eigenschaft „item“ und der Eigenschaft „price“ in einem Array als Schlüssel zurückgegeben, womit eine Sortierung der Ergebnismenge erst nach der Eigenschaft „item“ und dann nach der Eigenschaft „price“ vorgenommen wird. Um die Reduce-Funktion innerhalb einer View zu verstehen, muss bekannt sein, dass die Ergebnismenge der Map-Funktion als ein B+-Baum verwalten wird. Eine einfache Reduce-Funktion sieht wie folgt aus:
-
+Das folgende Beispiel zeigt eine einfache Reduce-Funktion .
+```
 function(keys, values, rereduce) {
-
-```
    return sum(values);
+}
 ```
 
-}
-
-Die Reduce-Funktion wird, falls keine Filterung der Abfrage vorgenommen wird, auf jeden Knoten im B+-Baum angewendet. Im ersten Parameter befinden sich die Schlüssel und im zweiten die Werte, die in einem Knoten gespeichert sind. Das Ergebnis wird zwischengespeichert. Der dritte Parameter gibt an, ob ein Blätter-Knoten oder ein innerer Knoten bearbeitet wird. Der Wert des dritten Parameters ist „false“, wenn es sich um einen Blätter-Knoten handelt, wobei die anderen beiden Parameter wie bereits erwähnt belegt sind. Der Wert des dritten Parameters ist „true“, wenn es sich um einen inneren Knoten bei der Ausführung handelt. In diesem Fall ist der erste Parameter „null“ und der zweite Parameter ein Array aus Zwischenergebnissen der entsprechenden Kinder-Knoten. Erinnert man sich daran, dass die Nutzdaten in einem B+-Baum nur in den Blättern gespeichert werden, so versteht man in manchen Fällen die Notwendigkeit, eine Unterscheidung vorzunehmen. Während bei den Blättern Operationen bzgl. einzelner Einträge in der Ergebnismenge der Map-Funktion vorgenommen werden können, können deren Zwischenergebnisse bei der Bearbeitung der inneren Knoten weiter verwendet werden. [3]
+Zur Betrachtung der Reduce-Funktion ist es wichtig zu wissen, dass die Ergebnismenge der Map-Funktion als B+-Baum verwaltet wird. Die Reduce-Funktion durchläuft jeden Knoten des Baums, sofern keine Filterung stattfindet. In den ersten beiden Parametern werden Keys und Values übergeben, diese werden zwischengespeichert. Der dritte Parameter bestimmt, ob ein Blätter-Knoten oder ein innerer Knoten durchlaufen wird. Da bei B+-Bäumen die Nutzdaten nur in den Blättern gespeichert werden ist eine derartige Unterscheidung notwendig. Auf einzelne Einträge aus der Ergebnismenge der Map-Funktion können bei den Blättern Operationen ausgeführt werden. Bei den inneren Knoten wiederum kann mit den gespeicherten Zwischenergebnissen weitergearbeitet werden. [3]
 
 ### 6.1.6 Replikation
 
@@ -295,5 +284,4 @@ Entwicklung zum vollwertigen, produktiv einsetzbaren Datenbankmanagementsystem e
 [4] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB <br>
 [5] http://guide.couchdb.org/editions/1/en/index.html <br>
 [6] http://docs.couchdb.org/en/stable/ <br>
-[7] https://db-engines.com/de/ranking/document+store
 <hr>
