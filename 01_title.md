@@ -1,5 +1,5 @@
 # Einführung in Document-Stores
-Kurze Beschreibung des Inhaltes.
+Diese Hausarbeit bietet dem Leser einen Einblick über dem Themenkomplex Document-Stores. Document-Stores - auch Dokumentorientierte Datenbanken genannt - kommen im Kontext von Datenbanken zum Einsatz. Themenschwerpunkte der Arbeit sind die historische Entwicklung, Beschreibung des Datenmodells, der Vergleich zu anderen wichtigen Datenbanken, Anwendungsgebiete von Document-Stores und ein tieferreichender Einblick in die technische Funktionsweise favorisierter dokumentorientierter Datenbankmodelle. Prost!
 
 ## Autoren
 
