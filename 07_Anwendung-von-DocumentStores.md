@@ -46,7 +46,4 @@ Sie kommen häufig dann zum Einsatz, wenn Objekte sich in mehrere Objekte schach
 
 ------
 
-
-
-<hr>
-[< Vergleich mit anderen Datenbankmodellen](06_Vergleich-mit-anderen Datenbankmodellen.md)		|   [DAS NÄCHSTE >](07_Anwendung-von-DocumentStores.md)
+[< Vergleich mit anderen Datenbankmodellen](06_Vergleich-mit-anderen Datenbankmodellen.md)		|   [Übersicht wichtiger dokumentorientierter Datenbanken >](08_Übersicht-wichtiger-dokumentorientierter-Datenbanken.md)
