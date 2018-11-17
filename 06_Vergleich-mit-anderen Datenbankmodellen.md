@@ -1,6 +1,6 @@
 # 4. Verlgeich mit anderen Datenbankmodellen 
 
-Neben dokumentenorientierten Datenbanken gibt es noch weitere Datenbankmodelle. Der Unterschied der Datenbankmodelle zueinander besteht im wesentlichen darin auf welche Art und Weise der Datenbestand gespeichert und auf ihn zugegriffen wird. Die Datenbankmodelle relationale Datenbanken und objektorientierte Datenbanken werden kurz vorgestellt. Zudem wird der Unterschied der Datenbankmodelle anhand des  Beispieles Dozenten und Vorlesungen dargestellt werden.
+Neben dokumentenorientierten Datenbanken gibt es noch weitere Datenbankmodelle. Der Unterschied der Datenbankmodelle zueinander besteht im wesentlichen darin auf welche Art und Weise der Datenbestand gespeichert und auf ihn zugegriffen wird. Die Datenbankmodelle relationale Datenbanken und objektorientierte Datenbanken werden kurz vorgestellt. Zudem wird der Unterschied der Datenbankmodelle anhand des Beispieles Dozenten und Vorlesungen dargestellt werden.
 
 ## 4.1 Relationale Datenbanken
 
@@ -35,7 +35,7 @@ Trotz ihrer übersichtlichen Darstellung und Beliebtheit bringen relationale Dat
 
 
 ## 4.2 Objektorientierte Datenbanken
- 
+
 Objektorientierte Datenbanken ist eine relative neue Entwicklung. Die Daten werden innerhalb von Objekten verwaltet. Dies geschieht im Sinne der Objektorientierung. Objekte können wie auch in der OOP Unterobjekte enthalten. Eine getrennte Speicherung von Methoden und Attributen findet innerhalb der Objekte nicht statt, wodurch benötigte Operatoren sofort in die Datensätze eingegliedert werden können. [2] In der Praxis sind objektorientierte Datenbanken wenig verbreitet, wodurch die Implementierung durch fehlende eigene Schnittstellen und Zwischen-Layer schwierig gestaltet wird. 
 
 Betrachtet man nun das Dozenten/Vorlesungen Beispiel könnten ein Dozentenobjekt mit dem Namen oTutor wie folgt aufgebaut sein:
