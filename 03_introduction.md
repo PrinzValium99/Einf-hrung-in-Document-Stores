@@ -13,6 +13,6 @@ NoSQL Datenbanken können sich recht stark unterscheiden, da ihnen unterschiedli
 
 [1] whitepaper MongoDB - Top 5 Considerations When Evaluating NoSQL Databases
 
-<hr>
-[< Inhaltsverzeichnis](02_toc.md)		|   [Entwicklung und Ursprung >](04_Entwicklung-und-Ursprung.md)
+------
 
+[<Inhaltsverzeichnis](02_toc.md)	|	[Entwicklung und Ursprung >](04_Entwicklung-und-Ursprung.md)
