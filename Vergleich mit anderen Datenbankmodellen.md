@@ -58,17 +58,22 @@ Bei Document Stores werden die Daten nicht wie bei relationalen Datenbanken in S
 
 Anhand des Dozenten/Vorlesungen Beispiels können zwei Dozenten-Dokumente unterschiedliche Strukturen aufweisen (Json-Format):
 
-{ <br>
-`“name“ : “Hans Maier“, `<br>
-`“university“ : “TH Brandenburg“,` <br>
-`“lectures“ : [“Quantencomputer“, “Mathematik 1“]`<br>
+```
+{ 
+“name“ : “Hans Maier“, 
+“university“ : “TH Brandenburg“, 
+“lectures“ : [“Quantencomputer“, “Mathematik 1“]
 }
+```
+```
+{
+“firstname“ : “Peter“,
+“lastname“ : “Müller“,
+“lectures“ : [“Web Development“, "Softwatechnik"]
+}
+```
 
-{<br>
-`“firstname“ : “Peter“,`<br>
-`“lastname“ : “Müller“,`<br>
-`“lectures“ : [“Web Development“, "Softwatechnik"]`<br>
-}
+Ein Nachteil von dokuemtenorientierten Datenbanken ist, dass sie für komplexe Datenstrukturen mit hoher Beziehungstiefe eher ungeeinget sind. Müssen mit den in der Datenbank enthaltenen Dokumenten Operatationen programmiert werden, so muss zunächst eine Struktur festgelegt werden. Häufig wird in diesem Zuge eine übergeordnete Strukturfestlegung vorgenommen, um den Programmieraufwand zu verringern. Dies führt dazu, dass die Formfreiheit nur noch eingeschränkt gilt. Funktionaliäten die bei relationalen oder objektorientierten Datenbanken standardmäßig zur Verfügung stehen müssen bei dokumentorientierten Datenbanken individuell programmiert werden.[3]
 
 
 
