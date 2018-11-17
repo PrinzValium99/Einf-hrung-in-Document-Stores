@@ -1,27 +1,18 @@
-# 7 Übersicht wichtiger dokumentorientierter Datenbanken
 
-Im Gegensatz zu beispielsweise relationalen Datenbanken gibt es für dokumentenorientierte Datenbanken keine vergleichbare Standardisierung. Aus diesem Grund können unter den verschiedenen Systemen deutlich stärkere Unterschiede festgestellt werden. Im folgenden werden drei Document Store Datenbanksysteme näher behandelt, die laut DB-Engines Ranking zu den wichtigsten Vertretern ihrer Art gehören. [1, 7]
+## 6.2 MongoDB ---> LOGO FEHLT NOCH
 
-## 7.1 CouchDB ---> LOGO FEHLT NOCH
+### 6.2.1 Beschreibung
 
-### 7.1.1 Beschreibung
 
-Die Entwicklung von CouchDB wurde im Jahre 2005 vom ehemaligen Senior-Entwickler von Lotus Notes, Damien Katz zunächst auf privater Basis und später als Apache-Projekt begonnen. CouchDB orientiert sich an Google BigTable und stellt auch MapReduce über JavaScript zur Verfügung. Dieser Datenbank liegt außerdem die Apache Lizenz 2.0 zugrunde, wodurch sie als Open Source Software einzuordnen ist.
+MongoDB gehört zu den beliebtesten NoSQL-Vertretern. Der Name 'Mongo' wurde abgeleitet von 'humongous' (gigantisch). MongoDB ist eine skalierbare, hochperformante, schemafreie und dokumentenorientierte Open-Source-Datenbank, die durch ihre Features im Vergleich zu anderen NoSQL-Datenbanken besticht. Zudem stellt sie das Bindeglied zwischen klassischen relationalen Datenbanken und Key/Value-Stores her. Dokumente werden im im BSON-Format verwaltet. Eine integrierte Query Language ermöglicht einfache Abfragen, Replikationen und Sharding (Replikationen und Sharding ermöglicht die Verwendung vieler nicht so leistungsstarker Rechner). Zudem kann eine Vielzahl bekannter Programmiersprachen angebunden werden. Umfangreiche Abfragemöglichkeiten mit guter Skalierbarkeit und Performance gekoppelt schaffen eine Konkurrenz zu den klassichen RDMBS (Relational Database Management System). MongoDB kann in virtuellen Umgebungen, bei Cloud Computing und in den gängigen Betriebsystemen Linux, Mac OS und Windows eingesezt werden. Das Datenbanksystem verfügt zudem über einen kommerziellen Support [1,2].
 
-CouchDB zeichnet sich vor allem dadurch aus, dass es auch mit einfachen Grundkenntnissen im NoSQL-Bereich leicht benutzbar ist. Dieses Prinzip vermittelt auch das Logo, welches eine Couch und den Schriftzug "relax" zeigt. Nutzer, die bereits Erfahrungen im Bereich der Webentwicklung sammeln konnten, werden einen leichten Einstieg in CloudDB finden. Der Fokus wurde auf eine unkomplizierte und einfache Nutzung der Datenbank gelegt. Dieses Prinzip der Einfachheit gilt auch für die Fehlertoleranz, Fehlersuche, Skalierbarkeit und Performance von CouchDB. Entsprechend geht man z. B. auch davon aus, dass nicht immer eine Netzwerkverbindung vorhanden ist und Fehler in verteilten Systemen vorkommen können. Anders als erwartet steht das Akronym CouchDB für "Cluster of unreliable commodity hardware Data Base". Zusammenfassend lassen sich die besonderen Merkmale dieses dokumentorientieren Datenbanksystems folgendermaßen beschreiben:
+MongoDB zeichnet sich vor allem durch ein flexibles Datenbank Schema, welches dynamsich angepasst werden kann, aus. Die Daten werden in JSON-ähnlichen Dokumenten gespeichert, wodurch die Felder in den einzelnen Dokumenten variieren und die Datenstrukturen sich über die Dauer verändern. Durch Ad-hoc-Abfrgen, Indizierung und Echtzeitaggregation wird der Zugriff und die Analyse der Daten vereinfacht [3]. 
+Ein großes Manko von MongoDB stellt die Sicherheit beim Zugriff dar, da dieser nur mit Einstellung der IP-Tables erfolgt. Aus diesem Grund sind Tranksaktionen und Query-Operationen im Gegensatz zu einem RDBMS nicht im vollen Umfang möglich [1]. 
 
-- JSON-Dokumente als Datenspeicher
-- HTTP (per REST) für Anfragen
-- Zuverlässigkeit
-- Konsistenz der Datenspeicherung. [1, 3, 5]
 
-### 7.1.2 Architektur und Implementierung
+### 6.2.2 Architektur und Implementierung
 
-Bei CouchDB werden alle Daten als JSON-Datenstrukturen gespeichert. Diese können über eine HTTP API (RESTful JSON API) erstellt, gelesen oder aktualisiert werden. Wie bereits erwähnt, erfolgen die Abfragen über JavaScript und das MapReduce-Verfahren. CouchDB basiert auf der Erlang OTP-Plattform, welche die Parallelisierung von Anwendungen ermöglicht. Diese Programmiersprache wurde mit einem Fokus auf Zuverlässigkeit und Verfügbarkeit entwickelt. Das Datenbanksystem ermöglicht die Replikation der Daten auf mehrere Knoten, somit können Lesevorgänge parallelisiert werden. Durch ein MVCC-Modell (Multiversion Concurrency Control) können konkurrierende Zugriffe stattfinden. Der Nutzer erhält über den gesamten Zeitraum der Leseoperation einen konsistenten Snapshot der Datenbank ohne andere Zugriffe zu blockieren. [1, 3, 5]
 
-**Noch umschreiben?**
-
-CouchDB ist auf der Erlang OTP Plattform aufgebaut. Das Modul für Views nutzt die JavaScript-Engine SpiderMonkey und Unicode Collation für die Kodierung von Zeichen, legt aber auch Views (genauer permanente Views) im physischen Speicher ab. Apache Lucene kann für Textsuche und Indizierung hinzugefügt werden. Ad-hoc-Abfragen sind über Virtuelle Dokumente (Temporary Views) möglich, somit kann jedes Field eines Dokuments jederzeit abgefragt werden, und der User kann eine Anfrage formulieren, „ohne ein vollständiges Programm schreiben zu müssen“. CouchDB wendet asynchrone Replikation an, des Weiteren handelt es sich um ein Disk-basierend speicherndes DBS, alle Schreibvorgänge werden direkt auf die Festplatte geschrieben, ohne länger im Arbeitsspeicher oder dergleichen temporär gespeichert zu werden. Das Modul *mod_couch* sammelt und wandelt JSON-Dokumente über URL's des Datenbankzugriffs entsprechend um, dabei ersetzt hauptsächlich dieses Modul die mittlere Software-Schicht hin zu einer 2-Schichten-Architektur. [3]
 
 ### 7.1.3 Speicherung der Daten
 
@@ -135,18 +126,6 @@ Da bei Datenbankzugriffen während des Replikationsvorgangs Versionskonflikte au
 
 ### 7.2.1 Beschreibung
 
-MongoDB gehört zu den Stars am Himmel der NoSQL-Vertreter – gemessen an der Euphorie,
-die dieser Datenbank in der Blogosphäre entgegen gebracht wird. Dies ist kaum verwunderlich,
-kann MongoDB doch mit Features auftrumpfen, die man bei anderen Vertretern
-aus dem NoSQL-Lager vermisst.
-MongoDB hat das Ziel, die Lücke zwischen klassischen relationalen Datenbanken und den
-Key/Value-Stores zu schließen. Dazu sollen möglichst umfangreiche Abfragemöglichkeiten
-mit guter Skalierbarkeit und Performance kombiniert werden, um ernsthaft mit klassischen
-RDMBS konkurrieren zu können. Darüber hinaus kann MongoDB an viele bekannte
-Programmiersprachen angebunden werden.
-Es sollte erwähnt werden, dass hinter MongoDB ein Team bekannter Größen aus erfolgreichen
-Web-Unternehmen in den USA steht, die ihre langjährigen technischen Erfahrungen
-in der Entwicklung von MongoDB bündeln. [1]
 
 
 
@@ -160,9 +139,14 @@ in der Entwicklung von MongoDB bündeln. [1]
 
 <hr>
 [1] Edlich <br>
+[2] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB <br>
+[3] https://www.mongodb.com/de/what-is-mongodb
+
+
+
 [2] Kindle Buch <br>
 [3] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.CouchDB <br>
-[4] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB <br>
+
 [5] http://guide.couchdb.org/editions/1/de/why.html <br>
 [6] http://docs.couchdb.org/en/stable/ <br>
 [7] https://db-engines.com/de/ranking/document+store
