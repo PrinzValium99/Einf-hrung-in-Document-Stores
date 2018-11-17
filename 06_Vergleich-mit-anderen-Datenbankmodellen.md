@@ -84,3 +84,4 @@ Ein Nachteil von dokuemtenorientierten Datenbanken ist, dass sie für komplexe D
 [6] NoSQL Einfuhrung - CouchDB, Mon - Oliver Kurowski
 <hr>
 [< Datenmodell](05_Datenmodell.md)		|   [Anwendung von Document Stores >](07_Anwendung-von-DocumentStores.md)
+
