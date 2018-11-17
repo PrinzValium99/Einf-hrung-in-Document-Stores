@@ -1,3 +1,5 @@
+------
+
 # 4. Verlgeich mit anderen Datenbankmodellen 
 
 Neben dokumentenorientierten Datenbanken gibt es noch weitere Datenbankmodelle. Der Unterschied der Datenbankmodelle zueinander besteht im wesentlichen darin auf welche Art und Weise der Datenbestand gespeichert und auf ihn zugegriffen wird. Die Datenbankmodelle relationale Datenbanken und objektorientierte Datenbanken werden kurz vorgestellt. Zudem wird der Unterschied der Datenbankmodelle anhand des Beispieles Dozenten und Vorlesungen dargestellt werden.
@@ -75,13 +77,13 @@ Anhand des Dozenten/Vorlesungen Beispiels können zwei Dozenten-Dokumente unters
 
 Ein Nachteil von dokuemtenorientierten Datenbanken ist, dass sie für komplexe Datenstrukturen mit hoher Beziehungstiefe eher ungeeinget sind. Müssen mit den in der Datenbank enthaltenen Dokumenten Operatationen programmiert werden, so muss zunächst eine Struktur festgelegt werden. Häufig wird in diesem Zuge eine übergeordnete Strukturfestlegung vorgenommen, um den Programmieraufwand zu verringern. Dies führt dazu, dass die Formfreiheit nur noch eingeschränkt gilt. Funktionaliäten die bei relationalen oder objektorientierten Datenbanken standardmäßig zur Verfügung stehen müssen bei dokumentorientierten Datenbanken individuell programmiert werden.[3]
 
-
 <hr>
 [1] http://www.info-wsf.de/index.php/Datenbankmodelle <br>
 [2] https://blog.adacor.com/big-data-sql-nosql-richtig-einordnen_4308.html <br> 
 [3] https://blog.secu-ring.de/software/unterschiede-der-datenbankmodelle-relationale-objektorientierte-und-doukumentenbasierte-datenbank/ <br>
 [5] https://www.eu-datenbank.de/fachartikel/vor-und-nachteile-von-objektdatenbanken/ <br>
 [6] NoSQL Einfuhrung - CouchDB, Mon - Oliver Kurowski
-<hr>
-[< Datenmodell](05_Datenmodell.md)		|   [Anwendung von Document Stores >](07_Anwendung-von-DocumentStores.md)
 
+------
+
+[< Datenmodell](05_Datenmodell.md)		|   [Anwendung von Document Stores >](07_Anwendung-von-DocumentStores.md)
