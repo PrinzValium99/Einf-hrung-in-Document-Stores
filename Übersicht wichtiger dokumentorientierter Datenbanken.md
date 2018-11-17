@@ -2,35 +2,96 @@
 
 Im Gegensatz zu beispielsweise relationalen Datenbanken gibt es für dokumentenorientierte Datenbanken keine vergleichbare Standardisierung. Aus diesem Grund können unter den verschiedenen Systemen deutlich stärkere Unterschiede festgestellt werden. Im folgenden werden drei Document Store Datenbanksysteme näher behandelt, die laut DB-Engines Ranking zu den wichtigsten Vertretern ihrer Art gehören. [1, 7]
 
-## 7.1 CouchDB
+## 7.1 CouchDB ---> LOGO FEHLT NOCH
 
 ### 7.1.1 Beschreibung
 
 Die Entwicklung von CouchDB wurde im Jahre 2005 vom ehemaligen Senior-Entwickler von Lotus Notes, Damien Katz zunächst auf privater Basis und später als Apache-Projekt begonnen. CouchDB orientiert sich an Google BigTable und stellt auch MapReduce über JavaScript zur Verfügung. Dieser Datenbank liegt außerdem die Apache Lizenz 2.0 zugrunde, wodurch sie als Open Source Software einzuordnen ist.
 
-CouchDB zeichnet sich vor allem dadurch aus, dass es auch mit einfachen Grundkenntnissen im NoSQL-Bereich leicht benutzbar ist. Dieses Prinzip vermittelt auch das Logo, welches eine Couch und den Schriftzug "relax" zeigt. Nutzer, die bereits Erfahrungen im Bereich der Webentwicklung sammeln konnten, werden einen leichten Einstieg in CloudDB finden. Der Fokus wurde auf eine unkomplizierte und einfache Nutzung der Datenbank gelegt. Dieses Prinzip der Einfachheit gilt auch für die Fehlertoleranz, Fehlersuche, Skalierbarkeit und Performance von CouchDB. Entsprechend geht man z. B. auch davon aus, dass nicht immer eine Netzwerkverbindung vorhanden ist und Fehler in verteilten Systemen vorkommen können. Passenderweise steht das Akronym CouchDB deshalb für "Cluster of unreliable commodity hardware Data Base". Zusammenfassend lassen sich die besonderen Merkmale dieses dokumentorientieren Datenbanksystems folgendermaßen beschreiben:
+CouchDB zeichnet sich vor allem dadurch aus, dass es auch mit einfachen Grundkenntnissen im NoSQL-Bereich leicht benutzbar ist. Dieses Prinzip vermittelt auch das Logo, welches eine Couch und den Schriftzug "relax" zeigt. Nutzer, die bereits Erfahrungen im Bereich der Webentwicklung sammeln konnten, werden einen leichten Einstieg in CloudDB finden. Der Fokus wurde auf eine unkomplizierte und einfache Nutzung der Datenbank gelegt. Dieses Prinzip der Einfachheit gilt auch für die Fehlertoleranz, Fehlersuche, Skalierbarkeit und Performance von CouchDB. Entsprechend geht man z. B. auch davon aus, dass nicht immer eine Netzwerkverbindung vorhanden ist und Fehler in verteilten Systemen vorkommen können. Anders als erwartet steht das Akronym CouchDB für "Cluster of unreliable commodity hardware Data Base". Zusammenfassend lassen sich die besonderen Merkmale dieses dokumentorientieren Datenbanksystems folgendermaßen beschreiben:
 
-JSON-Dokumente als Datenspeicher, HTTP (per REST) für Anfragen, Zuverlässigkeit und Konsistenz der Datenspeicherung. [1, 3]
+- JSON-Dokumente als Datenspeicher
+- HTTP (per REST) für Anfragen
+- Zuverlässigkeit
+- Konsistenz der Datenspeicherung. [1, 3]
 
-### 7.1.1 Architektur und Implementierung
+### 7.1.2 Architektur und Implementierung
 
 Bei CouchDB werden alle Daten als JSON-Datenstrukturen gespeichert. Diese können über eine HTTP API (RESTful JSON API) erstellt, gelesen oder aktualisiert werden. Wie bereits erwähnt, erfolgen die Abfragen über JavaScript und das MapReduce-Verfahren. CouchDB basiert auf der Erlang OTP-Plattform, welche die Parallelisierung von Anwendungen ermöglicht. Diese Programmiersprache wurde mit einem Fokus auf Zuverlässigkeit und Verfügbarkeit entwickelt. Das Datenbanksystem ermöglicht die Replikation der Daten auf mehrere Knoten, somit können Lesevorgänge parallelisiert werden. Durch ein MVCC-Modell (Multiversion Concurrency Control) können konkurrierende Zugriffe stattfinden. Der Nutzer erhält über den gesamten Zeitraum der Leseoperation einen konsistenten Snapshot der Datenbank ohne andere Zugriffe zu blockieren. [1, 3]
 
-
-
-Noch umschreiben?
+**Noch umschreiben?**
 
 CouchDB ist auf der Erlang OTP Plattform aufgebaut. Das Modul für Views nutzt die JavaScript-Engine SpiderMonkey und Unicode Collation für die Kodierung von Zeichen, legt aber auch Views (genauer permanente Views) im physischen Speicher ab. Apache Lucene kann für Textsuche und Indizierung hinzugefügt werden. Ad-hoc-Abfragen sind über Virtuelle Dokumente (Temporary Views) möglich, somit kann jedes Field eines Dokuments jederzeit abgefragt werden, und der User kann eine Anfrage formulieren, „ohne ein vollständiges Programm schreiben zu müssen“. CouchDB wendet asynchrone Replikation an, des Weiteren handelt es sich um ein Disk-basierend speicherndes DBS, alle Schreibvorgänge werden direkt auf die Festplatte geschrieben, ohne länger im Arbeitsspeicher oder dergleichen temporär gespeichert zu werden. Das Modul *mod_couch* sammelt und wandelt JSON-Dokumente über URL's des Datenbankzugriffs entsprechend um, dabei ersetzt hauptsächlich dieses Modul die mittlere Software-Schicht hin zu einer 2-Schichten-Architektur. [3]
 
 ### 7.1.1 Speicherung der Daten
 
-Es existieren im Rahmen von CouchDB diverse Dokumentarten, die jeweils eine eigene Verantwortung haben. Von zentraler Bedeutung sind
+In CouchDB werden Dokumente in Form von JSON-Datenstrukturen abgelegt. Ähnlich wie bei anderen dokumentorientierten Datenbanken geschieht dies schemafrei. Allerdings gibt das JSON Format eine gewisse Struktur durch die Syntax vor. Die Dokumente werden in Unterdatenbanken gespeichert und durch Dokument-IDs bzw. Revisions-IDs indexiert. Die eindeutige Dokument-ID legt der Nutzer selbst fest, die Revisions-ID wird wiederum von CouchDB verwaltet. Sie gibt an, in welcher Version ein Dokument vorhanden ist. Wird eine Instanz aktualisiert, dann lassen sich die Änderungen später anhand der Revisions-ID nachvollziehen.
 
-1. Daten-,
-2. Virtuelle (nicht persistent) und
-3. Design Dokumente.
 
-Die Dokumente in CouchDB werden in der Java Script Object Notation ([JSON](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.JSON)) gespeichert, wobei dies schemafrei abläuft. Dennoch werden für ein korrektes Auslesen semi-strukturierte Daten benötigt, denn die (Web-)Anwendungen, nicht die Datenbank selbst, haben die Schemaverantwortung, zudem gibt [JSON](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.JSON) eine gewisse Ordnung durch die Syntax vor. Die Dokumente selbst können in benennbaren Unterdatenbanken, die man sich am besten als Dokumentenverzeichnisse vorstellen kann, gespeichert werden. Dabei verfügt jedes persistente Dokument über eine vom Benutzer bestimmbare Dokument-ID, die innerhalb einer Datenbank eindeutig sein muss, und über eine von CouchDB verwaltete Revisions-ID, die angibt, in welcher Version ein Dokument vorliegt. Die einfachste Form, Dokumente zu erzeugen, ist über eine REST-Konforme HTTP-Anfrage, welche in einem internen [B-Plus-Bäumen](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.B-Plus-Baum) gespeichert werden. [3]
+
+Die einfachste Form, Dokumente zu erzeugen, ist über eine REST-Konforme HTTP-Anfrage, welche in einem internen [B-Plus-Bäumen](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.B-Plus-Baum) gespeichert werden. [3]
+
+
+Dokumente sind wie auch bei MongoDB das Äquivalent der Tupel der relationalen
+Datenbanken. JSON-Objekte bestehen syntaktisch aus einer durch Kommata getrennten
+Liste von Eigenschaften. Jede Eigenschaft wiederum ist ein Key/Value-Paar, wobei der Value
+wiederum eine Eigenschaft sein kann. Mit JSON lassen sich einerseits beliebig komplexe
+Datenstrukturen ausdrücken, und andererseits ist im Gegensatz zu den relationalen Datenbanken keine aufwendige Schemadefinition notwendig. Die generelle JSON-Struktur
+basiert auf Key/Value-Paaren und Listen, die beliebig verschachtelt werden können. JSON
+besitzt folgende Basistypen3: Objekte, Arrays, Zeichenketten, Zahlen, Boolesche Werte
+true, false und null. Werden Daten im bereits kompakten JSON-Datenformat für den
+Datenaustausch zwischen Anwendungen genutzt, so liegt es nahe, dieses Datenformat
+auch zur Speicherung der Daten zu nutzen. Die Umwandlung in andere Speicherformate
+zur Ablage in einer Datenbank ist dann nicht mehr notwendig, das kann insgesamt ein
+Performancegewinn für das System der agierenden Anwendungen bedeuten. [1]
+
+Bei CouchDB findet eine Unterscheidung diverser Dokumentarten statt. Die folgenden sind von besonderer Bedeutung:
+
+- Datendokumente
+- Virtuelle (nicht persistent) Dokumente
+- Design Dokumente
+
+
+
+**Datendokumente**
+
+Datendokumente sind Dokumente wie sie im [dokumentenorientierten Datenbankparadigma](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.DokumentenorientierteDatenbank) aufgefasst werden. Sie stellen eine geschlossene Einheit von Informationen dar und werden mit zusätzlichen Metadaten in der Datenbank gespeichert. Als Metadatum muss zu jeder Erzeugung eines Dokuments eine Dokument-ID mitgegeben werden. Hierfür wird eine Universally Unique Identifier (UUID) empfohlen, was jedoch nicht zwingend notwendig ist. [vgl. 25] Diese können auch benutzerdefinierte IDs sein. CouchDB kann selbst mittels eines GET-Request an die URL `*http*://127.0.0.1:5984/_uuids` UUIDs generieren und zur Weiterverwendung liefern. Im Folgenden ist ein Beispiel für ein Datendokument dargestellt, wobei die Dokument-ID als Wert zum Schlüssel „_id“ vorliegt.
+
+{
+
+```
+	"_id"       :	"00a271787f89c0ef2e10e88a0c00048b", 
+	"_rev"      :	"1-60e25d93dc12884676d037400a6fa189", 
+	"item"      :	"Banane", 
+	"preise"    : 
+		{
+			"Markt"   : 0.10, 
+			"Lebensmitteldiscounter" : 0.08, 
+			"Bauern"  : 0.25 
+		} 
+```
+
+}
+
+
+
+**Virtuelle Dokumente**
+
+Alle Informationen in einem Dokument zu verwalten, entspricht dem Paradigma und bietet zu den Vorteilen eines dokumentenorientierten Persistierens einige Nachteile in der Umsetzung CouchDB (z.B. Konfliktwahrscheinlichkeit). Daher bietet es sich an, in manchen Fällen Dokumente in mehrere logische Dokument-Typen zu zerteilen. Als gängiges Beispiel seien hier Blogposts und die zugehörigen Kommentare erwähnt. In solchen Fällen möchte man dennoch mittels einer Anfrage die geteilten Informationen zusammen erhalten. Hierzu werden virtuelle Dokumente verwendet, welche Views darstellen. In ihrer nicht-persistierten Form stellen diese Views virtuelle Dokumente dar und können als Ad-Hoc-Abfragen bezeichnet werden. Im Web-Interface [Futon](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.Futon) von CouchDB können diese virtuellen Views unter dem Punkt „Temporary view“ erstellt werden.
+
+
+
+**Design Dokumente**
+
+Eine letzte Dokumentenart stellen die Design-Dokumente dar. Die Besonderheit, die Design-Dokumente von Daten-Dokumenten unterscheidet, ist, dass sie Quellcode enthalten, für dessen Ausführung der in CouchDB eingebaute JavaScript-Query-Server notwendig ist. Design-Dokumente können als einzelne Oberflächen von Webanwendungen verstanden werden. CouchDB speichert und behandelt Design-Dokumente wie Daten-Dokumente. Beispielsweise werden diese im Rahmen einer Replikation ebenfalls auf die Zieldatenbank kopiert. Eine Restriktion ist dennoch einzuhalten: die ID eines Design-Dokuments muss mit dem Präfix „_design/“ beginnen. Einzelne Komponenten eines Design-Dokuments können sein :
+
+
+
+1. View-Funktionen,
+2. Show-Funktionen,
+3. List-Funktionen,
+4. Update-Funktionen und
+5. Validierungs-Funktionen. [3]
 
 ### 7.1.1 Kommunikation
 
