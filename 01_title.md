@@ -12,5 +12,4 @@ Diese Hausarbeit bietet dem Leser einen Einblick über den Themenkomplex Documen
 
 
 <hr>
-[Inhaltsverzeichnis >](02_toc.md)
-
+[Inhaltsverzeichnis >](./02_toc.md)
