@@ -13,45 +13,27 @@ CouchDB zeichnet sich vor allem dadurch aus, dass es auch mit einfachen Grundken
 - JSON-Dokumente als Datenspeicher
 - HTTP (per REST) für Anfragen
 - Zuverlässigkeit
-- Konsistenz der Datenspeicherung. [1, 3]
+- Konsistenz der Datenspeicherung. [1, 3, 5]
 
 ### 7.1.2 Architektur und Implementierung
 
-Bei CouchDB werden alle Daten als JSON-Datenstrukturen gespeichert. Diese können über eine HTTP API (RESTful JSON API) erstellt, gelesen oder aktualisiert werden. Wie bereits erwähnt, erfolgen die Abfragen über JavaScript und das MapReduce-Verfahren. CouchDB basiert auf der Erlang OTP-Plattform, welche die Parallelisierung von Anwendungen ermöglicht. Diese Programmiersprache wurde mit einem Fokus auf Zuverlässigkeit und Verfügbarkeit entwickelt. Das Datenbanksystem ermöglicht die Replikation der Daten auf mehrere Knoten, somit können Lesevorgänge parallelisiert werden. Durch ein MVCC-Modell (Multiversion Concurrency Control) können konkurrierende Zugriffe stattfinden. Der Nutzer erhält über den gesamten Zeitraum der Leseoperation einen konsistenten Snapshot der Datenbank ohne andere Zugriffe zu blockieren. [1, 3]
+Bei CouchDB werden alle Daten als JSON-Datenstrukturen gespeichert. Diese können über eine HTTP API (RESTful JSON API) erstellt, gelesen oder aktualisiert werden. Wie bereits erwähnt, erfolgen die Abfragen über JavaScript und das MapReduce-Verfahren. CouchDB basiert auf der Erlang OTP-Plattform, welche die Parallelisierung von Anwendungen ermöglicht. Diese Programmiersprache wurde mit einem Fokus auf Zuverlässigkeit und Verfügbarkeit entwickelt. Das Datenbanksystem ermöglicht die Replikation der Daten auf mehrere Knoten, somit können Lesevorgänge parallelisiert werden. Durch ein MVCC-Modell (Multiversion Concurrency Control) können konkurrierende Zugriffe stattfinden. Der Nutzer erhält über den gesamten Zeitraum der Leseoperation einen konsistenten Snapshot der Datenbank ohne andere Zugriffe zu blockieren. [1, 3, 5]
 
 **Noch umschreiben?**
 
 CouchDB ist auf der Erlang OTP Plattform aufgebaut. Das Modul für Views nutzt die JavaScript-Engine SpiderMonkey und Unicode Collation für die Kodierung von Zeichen, legt aber auch Views (genauer permanente Views) im physischen Speicher ab. Apache Lucene kann für Textsuche und Indizierung hinzugefügt werden. Ad-hoc-Abfragen sind über Virtuelle Dokumente (Temporary Views) möglich, somit kann jedes Field eines Dokuments jederzeit abgefragt werden, und der User kann eine Anfrage formulieren, „ohne ein vollständiges Programm schreiben zu müssen“. CouchDB wendet asynchrone Replikation an, des Weiteren handelt es sich um ein Disk-basierend speicherndes DBS, alle Schreibvorgänge werden direkt auf die Festplatte geschrieben, ohne länger im Arbeitsspeicher oder dergleichen temporär gespeichert zu werden. Das Modul *mod_couch* sammelt und wandelt JSON-Dokumente über URL's des Datenbankzugriffs entsprechend um, dabei ersetzt hauptsächlich dieses Modul die mittlere Software-Schicht hin zu einer 2-Schichten-Architektur. [3]
 
-### 7.1.1 Speicherung der Daten
+### 7.1.3 Speicherung der Daten
 
-In CouchDB werden Dokumente in Form von JSON-Datenstrukturen abgelegt. Ähnlich wie bei anderen dokumentorientierten Datenbanken geschieht dies schemafrei. Allerdings gibt das JSON Format eine gewisse Struktur durch die Syntax vor. Die Dokumente werden in Unterdatenbanken gespeichert und durch Dokument-IDs bzw. Revisions-IDs indexiert. Die eindeutige Dokument-ID legt der Nutzer selbst fest, die Revisions-ID wird wiederum von CouchDB verwaltet. Sie gibt an, in welcher Version ein Dokument vorhanden ist. Wird eine Instanz aktualisiert, dann lassen sich die Änderungen später anhand der Revisions-ID nachvollziehen.
+In CouchDB werden Dokumente in Form von JSON-Datenstrukturen abgelegt. Ähnlich wie bei anderen dokumentorientierten Datenbanken geschieht dies schemafrei. Allerdings gibt das JSON Format eine gewisse Struktur durch die Syntax vor. Die Dokumente werden in Unterdatenbanken gespeichert und durch Dokument-IDs bzw. Revisions-IDs indexiert. Die eindeutige Dokument-ID legt der Nutzer selbst fest, die Revisions-ID wird wiederum von CouchDB verwaltet. Sie gibt an, in welcher Version ein Dokument vorhanden ist. Wird eine Instanz aktualisiert, dann lassen sich die Änderungen später anhand der Revisions-ID nachvollziehen. Die einzelnen Dokumente stellen das pendant zu den Tupeln der relationalen Datenbanken dar. Jedes JSON-Objekt wird durch eine Liste von Eigenschaften aufgebaut, wobei jede Eigenschaft durch ein Key/Value-Paar beschrieben wird. Jeder Value kann zusätzlich eine neue Eigenschaft darstellen. Dieses System ermöglicht die beliebige Verschachtelung von Key/Value-Paaren und Listen. [1, 3]
 
+In JSON werden die folgenden Basistypen definiert: Objekte, Arrays, Zeichenketten, Zahlen, Boolesche Werte und null. Sowohl zum Datenaustausch als auch zur Speicherung wird das kompakte JSON-Datenformat genutzt. Damit entfällt die Umwandlung in andere Formate zur Speicherung in einer Datenbank, was sich durch erhöhte Performance bemerkbar machen kann. [1, 5]
 
-
-Die einfachste Form, Dokumente zu erzeugen, ist über eine REST-Konforme HTTP-Anfrage, welche in einem internen [B-Plus-Bäumen](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.B-Plus-Baum) gespeichert werden. [3]
-
-
-Dokumente sind wie auch bei MongoDB das Äquivalent der Tupel der relationalen
-Datenbanken. JSON-Objekte bestehen syntaktisch aus einer durch Kommata getrennten
-Liste von Eigenschaften. Jede Eigenschaft wiederum ist ein Key/Value-Paar, wobei der Value
-wiederum eine Eigenschaft sein kann. Mit JSON lassen sich einerseits beliebig komplexe
-Datenstrukturen ausdrücken, und andererseits ist im Gegensatz zu den relationalen Datenbanken keine aufwendige Schemadefinition notwendig. Die generelle JSON-Struktur
-basiert auf Key/Value-Paaren und Listen, die beliebig verschachtelt werden können. JSON
-besitzt folgende Basistypen3: Objekte, Arrays, Zeichenketten, Zahlen, Boolesche Werte
-true, false und null. Werden Daten im bereits kompakten JSON-Datenformat für den
-Datenaustausch zwischen Anwendungen genutzt, so liegt es nahe, dieses Datenformat
-auch zur Speicherung der Daten zu nutzen. Die Umwandlung in andere Speicherformate
-zur Ablage in einer Datenbank ist dann nicht mehr notwendig, das kann insgesamt ein
-Performancegewinn für das System der agierenden Anwendungen bedeuten. [1]
-
-Bei CouchDB findet eine Unterscheidung diverser Dokumentarten statt. Die folgenden sind von besonderer Bedeutung:
+In CouchDB findet außerdem eine Unterscheidung diverser Dokumentarten statt. Die folgenden sind von besonderer Bedeutung:
 
 - Datendokumente
 - Virtuelle (nicht persistent) Dokumente
 - Design Dokumente
-
-
 
 **Datendokumente**
 
@@ -93,11 +75,11 @@ Eine letzte Dokumentenart stellen die Design-Dokumente dar. Die Besonderheit, di
 4. Update-Funktionen und
 5. Validierungs-Funktionen. [3]
 
-### 7.1.1 Kommunikation
+### 7.1.4 Kommunikation
 
 Die Kommunikation mit CouchDB wird durch HTTP-Anfragen realisiert, so dass kein eigenes Kommunikationsprotokoll definiert werden muss. Die Verwendung von HTTP erleichtert zudem die Anbindung an Web-Anwendungen enorm, des Weiteren ist das Protokoll ein allgemein bekannter Standard und leicht zu verwenden. Da es sich bei HTTP um ein zustandsloses Protokoll handelt, müssen alle relevanten Transaktionsdaten in einer Anfrage übergeben werden. Man spricht in diesem Zusammenhang von [REST](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.REST) (Representational State Transfer). Um mit CouchDB zu kommunizieren, bietet sich u.a. das Kommandozeilenwerkzeug [cURL](http://curl.haxx.se/) an. Im Folgenden werden einige Beispiele der Kommunikation mit CouchDB aufgelistet. Die Eingabe wird mit *curl* in einer Kommandozeilenumgebung durchgeführt, die Ausgabe wird ebenfalls auf der Kommandozeile dargestellt. Die Ausgabe erfolgt in Form eines [JSON](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.JSON) -Objekts. [3]
 
-### 7.1.1 Views
+### 7.1.5 Views
 
 Um Daten innerhalb von Dokumenten abzufragen oder zu aggregieren, existieren in Apache CouchDB Views. Diese sind MapReduce-Funktionen in JavaScript-Programmiersprache. Neben dem erwähnten Einsatzbereich können View-Funktionen zudem verwendet werden, um
 
@@ -130,9 +112,7 @@ function(keys, values, rereduce) {
 
 Die Reduce-Funktion wird, falls keine Filterung der Abfrage vorgenommen wird, auf jeden Knoten im B+-Baum angewendet. Im ersten Parameter befinden sich die Schlüssel und im zweiten die Werte, die in einem Knoten gespeichert sind. Das Ergebnis wird zwischengespeichert. Der dritte Parameter gibt an, ob ein Blätter-Knoten oder ein innerer Knoten bearbeitet wird. Der Wert des dritten Parameters ist „false“, wenn es sich um einen Blätter-Knoten handelt, wobei die anderen beiden Parameter wie bereits erwähnt belegt sind. Der Wert des dritten Parameters ist „true“, wenn es sich um einen inneren Knoten bei der Ausführung handelt. In diesem Fall ist der erste Parameter „null“ und der zweite Parameter ein Array aus Zwischenergebnissen der entsprechenden Kinder-Knoten. Erinnert man sich daran, dass die Nutzdaten in einem B+-Baum nur in den Blättern gespeichert werden, so versteht man in manchen Fällen die Notwendigkeit, eine Unterscheidung vorzunehmen. Während bei den Blättern Operationen bzgl. einzelner Einträge in der Ergebnismenge der Map-Funktion vorgenommen werden können, können deren Zwischenergebnisse bei der Bearbeitung der inneren Knoten weiter verwendet werden. [3]
 
-### 7.1.2 Performance ???
-
-### 7.1.2 Replikation
+### 7.1.6 Replikation
 
 Die [Replikation](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.Replikation), d.h. die Übertragung der Daten auf andere Knoten, ist bei Apache CouchDB ein inkrementeller Prozess per Push und Pull. Wie die Client-Server Kommunikationsvorgänge wird auch die Replikation über HTTP-Requests abgewickelt. Die Daten werden dokumentweise auf Server übertragen, die sich an geografisch stark unterschiedlichen Orten befinden, um geringe Latenzen bieten zu können („move data more closely to clients“). Über „Continuous Replication“ kann relativ komfortabel eine unidirektionale Replikation, welche als Backup dienen kann, faktisch aber keines darstellt, eingerichtet werden, diese kann zudem zu einer bidirektionalen Replikation erweitert werden. Die Backupserver sind hierbei nicht aktiv für Abfragen eingebunden. Um die bidirektionale Replikationen im Rahmen von Load-Balancing einsetzen zu können, müssen zusätzliche Frameworks wie „CouchDB Lounge“ verwendet werden. Für Partitionierung (bzw. Sharding) wird ebenfalls einer der genannten Forks von Apache CouchDB benötigt, um im Kontext von verteilter Einrichtung besser zu skalieren. Die dokumentweise Übertragung dient dazu, um bei Unterbrechung des Kommunikationsprozesses die Übertragung dort fortzusetzen, wo sie abgebrochen worden ist. Damit ist ein Neustart der Replikation nicht erforderlich und das System wird robuster gegenüber Fehlern. 
 Über [Futon](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.Futon) kann ein entsprechender Replikationsprozess couch-entsprechend bequem initialisiert werden.
@@ -142,9 +122,9 @@ Ein wesentliches Augenmerk bei der Entwicklung von CouchDB lag auf dem Aspekt de
 
 Da bei Datenbankzugriffen während des Replikationsvorgangs Versionskonflikte auftreten können, ist eine entsprechende Konfliktbehandlung nötig, welche über das Konsistenzmodell [BASE](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.BASE) mittels der Technik [MVCC](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MVCC) gewährleistet wird. [3]
 
-### 7.1.3 Sicherheit
+### 7.1.7 Sicherheit
 
-### 7.1.3 Bewertung
+### 7.1.8 Bewertung
 
 
 
