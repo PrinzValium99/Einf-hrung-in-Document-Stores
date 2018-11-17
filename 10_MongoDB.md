@@ -38,24 +38,10 @@ Aufgrund der hohen Performance beim Einfügen neuer Dokuemnte eignen sich Capped
 
 #### 6.2.2.3 Dokumente
 
+Die einzelnen Dokumente stellen das pendant zu den Zeilen (Row) der relationalen Datenbanken dar. Die Anzahl an Feldern (Key) mit einem Wert (Value) ist beliebig. Anders als bei Tupeln gibt es keine vordefinierte Reihenfolge mit fest definierten Datentypen, sondern es werden assoziative Arrays verwendet. Wie auch in anderen Sprachen kann man innerhalb von MongoDB Objekte in Array und Objekte verschachteln. Die Key in diesen Arrays sind Zeichenketten. Wie auch für die Collections gibt es Konventionen für die Bennenung. So darf weder ein "." enthalten sein, nohc das Zeichen "$" am Anfang eines Schlüssels stehen. Abgespeichert und übertragen werden Dokumente im BSON-Format.
 
-Die einzelnen Dokumente stellen das pendant zu den Zeilen (Row) der relationalen Datenbanken dar. Die Anzahl an Feldern (Key) mit einem Wert (Value) ist beliebig. Anders als bei Tupeln gibt es keine vordefinierte Reihenfolge mit fest definierten Datentypen, sondern es werden assoziative Arrays verwendet. Wie auch in anderen Sprachen kann man innerhalb von MongoDB Objekte in Array und Objekte verschachteln. Die Key in diesen Arrays sind Zeichenketten. Wie auch für die Collections gibt es Konventionen für die Bennenung. 
-
-
-Die Schlüssel in diesen Arrays
-sind Zeichenketten, dürfen aber per Konvention das Zeichen „.“ nicht enthalten, und das
-Zeichen „$“darf nicht am Anfang des Schlüssels stehen, da dieses für die Formulierung
-
-von Abfragen verwendet wird, wie später gezeigt wird. Dokumente werden im BSON-For-
-mat gespeichert und übertragen, ein am JSON-Standard orientiertes effizientes Datenfor-
-mat (http://bsonspec.org/), das um einige Datentypen erweitert wurde. Das B im Namen
-
-steht dabei für Binary, da es sich um ein binäres Format handelt. Die Beschreibung des
-Formats steht unter der Creative Commons-Lizenz.
-
-Eine Besonderheit der Dokumente ist die logische Größenbeschränkung auf Momentan 16 MB. Diese Beschränkung möchte verhindern, dass die Anfragezeiten zu lang werden. Größere Dokumente würden den RAM und/oder das Netztwerk bei vielen Anfragen zu sehr auslasten. Für größere Dokumente bietet MongoDB die Alternative GridFS.
-
-
+---
+hier weiter
 
 ### 7.1.3 Speicherung der Daten
 
