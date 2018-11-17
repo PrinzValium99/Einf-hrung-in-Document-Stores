@@ -1,42 +1,16 @@
 # 7 Übersicht wichtiger dokumentorientierter Datenbanken
 
+Im Gegensatz zu beispielsweise relationalen Datenbanken gibt es für dokumentenorientierte Datenbanken keine vergleichbare Standardisierung. Aus diesem Grund können unter den verschiedenen Systemen deutlich stärkere Unterschiede festgestellt werden. Im folgenden werden drei Document Store Datenbanksysteme näher behandelt, die laut DB-Engines Ranking zu den wichtigsten Vertretern ihrer Art gehören. [1, 7]
+
 ## 7.1 CouchDB
 
 ### 7.1.1 Beschreibung
 
-der Anspruch von Apache CouchDB, über einfache Grundkonzepte im [NoSQL](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.NoSQL) -Bereich selbst für Laien gebrauchstauglich zu sein, wird bereits bei den ersten Kontakten sichtbar. Apache CouchDB ist eine Implementierung des [dokumentenorientierten Datenbankparadigmas](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.DokumentenorientierteDatenbank), die unter der Apache 2.0-Lizenz zur Verfügung gestellt wird und orientiert sich an Google BigTable. Dabei ist CouchDB ein Akronym und steht für **C**luster **o**f **u**nreliable **c**ommodity **h**ardware **D**ata **B**ase. Die herauszustellenden Merkmale dieses dokumentenorientierten DBS sind:
+Die Entwicklung von CouchDB wurde im Jahre 2005 vom ehemaligen Senior-Entwickler von Lotus Notes, Damien Katz zunächst auf privater Basis und später als Apache-Projekt begonnen. CouchDB orientiert sich an Google BigTable und stellt auch MapReduce über JavaScript zur Verfügung. Dieser Datenbank liegt außerdem die Apache Lizenz 2.0 zugrunde, wodurch sie als Open Source Software einzuordnen ist.
 
-1. [JSON](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.JSON) -Dokumente als Datenspeicher,
-2. HTTP (per REST) für Anfragen, und
-3. Zuverlässigkeit sowie
-4. Konsistenz der Datenspeicherung.
+CouchDB zeichnet sich vor allem dadurch aus, dass es auch mit einfachen Grundkenntnissen im NoSQL-Bereich leicht benutzbar ist. Dieses Prinzip vermittelt auch das Logo, welches eine Couch und den Schriftzug "relax" zeigt. Nutzer, die bereits Erfahrungen im Bereich der Webentwicklung sammeln konnten, werden einen leichten Einstieg in CloudDB finden. Der Fokus wurde auf eine unkomplizierte und einfache Nutzung der Datenbank gelegt. Dieses Prinzip der Einfachheit gilt auch für die Fehlertoleranz, Fehlersuche, Skalierbarkeit und Performance von CouchDB. Entsprechend geht man z. B. auch davon aus, dass nicht immer eine Netzwerkverbindung vorhanden ist und Fehler in verteilten Systemen vorkommen können. Passenderweise steht das Akronym CouchDB deshalb für "Cluster of unreliable commodity hardware Data Base". Zusammenfassend lassen sich die besonderen Merkmale dieses dokumentorientieren Datenbanksystems folgendermaßen beschreiben:
 
-Da es für dokumentenorientierte Datenbanken keine mit [SQL](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.SQL) vergleichbare Standardisierung gibt, unterscheiden sich die jeweiligen Anwendungsprogramme deutlich stärker als beispielsweise bei [relationalen Datenbanken](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.RDBMS). Mit "Couch is Lotus Notes built from the ground up for the Web" setzte Damien Katz, der Erfinder von CouchDB, den primären Einsatzbereich des DBS auf die Entwicklung von Webanwendungen. Des Weiteren ist Apache CouchDB über die zugrundeliegende Apache Lizenz 2.0 nach der Open Source Initiative als Open Source Software einzuordnen, nutzt MapReduce über JavaScript, und stellt die eingebetteten Anwendungen CouchApps  im Sinne eines Anwendungsservers bereit. [3]
-
-
-
-CouchDB ist wie viele andere NoSQL-Datenbanken auch entwickelt worden, um den wachsenden
-Anforderungen der Web 2.0-Zeitalters gerecht werden zu können. Dieser Document
-Store orientiert sich an Googles BigTable und damit auch an der Zugriffsmöglichkeit
-auf Daten mittels Map/Reduce sowie am Dokumentmanagement-Framework Lotus Notes.
-Inspiriert durch die Vorteile dieser Technologien hat der ehemalige Senior-Entwickler von
-Lotus Notes, Damien Katz, im Jahre 2005 mit der Entwicklung der dokumentorientierten
-Datenbank CouchDB begonnen. Die zuerst auf privater Basis und später als Apache-Projekt
-entstandene Datenbank erfreut sich seitdem wachsender Beliebtheit. [1]
-
-Auf der offiziellen Website der Datenbank CouchDB fällt einem sofort das CouchDB-Logo
-mit der plakativ dargestellten entspannten Person und der Schriftzug „relax“ auf. Dieses
-Logo symbolisiert das grundsätzliche Prinzip des Projektes, denn CouchDB setzt auf bewährte
-Prinzipien. Entwickler, die sich mit CouchDB beschäftigen und schon Erfahrung
-im Bereich der Webentwicklung haben, werden sich in CouchDB daher schnell zurechtfinden.
-Die CouchDB-Entwickler legten und legen den Fokus ihrer Arbeiten auf eine einfache
-unkomplizierte Nutzung der Datenbank. Entspannung ist auch im Kontext der Fehlertoleranz,
-Fehlersuche, Skalierbarkeit (über die CouchDB-Lounge) und Performance angesagt,
-auch in diesen Bereichen wird es den Entwicklern leicht gemacht. CouchDB rechnet damit,
-dass nicht immer und überall eine Netzwerkverbindung vorhanden ist, und dass Fehler in verteilten Systemen nichts Ungewöhnliches sind. Der Name CouchDB steht deshalb
-ironischer Weise für: „Cluster of unreliable commodity hardware Data Base“ [1]
-
-
+JSON-Dokumente als Datenspeicher, HTTP (per REST) für Anfragen, Zuverlässigkeit und Konsistenz der Datenspeicherung. [1, 3]
 
 ### 7.1.1 Architektur und Implementierung
 
@@ -136,14 +110,12 @@ in der Entwicklung von MongoDB bündeln. [1]
 
 
 
-
-
-------
-
-[1] Edlich
-[2] Kindle Buch
-[3] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.CouchDB
-[4] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB
-[5] http://guide.couchdb.org/editions/1/de/why.html
-[6] 
-
+<hr>
+[1] Edlich <br>
+[2] Kindle Buch <br>
+[3] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.CouchDB <br>
+[4] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB <br>
+[5] http://guide.couchdb.org/editions/1/de/why.html <br>
+[6] http://docs.couchdb.org/en/stable/ <br>
+[7] https://db-engines.com/de/ranking/document+store
+<hr>
