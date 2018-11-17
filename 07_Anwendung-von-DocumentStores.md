@@ -1,59 +1,52 @@
 # 5.Anwendung von Document Stores
 
-*CouchDB wird von seinen Entwicklern als Local-Web-Plattform gesehen und setzt auf bewährte Web-Techniken „build of the web“ auf. Das macht den ersten Einstieg und Umgang mit CouchDB einfach und rüstet die Datenbank für zukünftige Entwicklungen im Internet. CouchDB rechnet mit dem Auftreten von Fehlern in verteilten Systemen „offline by default“ und bietet Möglichkeiten zur Konflikterkennung und zum Konfliktmanagement. Anwendungen mit dieser Datenbank lassen sich auch ohne Netzzugang nutzen. CouchDB schlägt eine Brücke zwischen Anwendungen im Internet bzw. in einer Cloud und lokalen Anwendungen. Das Paradigma der Document Stores passt auf Anwendungsbereiche, bei denen ein relationales Schema die Flexibilität der Anwendung einschränkt. [edlich]*
+Im Folgenden sind einige häufige Beispiele aufgeführt, bei denen Document-Stores zur Anwendung kommen.
+
+## 5.1 Benutzerprofile
+
+Ein Benutzerprofil hat meist eine Reihe von Attributen, jedoch kann die Menge der vorhandenen Attribute von Benutzer zu Benutzer variieren (z.B. werden einige Benutzer das Geburtsdatum nicht zur Verfügung stellen, wo einige Benutzer möglicherweise keine politische Zugehörigkeit offenbaren, usw.).
+Benutzer in Twitter werden dann z.B. in einer dokumentenorientierten Datenbank gespeichert, in der jedes Dokument das Profil und einige aktuelle Tweets der entsprechenden Benutzer enthält.  [1]
 
 
 
-*Häufig sind sie explizit für ein verteiltes Arbeiten mit großen bis sehr großen Datenmengen ausgelegt, bieten diesem Einsatzzweck entsprechende Datenstrukturen und verzichten bewusst auf Transaktionen.*[https://www.innoq.com/en/articles/2011/01/nosql-einsatzgebiete/]
+## 5.2 Produkt/Katalog Daten
 
-## 5.1 IoT
-
-NoSQL Datenbanken erfahren Beliebtheit im Bereich von IoT, aufgrund von Performance und Kostengründen. IoT Applikationen sind darauf angewiesen Prozesse mit großen Daten Volumen durchzuführen. Dies erfordert eine schnelle und kostengünstige Skalierbarkeit und ist somit nur mit neuen BigData Technologien wie MongoDB durchzuführen. [https://www.mongodb.com/scale/internet-of-things-applications]
-
-[MongoDB Paper - Why NoSQL Databases for the Internet of Things: Machina Research]
+Dokumentorientiere Datenbanken kommen auch dann zum Einsatz, wenn es darum geht komplizierte Produktinformationen abzubilden. Bestehen Produkte zum Beispiel wiederum aus Produkten und gibt es zusätzlich noch mehrere Hersteller, oder andere individuelle Attribute, die nicht bei jedem Produkt zu finden sind, lässt sich die gesammelte Information am besten in Document-Stores abspeichern. [1]
 
 
 
+## 5.3 Geoinformationsdaten
 
-
-Aus Quelle:
-
-[https://www.infoworld.com/article/2612785/application-development/10-common-tasks-for-mongodb.html]
-
-## 5.2 Profiles of people
-
-In User-Profilen gibt es immer wieder Daten, die zusätzlich nachgetragen werden und  von den gewöhnlichen top-Level Attributen wie Telefonnummer, Adresse, Email abweichen. Anderen Datenbanken können auch nicht auflösen, wie Profile
-
-There's always new data to add to the user's profile, from the usual  top-level stuff (phone, address, email, and so on) to information a  layer below (such as phone type). Other database types haven't evolved  fast enough to capture the hundred ways we contact each other or the  dozens of ways we pay for things.
-
-## 5.3 Product/catalog data
-
-Dokumentorientiere DAtenbanken komen auch dann zum Einssatz, wenn es darum geht komplizierte Produkinformatioen abzubnilden. Bestehen Produkte zum Beispiel aus anderen Produkten oder gibt es mehrere Hersteller. Informationen, die Informationen enthalten usw lassen sich optimal mit Document Stores abbilden.
-
-"Way back when, I  worked for a cellphone manufacturer (or two) and later a chemical  company. Each had a weird version of the same problem: Products were  composed of other products, and which products those were composed of  changed over time and tended to have more than one brand or identifier.  Capturing the thing that contains the thing that contains the thing is  much simpler in a document database than in some other database types."
-
-## 5.4 Geospatial data
-
-MongoDB beispielsweise hat eigene spezifische geospatial Features. Diese können zum Einsatz kommen, wenn man die Distanz einer Bike Tour oder andere geospezifische Information über den Kunden benötigt.
-
-This isn't necessarily because MongoDB is a great document database, but because it has [specific geospatial features](http://www.infoworld.com/d/application-development/use-mongodb-make-your-app-location-aware-229403).  Either way, MongoDB is your friend, whether you're calculating your  bike ride distance or figuring out geospecific information about your  customers.
-
-## 5.5 Gesprächsprotkollierung
-
-Domentsores leisten gute Arbeit, wenn es darum geht massive Mengen an Daten über Gesprächsverlaufe auf sozialen Kanälen abzuspeichern
-
-People are social creatures, and over  the last decade or so we've generated exabytes of social data. Mongo is a  fine choice to handle the load. Often, people talk topically, with a  lot of associated metadata. MongoDB is good for storing that too.
+Geoinformationsdaten liefern Informationen zu einem Standort in Form von Werten der Latitude und Longitude. MongoDB beispielsweise hat eigene spezifische Geoinformationsfeatures. Diese können zum Einsatz kommen, wenn z.B. die Distanz einer Bike Tour abgerufen oder gespeichert werden soll. [1]
 
 
 
-## 5.6 Spiele
-In Spielen ermglicht es, mutilleel data zu speichern. Zum bsiepiel verscheidene Arten von Währungen, Ziele, die aus multiplen Objekten bestehen.
+## 5.4 Speichern von Gesprächsverläufen
 
-You have to water those flowers or  serve those restaurant patrons or grow your vegetables or kill zombies  or whatever. Games have goals, which consist of multiple objectives  obtained through achievement or paying your way out. Whether it's a  titanium rake or a BFG 9000, MongoDB can handle the concurrency and save  the (often multilevel) data.
+In den letzten zehn Jahren werden Exabyte an sozialen Daten generiert. Document-Stores leisten gute Arbeit, wenn es darum geht, massive Datenmengen von Gesprächsverläufen auf sozialen Kanälen oder ähnlichem abzuspeichern und diese Last zu bewältigen. [1]
 
 
-## 5.7 Zusammenfassung
-Zusammenfassend lässt sich sagen, kommen Document Stores häufig dann zum Einsatz, wenn Objekte sich in mehrere Objekte schachteln und die Objekte wiederum nicht nach einem strengen Gerüst mit Attributen aufgebaut sind, oder häufigen Änderungen unterliegen.
+
+## 5.5 IoT
+
+Im Bereich von IoT (Internet of Things), bezieht sich die Anwendung nicht direkt auf dokumentorientierte Datenbanken, sondern allgemeiner auf NoSQL Datenbanken, die im Bereich IoT, aufgrund von Performance und Kostengründen, hohe Beliebtheit erfahren. IoT-Applikationen sind darauf angewiesen, Prozesse mit großen Daten Volumen durchzuführen. Dies erfordert eine schnelle und kostengünstige Skalierbarkeit und ist somit nur mit neuen BigData Technologien wie MongoDB durchzuführen. [2]
+
+
+## 5.6 Zusammenfassung
+Das Paradigma der Document-Stores passt somit auf Anwendungsbereiche, bei denen ein relationales Schema die Flexibilität der Anwendung einschränkt. [3]
+Sie kommen häufig dann zum Einsatz, wenn Objekte sich in mehrere Objekte schachteln und die Objekte wiederum nicht nach einem strengen Gerüst mit Attributen aufgebaut sind, häufigen Änderungen unterliegen und die Datenmenge enorm ist. Außerdem werden sie angewendet, wenn verteiltes Arbeiten mit großen bis sehr großen Datenmengen erforderlich ist und bieten diesem Einsatzzweck entsprechende Datenstrukturen und verzichten bewusst auf Transaktionen. [1]
+
+------
+
+[1] https://www.infoworld.com/article/2612785/application-development/10-common-tasks-for-mongodb.html
+
+[2] MongoDB Paper - Why NoSQL Databases for the Internet of Things: Machina Research
+
+[3] Edlich, S. (2011). *NoSQL: Einstieg in die Welt nichtrelationaler Web 2.0 Datenbanken*. München: Hanser.
+
+------
+
+
 
 <hr>
 [< Vergleich mit anderen Datenbankmodellen](06_Vergleich-mit-anderen Datenbankmodellen.md)		|   [DAS NÄCHSTE >](07_Anwendung-von-DocumentStores.md)
