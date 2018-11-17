@@ -10,7 +10,50 @@ MongoDB zeichnet sich vor allem durch ein flexibles Datenbank Schema, welches dy
 Ein großes Manko von MongoDB stellt die Sicherheit beim Zugriff dar, da dieser nur mit Einstellung der IP-Tables erfolgt. Aus diesem Grund sind Tranksaktionen und Query-Operationen im Gegensatz zu einem RDBMS nicht im vollen Umfang möglich [1]. 
 
 
-### 6.2.2 Architektur und Implementierung
+### 6.2.2 Datenbankaufbau
+
+MongoDB hält die Dokumente temporär im Speicher und übermittelt sie im BSON-Format an den Client Driver. Der Client Driver muss dazu mit dem BSON-Format umgehen können. Anders als bei relationalen Datenbanken gliedert sich die Struktur der Daten in MongoDB in beliebig viele Collections, in denen sich wiederum beliebig viele Dokumente befinden. Ein Beispiel hierfür sieht wie folgt aus:
+
+| Datenbankname: lectures  				|
+|-------------------------------------------------------|
+| Collection tutors   |
+| ```{_id:1, name:"Maier"} {_id:2, name:"Müller"} ``` |
+| Colection lectures 						 | 
+| ```{_id:1; turor_id:1,  lecture:"Quantencomputer"} {_id:1; turor_id:1,  lecture:"Mathematik 1"}``` | 
+
+
+
+#### 6.2.2.1 Datenbank
+Mehrere Datenbanken nebeneinander sind beim MongoDB Server zulässig. Jeder dieser Datenbanken wird einzeln behandelt und kann spezifisch gestaltet werden. Der Bestandteil einer Datenbank sind Datafiles in dem die Dokumente im BSON-Format vorliegen (Datenbankname.0, Datenbankname.1") und Namespace-Files ("Datenbankname.ns"). Eine Liste von Collections und Metadaten sind innerhalb des Namespace-Files zu finden [2].
+
+#### 6.2.2.2 Collection
+Collections lassen sich mit den Tabellen eines RDBMS vergleichen. Jedoch werden sie anders als die Tabellen erst erstellt sobald sie benötigt werden. Erst wenn ein Dokument in eine neue Collection eingefügt werden soll, wird diese erstellt. Eine Collection sollte mit einem einzelnen Buchstaben oder einem Unterstich beginngen. Das "$"-Zeichen sowie "system." sind bereits als Präfix für die Abfrageoperatoren sowie als Namespace-Präfix für die Metainformationen der jeweiligen Datenbank reserviert und dürfen deshalb nicht in der Benamung von Collections verwendet werden [2].  
+
+Eine spezielle Form der Collections ist die **Capped Collection**, da diese in ihrer Größe beschränkt werden kann. Hierbei wird nach dem First-In-First-Out-Prinzip gearbeitet. Der Zeitpunkt indem erstmalig etwas zum Dokument hinzugefügt wurde bestimmt das Alter. Wird die vordefinierte Größe einer Capped-Collection erreicht, wird sobald etwas neues eingefügt wird das älteste Dokument automatisch gelöscht. Capped Collection bringen zwei Beschränkungen mit sich:
+
+* nur bei unveränderter Größe können bestehende Dokumente verändert werden 
+* bestehende Dokumente können nicht gelöscht werden
+
+Aufgrund der hohen Performance beim Einfügen neuer Dokuemnte eignen sich Capped Collection vor allem für Anwendungszwecke mit einer hohen Insert-Rate  [1].
+
+#### 6.2.2.3 Dokumente
+
+
+Die einzelnen Dokumente stellen das pendant zu den Zeilen (Row) der relationalen Datenbanken dar. Die Anzahl an Feldern (Key) mit einem Wert (Value) ist beliebig. Anders als bei Tupeln gibt es keine vordefinierte Reihenfolge mit fest definierten Datentypen, sondern es werden assoziative Arrays verwendet. Wie auch in anderen Sprachen kann man innerhalb von MongoDB Objekte in Array und Objekte verschachteln. Die Key in diesen Arrays sind Zeichenketten. Wie auch für die Collections gibt es Konventionen für die Bennenung. 
+
+
+Die Schlüssel in diesen Arrays
+sind Zeichenketten, dürfen aber per Konvention das Zeichen „.“ nicht enthalten, und das
+Zeichen „$“darf nicht am Anfang des Schlüssels stehen, da dieses für die Formulierung
+
+von Abfragen verwendet wird, wie später gezeigt wird. Dokumente werden im BSON-For-
+mat gespeichert und übertragen, ein am JSON-Standard orientiertes effizientes Datenfor-
+mat (http://bsonspec.org/), das um einige Datentypen erweitert wurde. Das B im Namen
+
+steht dabei für Binary, da es sich um ein binäres Format handelt. Die Beschreibung des
+Formats steht unter der Creative Commons-Lizenz.
+
+Eine Besonderheit der Dokumente ist die logische Größenbeschränkung auf Momentan 16 MB. Diese Beschränkung möchte verhindern, dass die Anfragezeiten zu lang werden. Größere Dokumente würden den RAM und/oder das Netztwerk bei vielen Anfragen zu sehr auslasten. Für größere Dokumente bietet MongoDB die Alternative GridFS.
 
 
 
@@ -119,21 +162,6 @@ Da bei Datenbankzugriffen während des Replikationsvorgangs Versionskonflikte au
 ### 7.1.7 Sicherheit
 
 ### 7.1.8 Bewertung
-
-
-
-## 7.2 MongoDB
-
-### 7.2.1 Beschreibung
-
-
-
-
-
-
-## 7.3 Couchbase
-
-
 
 
 
