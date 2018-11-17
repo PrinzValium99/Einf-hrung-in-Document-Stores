@@ -149,8 +149,6 @@ in der Entwicklung von MongoDB bündeln. [1]
 
 
 
-
-
 ## 7.3 Couchbase
 
 
