@@ -1,4 +1,4 @@
-# 5.Anwendung von Document Stores
+# 5. Anwendung von Document Stores
 
 Im Folgenden sind Beispiele aufgeführt, bei denen Document-Stores zur Anwendung kommen.
 

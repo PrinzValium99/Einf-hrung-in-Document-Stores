@@ -1,12 +1,10 @@
-------
-
-# 4. Verlgeich mit anderen Datenbankmodellen 
+# 4. Vergleich mit anderen Datenbankmodellen 
 
 Neben dokumentenorientierten Datenbanken gibt es noch weitere Datenbankmodelle. Der Unterschied der Datenbankmodelle zueinander besteht im wesentlichen darin auf welche Art und Weise der Datenbestand gespeichert und auf ihn zugegriffen wird. Die Datenbankmodelle relationale Datenbanken und objektorientierte Datenbanken werden kurz vorgestellt. Zudem wird der Unterschied der Datenbankmodelle anhand des Beispieles Dozenten und Vorlesungen dargestellt werden.
 
 ## 4.1 Relationale Datenbanken
 
-Relationale Datenbanken gehören zu den am weitesten verbreiteten Datenbankmodellen. Dargestellt werden sie häufig im Entity-Relationship-Modell nach Chen. Entwickelt wurde das relationale Datenbankmodell von Edgar F. Codd in den 1960er/70er Jahren. Oracle veröffentlichte einige Jahre später die erste funktioniertende Datenbank nach diesem Modell. [1] Die Daten werden in 2-dimensionelle Tabellen gespeichert und über SQL abgefragt. Über einen Schlüssel (Primärschlüssel) und einem Fremdschlüssel (foreign Key) werden die Tabellen miteinander verknüpft. Ein Datensazt (Record) befindet sich immer innerhalb einer Tabellenzeile (Tupel). Des Weiteren beinhaltet jede Zeile eine Reihen von Merkmalen (Attributen). Diese stellen die Tabellenspalten dar. Anhand des Beispieles Dozenten und Vorlesungen soll eine relationale Datenbank visualisiert werden. Die tutor_id stellt in diesem Beispiel den foreign Key dar. [2]
+Relationale Datenbanken gehören zu den am weitesten verbreiteten Datenbankmodellen. Dargestellt werden sie häufig im Entity-Relationship-Modell nach Chen. Entwickelt wurde das relationale Datenbankmodell von Edgar F. Codd in den 1960er/70er Jahren. Oracle veröffentlichte einige Jahre später die erste funktionierende Datenbank nach diesem Modell. [1] Die Daten werden in zwei-dimensionalen Tabellen gespeichert und über SQL abgefragt. Über einen Schlüssel (Primärschlüssel) und einem Fremdschlüssel (Foreign Key) werden die Tabellen miteinander verknüpft. Ein Datensatz (Record) befindet sich immer innerhalb einer Tabellenzeile (Tupel). Des Weiteren beinhaltet jede Zeile eine Reihen von Merkmalen (Attributen). Diese stellen die Tabellenspalten dar. Anhand des Beispieles Dozenten und Vorlesungen soll eine relationale Datenbank visualisiert werden. Die tutor_id stellt in diesem Beispiel den Foreign Key dar. [2]
 
 ### Tutor
 
@@ -25,7 +23,7 @@ Relationale Datenbanken gehören zu den am weitesten verbreiteten Datenbankmodel
 | 2  | 2 			| Softwaretechnik 	|
 
 
-Eine Abfrage die vereinfacht wie folgt lautet 'Zeige mir alle Vorlesungen des Dozenten Maier' würde zunächst den Datensatz aus der Tabelle 'tutors' mit dem Nachnamen Maier ermittelt. Anschließend werden alle Datensätze aus der Tabelle 'lecture' , die der tutor_id '1' ensprechen zugeordnet.
+Eine Abfrage die vereinfacht wie folgt lautet 'Zeige mir alle Vorlesungen des Dozenten Maier' würde zunächst den Datensatz aus der Tabelle 'tutors' mit dem Nachnamen Maier ermittelt. Anschließend werden alle Datensätze aus der Tabelle 'lecture' , die der tutor_id '1' entsprechen zugeordnet.
 
 | firstname  	| lastname  	| lecture          | 
 |------------	|------------	|------------------|
@@ -33,7 +31,7 @@ Eine Abfrage die vereinfacht wie folgt lautet 'Zeige mir alle Vorlesungen des Do
 | Hans 		| Maier   	| Mathematik 1     | 
 
 
-Trotz ihrer übersichtlichen Darstellung und Beliebtheit bringen relationale Datenbanken auch einige Nachteile mit. Zum Einen sind dies Permormance-Prombleme. Diese resulieren daraus, dass Tabellen zueinander geführt werden müssen, um diese auswerten können. Jedes Segment wird mit einer anderen Menge verknüpft und erst aus der Endmenge werden die Ergebnisse gefiltert. Vor allem bei einer Vielzahl von Tabellen führt das zu großen temporären Speicheraktionen, weshalb die Rechenvorgänge viel Zeit in Anspruch nehmen. Einen weiterer Nachteil ist, dass für die Manipulation der Abfrageergensise die zur Verfügung stehende Programmiersprache von rationalen Datenbanken nicht ausrecht und meist eine Schnittstelle zu weiteren Programmiersprachen nötig ist. [2]
+Trotz ihrer übersichtlichen Darstellung und Beliebtheit bringen relationale Datenbanken auch einige Nachteile mit. Zum Einen sind dies Performance-Probleme. Diese resultieren daraus, dass Tabellen zueinander geführt werden müssen, um diese auswerten können. Jedes Segment wird mit einer anderen Menge verknüpft und erst aus der Endmenge werden die Ergebnisse gefiltert. Vor allem bei einer Vielzahl von Tabellen führt das zu großen temporären Speicheraktionen, weshalb die Rechenvorgänge viel Zeit in Anspruch nehmen. Einen weiterer Nachteil ist, dass für die Manipulation der Abfrageereignisse, die zur Verfügung stehende Programmiersprache von rationalen Datenbanken nicht ausrecht und meist eine Schnittstelle zu weiteren Programmiersprachen nötig ist. [2]
 
 
 ## 4.2 Objektorientierte Datenbanken
@@ -56,7 +54,7 @@ Ein Nachteil der objektorientierten Datenbanken ist die geringe Verbreitung, wes
 
 ## 4.3 Dokuemtenorientierte Datenbanken
 
-Bei Document Stores werden die Daten nicht wie bei relationalen Datenbanken in Spalten und Tabellen abgespeichert sondern, wie bereits in vorherigen Abschnitten beschrieben, in Dokumenten. Ein Dokument stellt eine Ansammlung von Feldern und Werten dar. Jeder Eintrag wird in einem eigenen Dokument gespeichert und über eine eindeutige ID in der Datenbank indentifiziert. Die Daten werden ohne eine vorgebene Struktur für das jeweilige Dokument gespeichert, anders als über eine Tabellenstruktur in den relationalen Datenbanken oder einer festgelegeten Struktur für einen bestimmten Objekttyp in den objektorientierten Datenbanken. [6]
+Bei Document-Stores werden die Daten nicht wie bei relationalen Datenbanken in Spalten und Tabellen abgespeichert sondern, wie bereits in vorherigen Abschnitten beschrieben, in Dokumenten. Ein Dokument stellt eine Ansammlung von Feldern und Werten dar. Jeder Eintrag wird in einem eigenen Dokument gespeichert und über eine eindeutige ID in der Datenbank identifiziert. Die Daten werden ohne eine vorgegebene Struktur für das jeweilige Dokument gespeichert, anders als über eine Tabellenstruktur in den relationalen Datenbanken oder einer festgelegten Struktur für einen bestimmten Objekttyp in den objektorientierten Datenbanken. [6]
 
 Anhand des Dozenten/Vorlesungen Beispiels können zwei Dozenten-Dokumente unterschiedliche Strukturen aufweisen (Json-Format):
 
@@ -75,7 +73,7 @@ Anhand des Dozenten/Vorlesungen Beispiels können zwei Dozenten-Dokumente unters
 }
 ```
 
-Ein Nachteil von dokuemtenorientierten Datenbanken ist, dass sie für komplexe Datenstrukturen mit hoher Beziehungstiefe eher ungeeinget sind. Müssen mit den in der Datenbank enthaltenen Dokumenten Operatationen programmiert werden, so muss zunächst eine Struktur festgelegt werden. Häufig wird in diesem Zuge eine übergeordnete Strukturfestlegung vorgenommen, um den Programmieraufwand zu verringern. Dies führt dazu, dass die Formfreiheit nur noch eingeschränkt gilt. Funktionaliäten die bei relationalen oder objektorientierten Datenbanken standardmäßig zur Verfügung stehen müssen bei dokumentorientierten Datenbanken individuell programmiert werden.[3]
+Ein Nachteil von dokumentorientierten Datenbanken ist, dass sie für komplexe Datenstrukturen mit hoher Beziehungstiefe eher ungeeignet sind. Müssen mit den in der Datenbank enthaltenen Dokumenten Operationen programmiert werden, so muss zunächst eine Struktur festgelegt werden. Häufig wird in diesem Zuge eine übergeordnete Strukturfestlegung vorgenommen, um den Programmieraufwand zu verringern. Dies führt dazu, dass die Formfreiheit nur noch eingeschränkt gilt. Funktionalitäten die bei relationalen oder objektorientierten Datenbanken standardmäßig zur Verfügung stehen müssen bei dokumentorientierten Datenbanken individuell programmiert werden.[3]
 
 <hr>
 [1] http://www.info-wsf.de/index.php/Datenbankmodelle <br>
