@@ -17,10 +17,6 @@ CouchDB zeichnet sich vor allem dadurch aus, dass es auch mit einfachen Grundken
 
 Bei CouchDB werden alle Daten als JSON-Datenstrukturen gespeichert. Diese können über eine HTTP API (RESTful JSON API) erstellt, gelesen oder aktualisiert werden. Wie bereits erwähnt, erfolgen die Abfragen über JavaScript und das MapReduce-Verfahren. CouchDB basiert auf der Erlang OTP-Plattform, welche die Parallelisierung von Anwendungen ermöglicht. Diese Programmiersprache wurde mit einem Fokus auf Zuverlässigkeit und Verfügbarkeit entwickelt. Das Datenbanksystem ermöglicht die Replikation der Daten auf mehrere Knoten, somit können Lesevorgänge parallelisiert werden. Durch ein MVCC-Modell (Multiversion Concurrency Control) können konkurrierende Zugriffe stattfinden. Der Nutzer erhält über den gesamten Zeitraum der Leseoperation einen konsistenten Snapshot der Datenbank ohne andere Zugriffe zu blockieren. [1, 3, 6]
 
-**Noch umschreiben?**
-
-CouchDB ist auf der Erlang OTP Plattform aufgebaut. Das Modul für Views nutzt die JavaScript-Engine SpiderMonkey und Unicode Collation für die Kodierung von Zeichen, legt aber auch Views (genauer permanente Views) im physischen Speicher ab. Apache Lucene kann für Textsuche und Indizierung hinzugefügt werden. Ad-hoc-Abfragen sind über Virtuelle Dokumente (Temporary Views) möglich, somit kann jedes Field eines Dokuments jederzeit abgefragt werden, und der User kann eine Anfrage formulieren, „ohne ein vollständiges Programm schreiben zu müssen“. CouchDB wendet asynchrone Replikation an, des Weiteren handelt es sich um ein Disk-basierend speicherndes DBS, alle Schreibvorgänge werden direkt auf die Festplatte geschrieben, ohne länger im Arbeitsspeicher oder dergleichen temporär gespeichert zu werden. Das Modul *mod_couch* sammelt und wandelt JSON-Dokumente über URL's des Datenbankzugriffs entsprechend um, dabei ersetzt hauptsächlich dieses Modul die mittlere Software-Schicht hin zu einer 2-Schichten-Architektur. [3]
-
 ### 6.1.3 Datenspeicherung
 
 In CouchDB werden Dokumente in Form von JSON-Datenstrukturen abgelegt. Ähnlich wie bei anderen dokumentorientierten Datenbanken geschieht dies schemafrei. Allerdings gibt das JSON Format eine gewisse Struktur durch die Syntax vor. Die Dokumente werden in Unterdatenbanken gespeichert und durch Dokument-IDs bzw. Revisions-IDs indexiert. Die eindeutige Dokument-ID legt der Nutzer selbst fest, die Revisions-ID wird wiederum von CouchDB verwaltet. Sie gibt an, in welcher Version ein Dokument vorhanden ist. Wird eine Instanz aktualisiert, dann lassen sich die Änderungen später anhand der Revisions-ID nachvollziehen. Die einzelnen Dokumente stellen das pendant zu den Tupeln der relationalen Datenbanken dar. Jedes JSON-Objekt wird durch eine Liste von Eigenschaften aufgebaut, wobei jede Eigenschaft durch ein Key/Value-Paar beschrieben wird. Jeder Value kann zusätzlich eine neue Eigenschaft darstellen. Dieses System ermöglicht die beliebige Verschachtelung von Key/Value-Paaren und Listen. [1, 3]
@@ -127,124 +123,26 @@ Die Schreibrechte werden im Hintergrund dynamisch durch JavaScript-Funktionen va
 
 ### 6.1.8 Bewertung
 
-**Vorteile**
-
-- Schemafreiheit
-- Integrierter Webserver
-- Kommunikation mit HTTP
-- Einfache Anbindung an Web-Anwendungen
-- Keine separaten Schnittstellen nötig
-- Unter Apache Lizenz 2.0 verfügbar
-- Nachträgliche Änderung von Dokumentenformaten möglich
-- Verteilte Datenbank, allerdings fragwürdiges Prädikat "verteilt" (auch im Sinne des Akronyms *"Cluster of ..."*) nur über Replikation [vgl. 39] [vgl. 42] [vgl. 43]
-- Sehr hohe Verfügbarkeit
-- Wird weiterentwickelt
-- Views um Join-Funktionalität zu bieten
-- gut bei Fokus auf Versionierung [vgl. 40]
-- PHP unterstützt [Apache CouchDB](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.CouchDB) als Speichermedium (Clustering des PHP App Servers) [vgl. 44]
-
-**Nachteile**
-
-- ~~Noch nicht völlig ausgereift~~
-- Einige Features verteilter Datenbanken werden noch nicht unterstützt
-- MapReduce bei aufwendigen Abfragen ggf. komplizierter als [SQL](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.SQL)
-- ~~Bietet nicht die Abfragemöglichkeiten relationaler DBMS~~
-- ~~Struktur der Dokumente erfordert Disziplin des Anwenders~~
-- Umdenken vom relationalen Konzept nötig
-- ~~Sehr spezifisch auf Webanwendungen zugeschnitten~~
-- Bug in Version 1.0 konnte zu Datenverlust führen, seit 1.0.1 behoben
-- Im Zusammenhang mit den Map/Reduce-Funktionen sind JavaScript-Kenntnisse erforderlich
-- kein Caching, alle Schreibvorgänge direkt auf Disk [vgl. 39]
-- [DB's](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.Datenbank) können sehr groß werden, manuelle Datenkomprimierung nötig [vgl. 39] [vgl. 40] [vgl. 41] [vgl. 42] [vgl. 43]
-- Erstellung von Views im Vergleich zu [SQL](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.SQL) -Queries zeitaufwändig [vgl. 41]
-- vergleichsweise hohe Latenz aufgrund HTTP Document API [vgl. 42] [vgl. 43]
-- keine offizielle Unterstützung partieller Updates von Dokumenten [vgl. 39], zukünftig allerdings geplant
-- an sich nur für gelegentliche Veränderung von Daten [vgl. 40]
+CouchDB ist besonders für Webanwendungen gut geeignet. Wenn es vornehmlich um die Eingabe und Speicherung von Daten geht ist dieses Datenbanksystem eine gute Wahl. Werden Daten häufig bearbeitet oder komplexe Abfragen durchgeführt, dann eignen sich dafür herkömmliche relationale Datenbanken mehr. SQL beispielsweise stellt derartige Funktionen von Haus aus bereit, während in CouchDB das meiste selbst programmiert werden muss.
 
 
 
 Für das spezifische Anwendungsfeld der Webanwendungen scheint CouchDB durchaus gut geeignet zu sein. Sollte es sich hauptsächlich ein System zur Eingabe und Speicherung von Daten handeln, eignet sich CouchDB bzw. allgemein eine dokumentenorientierte Datenbank. Ist häufiges Bearbeiten der Daten, etwa in Form von Berechnungen nötig, oder werden oft komplexe Anfragen durchgeführt, empfiehlt sich eher ein relationales System, da durch [SQL](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.SQL) ein entsprechend mächtiges Werkzeug geboten wird und in CouchDB die meisten Funktionen selbst programmiert werden müssen.
+
 CouchDB ist kein Konkurrent für herkömmliche relationale DBMS und versucht auch nicht als ein solcher aufzutreten. Die Anwendungsbereiche der Systeme sind schlicht und einfach völlig verschieden. Durch seinen webanwendungsnahen Aufbau bringt CouchDB für Anwender in diesem Bereich eine Menge Komfort mit, so dass die Erwägung, CouchDB zu nutzen, durchaus berechtigt erscheint. [3]
 
-Das Motto der CouchDB ist „relax“, und dieses Motto sollte man
-ernst nehmen. Die hier vorgestellten Tools für die Verwendung
-von CouchDB vereinfachen in erster Linie die Kommunikation
-per GET/PUT. Angenehm wird es, wenn ein Wrapper beim
-Speichern eines Dokuments dieses auf Updates prüft, oder wenn
-– wie im Fall von PHPillow – View-Dokumente in PHP definiert
-werden können. Der Vorteil von CouchDB besteht darin, so wenig
-Funktionen wie nötig bereitzustellen und dem
-Anwendungsprogrammierer freie Hand zu lassen. Ob ein
-Wrapper, der den Programmierer dann wieder auf vorgegebene
-Funktionen festlegt, da der richtige Weg ist, muss jeder für sich
-entscheiden. Die eigentliche Kraft der CouchDB steckt in den
-Views und in den hier nicht angesprochenen weiteren
-Möglichkeiten, Ergebnisse zu Transformieren (Lists, Shows).
-Die hier gezeigten Wrapper sind leicht zu verstehen, und auf der
-Heft-CD finden Sie eine Menge Beispiele zum Nachvollziehen.
-Ihre Energie sollten Sie auf das Entwickeln in der CouchDB
-stecken. JavaScript ist als Standard implementiert, allerdings
-kann jede Sprache, die auf dem Server läuft und über die
-Standardkonsole kommuniziert, eingebunden werden. So ist es
-möglich, alle Map/Reduce-Funktionen in PHP zu programmieren.
-CouchDB sollte man nicht nur als Datenbankmanagementsystem
-sehen, sondern als Ökosystem von Servern, Daten und
-Anwendungen. So ist es möglich, gänzlich ohne weitere
-serverseitige Sprachen komplette Anwendungen in einer
-CouchDB zu entwickeln. Ob Datendokumente, Designdokumente,
-HTML-Templates oder JPG-Attachments, alles kann in einer
-CouchDB gespeichert und damit auch auf andere Datenbanken
-repliziert werden. So erreicht man eine schnelle und sichere
-Verteilung der Anwendung auf viele Server. [2]
+Das Motto der CouchDB ist „relax“, und dieses Motto sollte man ernst nehmen. Die hier vorgestellten Tools für die Verwendung von CouchDB vereinfachen in erster Linie die Kommunikation per GET/PUT. Der Vorteil von CouchDB besteht darin, so wenig Funktionen wie nötig bereitzustellen und dem Anwendungsprogrammierer freie Hand zu lassen. Die eigentliche Kraft der CouchDB steckt in den Views und in den hier nicht angesprochenen weiteren Möglichkeiten, Ergebnisse zu Transformieren (Lists, Shows). JavaScript ist als Standard implementiert, allerdings kann jede Sprache, die auf dem Server läuft und über die Standardkonsole kommuniziert, eingebunden werden. So ist es möglich, alle Map/Reduce-Funktionen in PHP zu programmieren. CouchDB sollte man nicht nur als Datenbankmanagementsystem sehen, sondern als Ökosystem von Servern, Daten und Anwendungen. So ist es möglich, gänzlich ohne weitere serverseitige Sprachen komplette Anwendungen in einer CouchDB zu entwickeln. Ob Datendokumente, Designdokumente, HTML-Templates oder JPG-Attachments, alles kann in einer CouchDB gespeichert und damit auch auf andere Datenbanken repliziert werden. So erreicht man eine schnelle und sichere Verteilung der Anwendung auf viele Server. [2]
 
-CouchDB wird von seinen Entwicklern als Local-Web-Plattform gesehen und setzt auf bewährte
-Web-Techniken „build of the web“ auf. Das macht den ersten Einstieg und Umgang
-mit CouchDB einfach und rüstet die Datenbank für zukünftige Entwicklungen im Internet.
-CouchDB rechnet mit dem Auftreten von Fehlern in verteilten Systemen „offline by default“
-und bietet Möglichkeiten zur Konflikterkennung und zum Konfliktmanagement. Anwendungen
-mit dieser Datenbank lassen sich auch ohne Netzzugang nutzen. CouchDB schlägt
-eine Brücke zwischen Anwendungen im Internet bzw. in einer Cloud und lokalen Anwendungen.
-Das Paradigma der Document Stores passt auf Anwendungsbereiche, bei denen
+CouchDB wird von seinen Entwicklern als Local-Web-Plattform gesehen und setzt auf bewährte Web-Techniken „build of the web“ auf. Das macht den ersten Einstieg und Umgang mit CouchDB einfach und rüstet die Datenbank für zukünftige Entwicklungen im Internet. CouchDB rechnet mit dem Auftreten von Fehlern in verteilten Systemen „offline by default“ und bietet Möglichkeiten zur Konflikterkennung und zum Konfliktmanagement. Anwendungen mit dieser Datenbank lassen sich auch ohne Netzzugang nutzen. CouchDB schlägt eine Brücke zwischen Anwendungen im Internet bzw. in einer Cloud und lokalen Anwendungen. Das Paradigma der Document Stores passt auf Anwendungsbereiche, bei denen
 ein relationales Schema die Flexibilität der Anwendung einschränkt.
-Vorteile
- Setzt auf bewährte Web-Techniken und Erlang als Entwicklungsumgebung
- Robust und fehlertolerant
- Flexible und vielseitige Replizierungsmechanismen
- Bietet Konflikterkennung und Konfliktmanagement
- Erfordert keine Schemaerstellung
- Lässt sich auf vielen Betriebssystemen installieren
- Liefert eigenes Web-Interface Futon mit intuitiver Bedienung
- Bietet APIs für viele Programmiersprachen über Plug-in-Architektur
 
-Nachteile
- Views-Aktualisierung und Erzeugung der Indizes erfolgt erst beim Datenzugriff, der
-dadurch nach vielen Änderungen zeitlich verzögert wird.
- Keine partiellen Updates. Fehlermeldungen sind nicht immer hilfreich.
- Bietet keine eigenen Skalierungsmechanismus außer über Replizierung. Eine Skalierung
-ist aber über CouchDB-Lounge der Firma Meebo möglich.
- Bisher nur inoffizielle Unterstützung für Windows über einen binary installer im Betastadium.
- Realisierung erweiterter Abfragen über Map/Reduce könnten aufwendiger sein als mit
-SQL und bedürfen etwas Einarbeitungszeit.
-Typische Einsatzbereiche für CouchDB sind daher mobile oder Offline-Anwendungen im
-Web. Es werden gerade nicht extrem hochskalierbare Anwendungen adressiert. Eine Auflistung
-der Einsatzbereiche ist unter anderem auch über das CouchDB-Wiki zu finden:
-http://wiki.apache.org/couchdb/CouchDB_in_the_wild.
-Apache CouchDB wird derzeit unter anderem von der BBC, Meebo, Assay Depot und
-Engine Yard eingesetzt und ist mittlerweile ein integraler Bestandteil des Ubuntu-Betriebssystems
-geworden. Der File-Hosting-Dienst Ubuntu-One der Firma Canonical Ltd.
-nutzt CouchDB zur Synchronisierung von Profildaten. Einige Fallstudien zum Einsatz von
-
-CouchDB sind auch auf der Website http://www.couchbase.com/customers/case-studies
-zu finden.
-Die Apache CouchDB Version 1.0 ist im Verlauf der Bucherstellung, nämlich am 14. Juli
-2010 fertiggestellt worden. Damit hat die Datenbank einen weiteren Meilenstein in ihrer
-Entwicklung zum vollwertigen, produktiv einsetzbaren Datenbankmanagementsystem erreicht. [1]
+Typische Einsatzbereiche für CouchDB sind daher mobile oder Offline-Anwendungen im Web. Es werden gerade nicht extrem hochskalierbare Anwendungen adressiert. Apache CouchDB wird derzeit unter anderem von der BBC, Meebo, Assay Depot und Engine Yard eingesetzt und ist mittlerweile ein integraler Bestandteil des Ubuntu-Betriebssystems geworden. Der File-Hosting-Dienst Ubuntu-One der Firma Canonical Ltd. nutzt CouchDB zur Synchronisierung von Profildaten. [1]
 
 
 
 ------
 
-[1] Edlich <br>
+[1] Edlich, S. (2011). *NoSQL: Einstieg in die Welt nichtrelationaler Web 2.0 Datenbanken*. München: Hanser.<br>
 [2] Kindle Buch <br>
 [3] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.CouchDB <br>
 [4] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB <br>
