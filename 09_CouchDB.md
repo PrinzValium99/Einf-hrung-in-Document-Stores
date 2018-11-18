@@ -111,32 +111,19 @@ CouchDB erlaubt die bidirektionale Übertragung aller Dokumente über Replikatio
 
 ### 6.1.7 Sicherheit
 
-Für den Schutz vor unberechtigten Zugriffen bietet CouchDB ein einfaches Modell der Zugriffskontrolle. Hier wird zwischen den folgenden Bereichen unterschieden:
+CouchDB bietet für die Zugriffskontrolle ein einfaches Modell, welches zwischen Administrator Access, Reader Access und Update Validation unterscheidet.
 
+**Administrator Access**
 
+Administratoren dürfen neue Accounts anlegen. Sie besitzen weiterhin den Zugriff auf die Design Dokumente, welche die View-Funktionen bereitstellen.
 
-- Administratorzugriff
+**Reader Access**
 
-- Lesende Zugriffe
+Für die Dokumente können Nutzerlisten erstellt werden, mit Hilfe derer sich die Leseberechtigungen einschränken lassen.
 
-- Update Validierung
+**Update Validation**
 
-Neue Accounts können von Administratoren angelegt werden. Diese haben ebenfalls den Zugriff auf die sogenannten *design documents*, in denen sich neue Views auf Basis von [MapReduce-Funktionen](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MapReduce) in Form von JavaScript abbilden lassen. Mit Hilfe von erstellbaren Nutzerlisten kann die Leseberechtigung von Dokumenten eingeschränkt werden. Die Validierung der Schreibrechte erfolgt hier ebenfalls im Hintergrund durch entsprechende JavaScript-Funktionen. [3]
-
-
-
-Für die Zugriffskontrolle und damit zum Schutz der Daten bietet CouchDB ein einfaches
-Modell für den lesenden Zugriff und zur Validierung von Updates. Dieses kann, je nach
-gestellter Anforderung, in den folgenden Bereichen angepasst werden:
- Administrator Access
- Reader Access
- Update Validation
-Administratoren können neue Accounts anlegen und haben unter anderem Zugriff auf die
-design documents, in denen die View-Funktionen enthalten sind. Für die Dokumente lassen
-sich Nutzerlisten festlegen, über die geregelt wird, welche Nutzer das Dokument oder
-Teile davon sehen dürfen. Wenn die Daten auf die Festplatte geschrieben werden, können
-sie dynamisch durch JavaScript-Funktionen validiert und auf Schreibrechte überprüft
-werden. [1]
+Die Schreibrechte werden im Hintergrund dynamisch durch JavaScript-Funktionen validiert. [1, 3]
 
 ### 6.1.8 Bewertung
 
