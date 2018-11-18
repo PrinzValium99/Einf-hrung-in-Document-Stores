@@ -8,9 +8,8 @@ Wie bereits erwähnt sind dokumentenorientierte Datenbanken schemafrei, wobei da
 
 ------
 
-[1] Edlich, S. (2011). *NoSQL: Einstieg in die Welt nichtrelationaler Web 2.0 Datenbanken*. München: Hanser.
-
-[2] whitepaper MongoDB - Top 5 Considerations When Evaluating NoSQL Databases
+[1] Edlich, S. (2011). NoSQL. München: Hanser. <br>
+[2] Top 5 Considerations When Evaluating NoSQL Databases. (2018, Juni). Abgerufen 17. November, 2018, von https://www.mongodb.com/collateral/top-5-considerations-when-evaluating-nosql-databases
 
 
 
