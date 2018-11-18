@@ -56,12 +56,46 @@ Anders wie bei SQL-Datenbanken bietet MongoDB keine Joins an. Somit kommt da Pri
 Die automatische, horizontale Skalierung von MongoDB macht es möglich, dass nur mit einem Server gestartet werden kann und über die Zeit hinweg diesen zu einem Cluster auszuweiten. Die Architektur der horizontalen Skalierung wird bei MongoDB mit dem gängigen Begriff Sharding bezeichnet. Diese Architektur ist dabei stark an die Architektur von Googles BigTable und damit auch HBase angelehnt. Es wird nach dem Master-N-Slaves-Prinzip gearbeitet. Auf der Ebene der Collections werden die Daten horizontal verteilt. Eine Collection erfordert eine Kombination von einem oder mehreren Schlüsseln, den sog. Sharding-Keys. Diese werden dann für die Aufteilung der Daten verwendet und die Dokumente werden anhand dieser geordnet und gespeichert. Die Schlüsselkombinationen ermöglichen es, dass nah beieinanderliegende Dokumente auf einem Server gespeichert werden. Bei der Administration muss leidiglich darauf geachtet werden, das eine geeignete Schlüsselkomibnation für das Sharding festgelegt wird.
 Collections werden in Pakete mit konfigurierbarer maximaler Größe, sogenannte Chunks aufgeteilt. Chunks sind Bestandteile einer bestimmten Collection, wobei für sie ein bestimmter Abschnitt der Schlüsselkombination definiert ist. Erreicht ein Chunk die maximale Größe, dann erfolgt automatisch eine Aufteilung.
 Die Chunks werden auf Serven, sog. Shards gespeichert. Diese wiederum bestehen aus einer oder mehreren Datenbanken. Die Verteilung der Chunks auf die Shards erfolgt automatisch. Es wird jedoch versucht das alle Shards die gleiche Größe aufweisen. Enthält ein Shard zu viele Chunks, so werden diese automatisch auf andere Shards verteilt.
-Die allgemeinen Informationen über die Verteilung der Chunks innerhalb der Shards liegen auf sogenannten Config-Servern. Diese sind für die Verwaltung der Metadaten eines Clusters zuständig und enthalten eine Verteilungsübersicht der Chunks. Mittels mehrerer Routing-Server geschieht das Routing von Client-Anfragen an den Shard.
+Die allgemeinen Informationen über die Verteilung der Chunks innerhalb der Shards liegen auf sogenannten Config-Servern. Diese sind für die Verwaltung der Metadaten eines Clusters zuständig und enthalten eine Verteilungsübersicht der Chunks. Mittels mehrerer Routing-Server geschieht das Routing von Client-Anfragen an den Shard [1].
 
 
 
 ### 6.2.4 Replikation
+
+Replizieren bedeutet, dass Daten nicht nur auf einem, sondern auf mehreren Rechnern gespeichert werden. Ein Replikat ist eine Gruppe von mongod Instantzen, welche denselben Datensatz verwalten. Ein Replikat-Set enthält mehrere datenführende Knoten und optional einen Arbiter-Knoten. Architektonisch gleicht der Replikationsmechanismus dem des Master-N-Slaves-Prinzips. Die Daten werden durch den Master an einen oder mehrere Slaves repliziert. Die Kommunikation erfolgt von seitens der Clients nur über den Master.
+
+
+Die Ein Master repliziert seine Daten an einen oder mehrere Slaves. Clients kommuni-
+zieren nur mit dem Master. Wie im Kapitel 4.2.6 bereits beschrieben, arbeitet die Replikation auf Ebene der Shards, d.h. der einzelnen Datenknoten eines MongoDB-Clusters.
+
+Master und Slaves bilden dabei eine Shard. MongoDB stellt zwei Modi zur Replikation
+einer Shard zur Verfügung: einen manuellen und einen automatischen Modus. In beiden
+Modi ist zur Laufzeit immer nur ein Server einer Shard der aktive Master. Nur dieser
+nimmt direkte Schreiboperationen von Clients entgegen, wodurch eine starke Konsistenz
+der Daten gesichert werden soll. Vom Master werden die geänderten Daten auf die Slaves
+
+repliziert. Wenn der Kontext einer Anwendung Eventual Consistency erlaubt, ist es mög-
+lich, Leseoperationen auch an die Slaves zu senden.
+
+
+
 ### 6.2.5 Sicherheit
+Im Zuge der Sicherheit von MongoDB Datenbanken gibt es drei Möglichkeiten.
+
+1. zunächst Anfragen nur über localhost zulassen
+Grundsätzlich horcht MongoDB auf alle verfügbaren Interfaces. Es besteht jedoch die Möglichkeit, nur Anfragen zuzulassen, die auf dem localhost (127.0.0.1) ankommen.
+Damit wird sichergestellt, dass nur der lokale Rechner mit MongoDB verbinden kann und kein anderes externes System
+
+2. Erstellen von iptables
+Möchte den man Zugriff auch von außerhalb zulassen, kann man den externen Zugriff mit Hilfe von iptables zulassen, wenn der Zugriff nicht komplett freigegeben werden soll.
+Iptables entfernen alle vordefinierten Regeln, somit auch den Standardport von MongoDB (27017) und REST-Interface. Damit ein Zugriff auf den MongoDB Server möglich ist, werden den iptables der Reihen nach IP-Adressen zugeschrieben und somit freigeschaltet.
+
+3. Internes Authentifizierungssystem
+Die Autorisierung erfolgt über Benutzernamen und Passwort oder einem Zertifikat, wobei diese, bei der Standard Edition, nicht verschlüsselt sind.
+Desweiteren besteht die Möglichkeit Benutzern bestimmte vordefinierte Rollen zuzuteilen oder selbst Rollen zu definieren, die Zugriffsrechte definieren.
+Jedoch kann die Kommunikation von Client und Server über OpenSSL mit SSL/TLS Verschlüsselung abgesichert werden.
+Mit der Enterprise Edition ist eine Verschlüsselung der gesamten Datenbank möglich [2].
+
 ### 6.2.6 Bewertung
 
 
@@ -74,5 +108,6 @@ Die allgemeinen Informationen über die Verteilung der Chunks innerhalb der Shar
 [2] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB <br>
 [3] https://www.mongodb.com/de/what-is-mongodb <br>
 [4] Kindle Buch 
+
 
 <hr>
