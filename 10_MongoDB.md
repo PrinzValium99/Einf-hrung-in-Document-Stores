@@ -55,17 +55,9 @@ Anders wie bei SQL-Datenbanken bietet MongoDB keine Joins an. Somit kommt da Pri
 ### 6.2.3 Skalierung
 Die automatische, horizontale Skalierung von MongoDB macht es möglich, dass nur mit einem Server gestartet werden kann und über die Zeit hinweg diesen zu einem Cluster auszuweiten. Die Architektur der horizontalen Skalierung wird bei MongoDB mit dem gängigen Begriff Sharding bezeichnet. Diese Architektur ist dabei stark an die Architektur von Googles BigTable und damit auch HBase angelehnt. Es wird nach dem Master-N-Slaves-Prinzip gearbeitet. Auf der Ebene der Collections werden die Daten horizontal verteilt. Eine Collection erfordert eine Kombination von einem oder mehreren Schlüsseln, den sog. Sharding-Keys. Diese werden dann für die Aufteilung der Daten verwendet und die Dokumente werden anhand dieser geordnet und gespeichert. Die Schlüsselkombinationen ermöglichen es, dass nah beieinanderliegende Dokumente auf einem Server gespeichert werden. Bei der Administration muss leidiglich darauf geachtet werden, das eine geeignete Schlüsselkomibnation für das Sharding festgelegt wird.
 Collections werden in Pakete mit konfigurierbarer maximaler Größe, sogenannte Chunks aufgeteilt. Chunks sind Bestandteile einer bestimmten Collection, wobei für sie ein bestimmter Abschnitt der Schlüsselkombination definiert ist. Erreicht ein Chunk die maximale Größe, dann erfolgt automatisch eine Aufteilung.
-Die Chunks werden auf Serven, sog. Shards gespeichert. Diese wiederum bestehen aus einer oder mehreren Datenbanken. Die Verteilung der Chunks auf die Shards erfolgt automatisch
+Die Chunks werden auf Serven, sog. Shards gespeichert. Diese wiederum bestehen aus einer oder mehreren Datenbanken. Die Verteilung der Chunks auf die Shards erfolgt automatisch. Es wird jedoch versucht das alle Shards die gleiche Größe aufweisen. Enthält ein Shard zu viele Chunks, so werden diese automatisch auf andere Shards verteilt.
+Die allgemeinen Informationen über die Verteilung der Chunks innerhalb der Shards liegen auf sogenannten Config-Servern. Diese sind für die Verwaltung der Metadaten eines Clusters zuständig und enthalten eine Verteilungsübersicht der Chunks. Mittels mehrerer Routing-Server geschieht das Routing von Client-Anfragen an den Shard.
 
-
-Gespeichert werden Chunks auf Servern, die man als Shard bezeichnet. Dabei besteht ein
-Shard aus einer oder mehreren Mongo-Datenbanken (mongod). Besteht ein Shard aus
-mehreren Servern, so können diese eine automatische Replikationsgruppe bilden (sog.
-Replica-Set), deren Funktion im folgenden Kapitel zur Replikation näher erläutert wird.
-Die Verteilung der Chunks auf die Shards erfolgt automatisch, wobei eine möglichst
-gleichmäßige Verteilung der Speicherlast angestrebt wird. Ist ein Shard im Vergleich zu
-anderen Shards mit Chunks überfrachtet, so werden diese automatisch auf andere Shards
-umverteilt.
 
 
 ### 6.2.4 Replikation
