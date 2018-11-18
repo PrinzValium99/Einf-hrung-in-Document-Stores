@@ -1,12 +1,8 @@
 
 ## 6.2 MongoDB
-
 <img src="./images/LogoMongoDB.jpg" alt="Logo Mongo DB" style="width: 300px;"/>
 
-
 ### 6.2.1 Beschreibung
-
-
 MongoDB gehört zu den beliebtesten NoSQL-Vertretern. Der Name 'Mongo' wurde abgeleitet von 'humongous' (gigantisch). MongoDB ist eine skalierbare, hochperformante, schemafreie und dokumentenorientierte Open-Source-Datenbank, die durch ihre Features im Vergleich zu anderen NoSQL-Datenbanken besticht. Zudem stellt sie das Bindeglied zwischen klassischen relationalen Datenbanken und Key/Value-Stores her. Dokumente werden im im BSON-Format verwaltet. Eine integrierte Query Language ermöglicht einfache Abfragen, Replikationen und Sharding (Replikationen und Sharding ermöglicht die Verwendung vieler nicht so leistungsstarker Rechner). Zudem kann eine Vielzahl bekannter Programmiersprachen angebunden werden. Umfangreiche Abfragemöglichkeiten mit guter Skalierbarkeit und Performance gekoppelt schaffen eine Konkurrenz zu den klassichen RDMBS (Relational Database Management System). MongoDB kann in virtuellen Umgebungen, bei Cloud Computing und in den gängigen Betriebsystemen Linux, Mac OS und Windows eingesezt werden. Das Datenbanksystem verfügt zudem über einen kommerziellen Support [1,2].
 
 MongoDB zeichnet sich vor allem durch ein flexibles Datenbank Schema, welches dynamsich angepasst werden kann, aus. Die Daten werden in JSON-ähnlichen Dokumenten gespeichert, wodurch die Felder in den einzelnen Dokumenten variieren und die Datenstrukturen sich über die Dauer verändern. Durch Ad-hoc-Abfrgen, Indizierung und Echtzeitaggregation wird der Zugriff und die Analyse der Daten vereinfacht [3]. 
@@ -57,21 +53,19 @@ Anders wie bei SQL-Datenbanken bietet MongoDB keine Joins an. Somit kommt da Pri
 
 
 ### 6.2.3 Skalierung
-Die automatische, horizontale Skalierung von MongoDB macht es möglich, dass nur mit einem Server gestartet werden kann und über die Zeit hinweg diesen zu einem Cluster auszuweiten. Die Architektur der horizontalen Skalierung wird bei MongoDB mit dem gängigen Begriff Sharding bezeichnet. Diese Architektur ist dabei stark an die Architektur von Googles BigTable und damit auch HBase angelehnt. Es wird nach dem Master-N-Slaves-Prinzip gearbeitet. 
+Die automatische, horizontale Skalierung von MongoDB macht es möglich, dass nur mit einem Server gestartet werden kann und über die Zeit hinweg diesen zu einem Cluster auszuweiten. Die Architektur der horizontalen Skalierung wird bei MongoDB mit dem gängigen Begriff Sharding bezeichnet. Diese Architektur ist dabei stark an die Architektur von Googles BigTable und damit auch HBase angelehnt. Es wird nach dem Master-N-Slaves-Prinzip gearbeitet. Auf der Ebene der Collections werden die Daten horizontal verteilt. Eine Collection erfordert eine Kombination von einem oder mehreren Schlüsseln, den sog. Sharding-Keys. Diese werden dann für die Aufteilung der Daten verwendet und die Dokumente werden anhand dieser geordnet und gespeichert. Die Schlüsselkombinationen ermöglichen es, dass nah beieinanderliegende Dokumente auf einem Server gespeichert werden. Bei der Administration muss leidiglich darauf geachtet werden, das eine geeignete Schlüsselkomibnation für das Sharding festgelegt wird.
+Collections werden in Pakete mit konfigurierbarer maximaler Größe, sogenannte Chunks aufgeteilt. Chunks sind Bestandteile einer bestimmten Collection, wobei für sie ein bestimmter Abschnitt der Schlüsselkombination definiert ist. Erreicht ein Chunk die maximale Größe, dann erfolgt automatisch eine Aufteilung.
+Die Chunks werden auf Serven, sog. Shards gespeichert. Diese wiederum bestehen aus einer oder mehreren Datenbanken. Die Verteilung der Chunks auf die Shards erfolgt automatisch
 
 
-Die horizontale Verteilung der Daten erfolgt bei MongoDB auf Ebene der Collections. Für
-eine Collection muss eine Kombination von einem oder mehreren Schlüsseln festgelegt
-werden, die für die Aufteilung der Daten verwendet wird (sogenannte Sharding-Keys). Die
-
-Dokumente werden dann nach diesen Sharding-Keys geordnet gespeichert. Dadurch ge-
-währleistet MongoDB, dass die Daten so gespeichert werden, dass bezogen auf die festge-
-legte Schlüsselkombination nah beieinanderliegende Dokumente auf demselben Server
-
-gespeichert sind. Es ist daher notwendig, bei der Administration eines MongoDB-Clusters
-
-eine geeignete Schlüsselkombination für das Sharding festzulegen, die eine für den An-
-wendungszweck sinnvolle Aufteilung der Daten bewirkt.
+Gespeichert werden Chunks auf Servern, die man als Shard bezeichnet. Dabei besteht ein
+Shard aus einer oder mehreren Mongo-Datenbanken (mongod). Besteht ein Shard aus
+mehreren Servern, so können diese eine automatische Replikationsgruppe bilden (sog.
+Replica-Set), deren Funktion im folgenden Kapitel zur Replikation näher erläutert wird.
+Die Verteilung der Chunks auf die Shards erfolgt automatisch, wobei eine möglichst
+gleichmäßige Verteilung der Speicherlast angestrebt wird. Ist ein Shard im Vergleich zu
+anderen Shards mit Chunks überfrachtet, so werden diese automatisch auf andere Shards
+umverteilt.
 
 
 ### 6.2.4 Replikation
@@ -86,15 +80,7 @@ wendungszweck sinnvolle Aufteilung der Daten bewirkt.
 <hr>
 [1] Edlich <br>
 [2] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB <br>
-[3] https://www.mongodb.com/de/what-is-mongodb
+[3] https://www.mongodb.com/de/what-is-mongodb <br>
 [4] Kindle Buch 
 
-
-
-
-[3] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.CouchDB <br>
-
-[5] http://guide.couchdb.org/editions/1/de/why.html <br>
-[6] http://docs.couchdb.org/en/stable/ <br>
-[7] https://db-engines.com/de/ranking/document+store
 <hr>
