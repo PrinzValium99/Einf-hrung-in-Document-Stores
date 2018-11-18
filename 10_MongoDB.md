@@ -66,7 +66,7 @@ Replizieren bedeutet, dass Daten nicht nur auf einem, sondern auf mehreren Rechn
 
 Ein Replikatsatz kann nur eine primäre Instanz haben, die in der Lage ist, Schreibvorgänge durchzuführen. Der Primary Knoten zeichnet alle Änderungen an seinen Datensätzen in seinem Betriebslog oplog auf. Sekundäries replizieren das oplog des Primary und wenden dann die Operationen auf ihre Datensätze an. Wenn ein Primary nicht verfügbar ist, wählt des Secondary eigenständig einen neuen Primary.
 
-<img src="./images/ReplikationMongoDB.jpg" alt="Logo Mongo DB" style="width: 300px;"/> [5]
+<img src="./images/ReplikationMongoDB.jpg" alt="Logo Mongo DB" style="width: 100px;"/> [5]
 
 
 Dem Replikat kann zusätliche eine Mongod-Instanz hinzugefügt werden, die als Arbiter gesetzt ist. Arbiter haben jedoch keinen eigenen Datensatz. Der Zweck eines Arbiter ist es in einem Replika Set eine Mindestanzahl aufrecht zu erhalten, indem auf Heartbeats (Pings) und Election Requests von anderen Replika Set Elementen geantwortet wird.
