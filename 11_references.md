@@ -44,11 +44,3 @@ What Is MongoDB? (o.D.). Abgerufen 18. November, 2018, von https://www.mongodb.c
 
 
 
-
-
-
-
-
-
-
-
