@@ -1,4 +1,6 @@
-## 6.1 CouchDB ---> LOGO FEHLT NOCH
+## 6.1 CouchDB
+
+<img src="./images/LogoCouchDB.png" alt="Logo Mongo DB" style="width: 300px;"/>
 
 ### 6.1.1 Beschreibung
 
@@ -101,33 +103,11 @@ Zur Betrachtung der Reduce-Funktion ist es wichtig zu wissen, dass die Ergebnism
 
 ### 6.1.6 Replikation
 
-Die [Replikation](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.Replikation), d.h. die Übertragung der Daten auf andere Knoten, ist bei Apache CouchDB ein inkrementeller Prozess per Push und Pull. Wie die Client-Server Kommunikationsvorgänge wird auch die Replikation über HTTP-Requests abgewickelt. Die Daten werden dokumentweise auf Server übertragen, die sich an geografisch stark unterschiedlichen Orten befinden, um geringe Latenzen bieten zu können („move data more closely to clients“). Über „Continuous Replication“ kann relativ komfortabel eine unidirektionale Replikation, welche als Backup dienen kann, faktisch aber keines darstellt, eingerichtet werden, diese kann zudem zu einer bidirektionalen Replikation erweitert werden. Die Backupserver sind hierbei nicht aktiv für Abfragen eingebunden. Um die bidirektionale Replikationen im Rahmen von Load-Balancing einsetzen zu können, müssen zusätzliche Frameworks wie „CouchDB Lounge“ verwendet werden. Für Partitionierung (bzw. Sharding) wird ebenfalls einer der genannten Forks von Apache CouchDB benötigt, um im Kontext von verteilter Einrichtung besser zu skalieren. Die dokumentweise Übertragung dient dazu, um bei Unterbrechung des Kommunikationsprozesses die Übertragung dort fortzusetzen, wo sie abgebrochen worden ist. Damit ist ein Neustart der Replikation nicht erforderlich und das System wird robuster gegenüber Fehlern. 
-Über [Futon](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.Futon) kann ein entsprechender Replikationsprozess couch-entsprechend bequem initialisiert werden.
+Das Replizieren, also das Übertragen von Daten auf andere Knoten, ist bei CouchDB ein inkrementeller Prozess. Dieser kann sowohl kontinuierlich stattfinden, als auch von der Anwendung selbst ausgelöst werden. CouchDB unterstützt bidirektionale Konflikterkennung und bidirektionales Konfliktmanagement, was eine Parallelisierung der Lesezugriffe ermöglicht. Dokumente werden einzeln bei der Replikation auf verschiedene CouchDB-Knoten verteilt, die sich an verschiedenen Orten befinden können. Dadurch können bessere Zugriffszeiten erreicht werden. Ein weiterer Vorteil ist das Fortsetzen der Übertragung bei Abbruch der Kommunikation. In diesem Fall muss das System nicht neugestartet werden und die Kommunikation kann beim letzten übertragenen Dokument fortgesetzt werden. Dieses Datenbanksystem geht davon aus, dass nicht immer eine Verbindung zwischen den einzelnen Datenbank-Knoten besteht, man spricht auch von "offline by default". Die Synchronisation erfolgt wie geplant, sobald die entsprechenden Knoten wieder verbunden sind. Üblicherweise entstehen dabei jedoch Konflikte, die jedoch von CouchDB markiert und im Anschluss gelöst werden können.
 
-Bei der Entwicklung des Replikationsverfahrens ging man davon aus, ein CouchDB-Knoten sei im Normalfall nicht erreichbar("offline by default"). Daher wurde bei CouchDB der Fokus auf eine hohe Ausfalltoleranz (siehe [CAP-Theorem](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.CAP)) gelegt.
-Ein wesentliches Augenmerk bei der Entwicklung von CouchDB lag auf dem Aspekt der Verfügbarkeit. Bei Replikationsvorgängen bleiben die Daten dennoch weiter lesbar, es findet also kein Locking statt. Die Konsistenz wird dadurch jedoch nicht ignoriert, da jedes Dokument über eine Revisions-ID verfügt, so dass eventuelle Änderungen nachverfolgt werden können.
+Findet gerade eine Replikation statt, dann sind die Dokumente nicht für den Zugriff gesperrt und trotzdem weiterhin verfügbar. Da jedes Dokument eine Revisions-ID besitzt kann die Konsistenz jedoch gewährleistet werden, da eventuelle Änderungen anhand dieser ID nachvollzogen werden können.
 
-Da bei Datenbankzugriffen während des Replikationsvorgangs Versionskonflikte auftreten können, ist eine entsprechende Konfliktbehandlung nötig, welche über das Konsistenzmodell [BASE](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.BASE) mittels der Technik [MVCC](http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MVCC) gewährleistet wird. [3]
-
-CouchDB unterstützt das Replizieren der Daten auf mehrere Knoten inkrementell mit bidirektionaler
-Konflikterkennung und bidirektionalem Konfliktmanagement und kann so
-Lesevorgänge parallelisieren. Das Replizieren kann von der Anwendung ausgelöst werden
-oder auch kontinuierlich erfolgen. CouchDB erlangt seine Verteiltheit über Replikation
-zwischen einzelnen CouchDB-Knoten und kann somit als peer-based distributed bezeichnet
-werden. CouchDB rechnet damit, dass nicht immer eine permanente Verbindung zwischen
-den einzelnen CouchDB-Knoten vorhanden ist. Man kann sagen, eine CouchDB-Instanz ist
-offline by default. Sobald die Knoten nach einer Unterbrechung wieder Netzzugang besitzen,
-erfolgt die Synchronisation auf eine vorher definierte Weise. Die bei einer Synchronisation
-üblicherweise auftretenden Konflikte werden durch die CouchDB-Konflikterkennung markiert.
-CouchDB wählt deterministisch eine gewinnende Version des konfliktbehafteten
-Datensatzes aus. Ist man mit der Auswahl nicht zufrieden, so kann man manuell oder
-durch eine Anwendung die gewünschte Revision über die Markierung auswählen und den
-Konflikt lösen. Es ist auch möglich, über Filter partielle Replikationen von Dokumenten
-vorzunehmen. CouchDB ermöglicht den Austausch aller Dokumente über Replikationen,
-sodass vollständige Datenbankanwendungen, einschließlich Anwendungsdesign, Logik
-und Daten, repliziert werden können.
-Auch einfache getriggerte Replizierungen lassen sich über das Web-Interface Futon durch
-Auswahl des Links Replicator im Tool-Menü erstellen. [1]
+CouchDB erlaubt die bidirektionale Übertragung aller Dokumente über Replikationen, wodurch Datenbankanwendungen in ihrer Gesamtheit, einschließlich Anwendungsdesign, Logik und Daten, repliziert werden können. [1, 3]
 
 ### 6.1.7 Sicherheit
 
@@ -275,14 +255,15 @@ Entwicklung zum vollwertigen, produktiv einsetzbaren Datenbankmanagementsystem e
 
 
 
+------
 
-
-<hr>
 [1] Edlich <br>
 [2] Kindle Buch <br>
 [3] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.CouchDB <br>
 [4] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB <br>
 [5] http://guide.couchdb.org/editions/1/en/index.html <br>
 [6] http://docs.couchdb.org/en/stable/ <br>
-<hr>
+
+------
+
 [< Übersicht wichtiger dokumentorientierter Datenbanken](08_Übersicht-wichtiger-dokumentorientierter-Datenbanken)		|   [MongoDB >](10_MongoDB.md)
