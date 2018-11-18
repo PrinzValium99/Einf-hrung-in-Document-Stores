@@ -44,4 +44,4 @@ Sie kommen häufig dann zum Einsatz, wenn Objekte sich in mehrere Objekte schach
 
 ------
 
-[< Vergleich mit anderen Datenbankmodellen](06_Vergleich-mit-anderen Datenbankmodellen.md)		|   [Übersicht wichtiger dokumentorientierter Datenbanken >](08_Übersicht-wichtiger-dokumentorientierter-Datenbanken.md)
+[< Vergleich mit anderen Datenbankmodellen](06_Vergleich-mit-anderen Datenbankmodellen.md)		|   [Übersicht wichtiger dokumentorientierter Datenbanken >](08_dokumentorientierte-Datenbanken.md)
