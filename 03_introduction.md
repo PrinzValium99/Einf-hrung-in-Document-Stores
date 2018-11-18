@@ -11,7 +11,7 @@ NoSQL Datenbanken können sich recht stark unterscheiden, da ihnen unterschiedli
 
 ------
 
-[1] whitepaper MongoDB - Top 5 Considerations When Evaluating NoSQL Databases
+[1] Top 5 Considerations When Evaluating NoSQL Databases. (2018, Juni). Abgerufen 17. November, 2018, von https://www.mongodb.com/collateral/top-5-considerations-when-evaluating-nosql-databases
 
 ------
 

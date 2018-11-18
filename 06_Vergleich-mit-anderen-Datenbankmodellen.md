@@ -75,12 +75,12 @@ Anhand des Dozenten/Vorlesungen Beispiels können zwei Dozenten-Dokumente unters
 
 Ein Nachteil von dokumentorientierten Datenbanken ist, dass sie für komplexe Datenstrukturen mit hoher Beziehungstiefe eher ungeeignet sind. Müssen mit den in der Datenbank enthaltenen Dokumenten Operationen programmiert werden, so muss zunächst eine Struktur festgelegt werden. Häufig wird in diesem Zuge eine übergeordnete Strukturfestlegung vorgenommen, um den Programmieraufwand zu verringern. Dies führt dazu, dass die Formfreiheit nur noch eingeschränkt gilt. Funktionalitäten die bei relationalen oder objektorientierten Datenbanken standardmäßig zur Verfügung stehen müssen bei dokumentorientierten Datenbanken individuell programmiert werden.[3]
 
-<hr>
-[1] http://www.info-wsf.de/index.php/Datenbankmodelle <br>
-[2] https://blog.adacor.com/big-data-sql-nosql-richtig-einordnen_4308.html <br> 
-[3] https://blog.secu-ring.de/software/unterschiede-der-datenbankmodelle-relationale-objektorientierte-und-doukumentenbasierte-datenbank/ <br>
-[5] https://www.eu-datenbank.de/fachartikel/vor-und-nachteile-von-objektdatenbanken/ <br>
-[6] NoSQL Einfuhrung - CouchDB, Mon - Oliver Kurowski
+---
+[1] Datenbankmodelle – Informatik. (o.D.). Abgerufen 15. November, 2018, von http://www.info-wsf.de/index.php/Datenbankmodelle <br>
+[2] Lapp, A. (2018, 14. November). Big Data – Mehr Durchblick im Datendschungel. Abgerufen 17. November, 2018, von https://blog.adacor.com/big-data-sql-nosql-richtig-einordnen_4308.html <br> 
+[3] Noth, O. (2013, 25. Februar). Unterschiede der Datenbankmodelle relationale, objektorientierte und dokumentenbasierte Datenbank. Abgerufen 17. November, 2018, von https://blog.secu-ring.de/software/unterschiede-der-datenbankmodelle-relationale-objektorientierte-und-doukumentenbasierte-datenbank/<br>
+[5] Vor- und Nachteile von Objektdatenbanken. (o.D.). Abgerufen 15. November, 2018, von https://www.eu-datenbank.de/fachartikel/vor-und-nachteile-von-objektdatenbanken/ <br>
+[6] Kurowski, O. (2012). NoSQL Einführung. Frankfurt am Main: entwickler.press.
 
 ------
 
