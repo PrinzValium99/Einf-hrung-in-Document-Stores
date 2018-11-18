@@ -7,7 +7,7 @@
 + [5. Anwendung von DocumentStores](07_Anwendung-von-DocumentStores.md)
 + [6. Übersicht wichtiger dokumentorientierter Datenbanken](08_Übersicht-wichtiger-dokumentorientierter-Datenbanken.md)
 + [7. CouchDB](09_CouchDB.md)
-+ [8. MongoDBl](10_MongoDB.md)
++ [8. MongoDB](10_MongoDB.md)
 + [Literaturverzeichnis](11_references.md) 
 
 
