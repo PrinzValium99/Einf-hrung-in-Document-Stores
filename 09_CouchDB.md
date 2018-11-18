@@ -11,17 +11,17 @@ CouchDB zeichnet sich vor allem dadurch aus, dass es auch mit einfachen Grundken
 - JSON-Dokumente als Datenspeicher
 - HTTP (per REST) für Anfragen
 - Zuverlässigkeit
-- Konsistenz der Datenspeicherung. [1, 3, 4]
+- Konsistenz der Datenspeicherung. [1, 3, 5]
 
 ### 6.1.2 Architektur
 
-Bei CouchDB werden alle Daten als JSON-Datenstrukturen gespeichert. Diese können über eine HTTP API (RESTful JSON API) erstellt, gelesen oder aktualisiert werden. Wie bereits erwähnt, erfolgen die Abfragen über JavaScript und das MapReduce-Verfahren. CouchDB basiert auf der Erlang OTP-Plattform, welche die Parallelisierung von Anwendungen ermöglicht. Diese Programmiersprache wurde mit einem Fokus auf Zuverlässigkeit und Verfügbarkeit entwickelt. Das Datenbanksystem ermöglicht die Replikation der Daten auf mehrere Knoten, somit können Lesevorgänge parallelisiert werden. Durch ein MVCC-Modell (Multiversion Concurrency Control) können konkurrierende Zugriffe stattfinden. Der Nutzer erhält über den gesamten Zeitraum der Leseoperation einen konsistenten Snapshot der Datenbank ohne andere Zugriffe zu blockieren. [1, 3, 5]
+Bei CouchDB werden alle Daten als JSON-Datenstrukturen gespeichert. Diese können über eine HTTP API (RESTful JSON API) erstellt, gelesen oder aktualisiert werden. Wie bereits erwähnt, erfolgen die Abfragen über JavaScript und das MapReduce-Verfahren. CouchDB basiert auf der Erlang OTP-Plattform, welche die Parallelisierung von Anwendungen ermöglicht. Diese Programmiersprache wurde mit einem Fokus auf Zuverlässigkeit und Verfügbarkeit entwickelt. Das Datenbanksystem ermöglicht die Replikation der Daten auf mehrere Knoten, somit können Lesevorgänge parallelisiert werden. Durch ein MVCC-Modell (Multiversion Concurrency Control) können konkurrierende Zugriffe stattfinden. Der Nutzer erhält über den gesamten Zeitraum der Leseoperation einen konsistenten Snapshot der Datenbank ohne andere Zugriffe zu blockieren. [1, 3, 6]
 
 ### 6.1.3 Datenspeicherung
 
 In CouchDB werden Dokumente in Form von JSON-Datenstrukturen abgelegt. Ähnlich wie bei anderen dokumentorientierten Datenbanken geschieht dies schemafrei. Allerdings gibt das JSON Format eine gewisse Struktur durch die Syntax vor. Die Dokumente werden in Unterdatenbanken gespeichert und durch Dokument-IDs bzw. Revisions-IDs indexiert. Die eindeutige Dokument-ID legt der Nutzer selbst fest, die Revisions-ID wird wiederum von CouchDB verwaltet. Sie gibt an, in welcher Version ein Dokument vorhanden ist. Wird eine Instanz aktualisiert, dann lassen sich die Änderungen später anhand der Revisions-ID nachvollziehen. Die einzelnen Dokumente stellen das pendant zu den Tupeln der relationalen Datenbanken dar. Jedes JSON-Objekt wird durch eine Liste von Eigenschaften aufgebaut, wobei jede Eigenschaft durch ein Key/Value-Paar beschrieben wird. Jeder Value kann zusätzlich eine neue Eigenschaft darstellen. Dieses System ermöglicht die beliebige Verschachtelung von Key/Value-Paaren und Listen. [1, 3]
 
-In JSON werden die folgenden Basistypen definiert: Objekte, Arrays, Zeichenketten, Zahlen, Boolesche Werte und null. Sowohl zum Datenaustausch als auch zur Speicherung wird das kompakte JSON-Datenformat genutzt. Damit entfällt die Umwandlung in andere Formate zur Speicherung in einer Datenbank, was sich durch erhöhte Performance bemerkbar machen kann. [1, 4]
+In JSON werden die folgenden Basistypen definiert: Objekte, Arrays, Zeichenketten, Zahlen, Boolesche Werte und null. Sowohl zum Datenaustausch als auch zur Speicherung wird das kompakte JSON-Datenformat genutzt. Damit entfällt die Umwandlung in andere Formate zur Speicherung in einer Datenbank, was sich durch erhöhte Performance bemerkbar machen kann. [1, 5]
 
 In CouchDB findet außerdem eine Unterscheidung diverser Dokumentarten statt. Die folgenden sind von besonderer Bedeutung:
 
@@ -64,7 +64,7 @@ Design Dokumente werden von CouchDB genau wie Datendokumente gespeichert und beh
 - Show-Funktionen
 - List-Funktionen
 - Update-Funktionen
-- Validierungs-Funktionen [3, 5]
+- Validierungs-Funktionen [3, 6]
 
 ### 6.1.4 Kommunikation
 
@@ -131,12 +131,13 @@ Aus diesem Grund wird CouchDB besonders häufig in mobilen bzw. Office-Anwendung
 
 ------
 
-[1] Edlich, S. (2011). NoSQL. München: Hanser. <br>
-[2] Kurowski, O. (2012). NoSQL Einführung. Frankfurt am Main: entwickler.press.  <br>
-[3] Datenbanken Online Lexikon | Datenbanken / Apache CouchDB. (o.D.). Abgerufen 14. November, 2018, von http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.CouchDB <br>
-[4] CouchDB: The Definitive Guide. (o.D.). Abgerufen 15. November, 2018, von http://guide.couchdb.org/ <br>
-[5] Overview — Apache CouchDB 2.2 Documentation. (o.D.). Abgerufen 18. November, 2018, von http://docs.couchdb.org/en/stable/ <br>
+[1] Edlich, S. (2011). *NoSQL: Einstieg in die Welt nichtrelationaler Web 2.0 Datenbanken*. München: Hanser.<br>
+[2] Kindle Buch <br>
+[3] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.CouchDB <br>
+[4] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB <br>
+[5] http://guide.couchdb.org/editions/1/en/index.html <br>
+[6] http://docs.couchdb.org/en/stable/ <br>
 
 ------
 
-[< Übersicht wichtiger dokumentorientierter Datenbanken](08_Übersicht-wichtiger-dokumentorientierter-Datenbanken.md)		|   [MongoDB >](10_MongoDB.md)
+[< Übersicht wichtiger dokumentorientierter Datenbanken](08_Übersicht-wichtiger-dokumentorientierter-Datenbanken)		|   [MongoDB >](10_MongoDB.md)
