@@ -1,4 +1,4 @@
-# Literaturverzeichnis
+# 7. Literaturverzeichnis
 
 Berthelsen, E. (2014, April). Why NoSQL DWhy NoSQL Databases for the Internet of Things: Machina Researchatabases for the Internet of Things: Machina Research. Abgerufen 17. November, 2018, von https://www.mongodb.com/collateral/why-nosql-databases-internet-things-machina-research
 
