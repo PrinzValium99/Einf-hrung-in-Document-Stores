@@ -62,21 +62,18 @@ Die allgemeinen Informationen über die Verteilung der Chunks innerhalb der Shar
 
 ### 6.2.4 Replikation
 
-Replizieren bedeutet, dass Daten nicht nur auf einem, sondern auf mehreren Rechnern gespeichert werden. Ein Replikat ist eine Gruppe von mongod Instantzen, welche denselben Datensatz verwalten. Ein Replikat-Set enthält mehrere datenführende Knoten und optional einen Arbiter-Knoten. Architektonisch gleicht der Replikationsmechanismus dem des Master-N-Slaves-Prinzips. Die Daten werden durch den Master an einen oder mehrere Slaves repliziert. Die Kommunikation erfolgt von seitens der Clients nur über den Master.
+Replizieren bedeutet, dass Daten nicht nur auf einem, sondern auf mehreren Rechnern gespeichert werden. Ein Replikat ist eine Gruppe von mongod Instantzen, welche denselben Datensatz verwalten. Ein Replikat-Set enthält mehrere datenführende Knoten und optional einen Arbiter-Knoten. Architektonisch gleicht der Replikationsmechanismus dem des Master-N-Slaves-Prinzips. Aus den datenführenden Knoten wird nur ein Element als primärer Knoten festegelegt, während die anderen als sekundäre Knoten betrachtet werden [5]. 
+
+Ein Replikatsatz kann nur eine primäre Instanz haben, die in der Lage ist, Schreibvorgänge durchzuführen. Der Primary Knoten zeichnet alle Änderungen an seinen Datensätzen in seinem Betriebslog oplog auf. Sekundäries replizieren das oplog des Primary und wenden dann die Operationen auf ihre Datensätze an. Wenn ein Primary nicht verfügbar ist, wählt des Secondary eigenständig einen neuen Primary.
+
+<img src="./images/ReplikationMongoDB.jpg" alt="Logo Mongo DB" style="width: 300px;"/> [5]
 
 
-Die Ein Master repliziert seine Daten an einen oder mehrere Slaves. Clients kommuni-
-zieren nur mit dem Master. Wie im Kapitel 4.2.6 bereits beschrieben, arbeitet die Replikation auf Ebene der Shards, d.h. der einzelnen Datenknoten eines MongoDB-Clusters.
+Dem Replikat kann zusätliche eine Mongod-Instanz hinzugefügt werden, die als Arbiter gesetzt ist. Arbiter haben jedoch keinen eigenen Datensatz. Der Zweck eines Arbiter ist es in einem Replika Set eine Mindestanzahl aufrecht zu erhalten, indem auf Heartbeats (Pings) und Election Requests von anderen Replika Set Elementen geantwortet wird.
 
-Master und Slaves bilden dabei eine Shard. MongoDB stellt zwei Modi zur Replikation
-einer Shard zur Verfügung: einen manuellen und einen automatischen Modus. In beiden
-Modi ist zur Laufzeit immer nur ein Server einer Shard der aktive Master. Nur dieser
-nimmt direkte Schreiboperationen von Clients entgegen, wodurch eine starke Konsistenz
-der Daten gesichert werden soll. Vom Master werden die geänderten Daten auf die Slaves
+Da sie keinen Datensatz speichern, stellen Arbiter eine gute Möglichkeit dar, durch die Mindesanzahl des Replikatsatzes Ressourcen zu sparen im gegensatz zu einem voll funktionfähigen Replikatmitgliedes mit einem vollständigen Datensatz. Besteht das Replikat-Set aus einer geraden Anzahl von Elementen, so wird ein Arbiter hinzugefügt, um bei der Wahl des Primary eine Mehrheit zu erzielen. Beim Einsatz von Arbiter wird keine spezielle Hardware benötigt.
 
-repliziert. Wenn der Kontext einer Anwendung Eventual Consistency erlaubt, ist es mög-
-lich, Leseoperationen auch an die Slaves zu senden.
-
+Ein Arbiter wird immer ein Arbiter sein. Primary hingegehen können zu Secondarys werden und diese wiederum zu Primarys [5].
 
 
 ### 6.2.5 Sicherheit
@@ -97,17 +94,21 @@ Jedoch kann die Kommunikation von Client und Server über OpenSSL mit SSL/TLS Ve
 Mit der Enterprise Edition ist eine Verschlüsselung der gesamten Datenbank möglich [2].
 
 ### 6.2.6 Bewertung
+Zunächst sollte geprüft werden, ob MongoDB für die Aufgabe geeignet sein könnte. Das ist dann der Fall, wenn die zu verwendende Datenstruktur Arrays im JSON-Stil ähneln, ist MongoDB ein sehr gute, wenn nicht vielleicht die beste Wahl.
+Auf der Performance Ebene besticht MongoDB durch das binäre Datenformat BSON und die Nutzung von Memory-Mapped-Files für das Caching der Daten. Daher kann der Arbeitsspeicher effizient genutzt werden. [1]
+Handelt es sich um große Datenpakete, ist MongoDB auch hier in der Lage, diese Aufgabe zu bewältigen, da es einen unkomplizierten Shardin-Mechanismus zur horizontalen Skalierung der Daten benutzt.
+Ein weiteres Plus besteht in der Möglichkeit, Abfragen dynamisch formulieren zu können. Dies unterscheidet MongoDB von einer Vielzahl anderer NoSQL Datenbanken und ermöglicht fortgeschrittene Abfragen.
+Es stellt jedoch keinen gleichwertigen Ersatz zu SQL Abfragen dar. Mit der Unterstützung von Map/Reduce-Algorithmen wird nicht nur der Einstieg bei der Datenabfrage erleichtert, sondern ermöglicht zudem auch komplexere Abfragen [4], was wiederum bei anderen System wie CouchDB sich umständlicher gestaltet.
+Dies ist auch durchaus darauf zurückzuführen, dass MongoDB auf der bewährten Drei-Schichten-Anwendung (Frontend-Backend-Datenbank) bei der Datenhaltung beruht, die sich an die vertraute Art der Programmierung von Datenbanken in PHP orientiert.
+Sollte man bei der Nutzung von MongoDB auf Schwierigkeiten stoßen, bietet ein große Community ausreichend Möglichkeiten, um eine Lösung des Problem zu finden.
 
+---
+[1] Edlich, S. (2011). NoSQL. München: Hanser. <br>
+[2] Datenbanken Online Lexikon | Datenbanken / MongoDB. (o.D.). Abgerufen 16. November, 2018, von http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB <br>
+[3] What Is MongoDB? (o.D.). Abgerufen 18. November, 2018, von https://www.mongodb.com/de/what-is-mongodb <br>
+[4] Kurowski, O. (2012). NoSQL Einführung. Frankfurt am Main: entwickler.press. <br>
+[5] Replication — MongoDB Manual. (o.D.). Abgerufen 17. November, 2018, von https://docs.mongodb.com/manual/replication/
 
+---
 
-
-
-
-<hr>
-[1] Edlich <br>
-[2] http://wikis.gm.fh-koeln.de/wiki_db/index.php?n=Datenbanken.MongoDB <br>
-[3] https://www.mongodb.com/de/what-is-mongodb <br>
-[4] Kindle Buch 
-
-
-<hr>
+[< Couch DB](09_CouchDB.md)		|   [Literaturverzeichnis >](11_references.md)
