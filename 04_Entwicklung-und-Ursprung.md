@@ -8,11 +8,11 @@ Bis 2005 entstanden einige im Vergleich kleinere hochinteressante Datenbanken, d
 
 Von 2006 bis 2009 entstanden dann die heutigen klassischen NoSQL-Systeme. Doch erst 2009 tauchte der heutige Begriff "NoSQL" in einem Weblog von Eric Evans zum ersten Mal auf [2].  
 
-Um den Bogen zurück zu  Document Stores zu spannen, ist man allgemein der Auffassung, dass der Bereich der dokumentenorientierten Datenbanken zu den interessantesten Teilen der NoSQL-Bewegung gehört. [3]
+Um den Bogen zurück zu  Document Stores zu spannen, ist man allgemein der Auffassung, dass der Bereich der dokumentenorientierten Datenbanken zu den interessantesten Teilen der NoSQL-Bewegung gehört. [2]
 
 Jedoch muss man mit dem Begriff  “Document Stores” vorsichtig sein. Sie sind im eigentlichen Sinne keine echten Dokumentendatenbanken. Der Begriff selbst stammt noch aus der Zeit von Lotus Notes, wo tatsächlich echte Anwenderdokumente gespeichert wurden. Wahrscheinlich wurde der Begriff sogar vom ehemaligen Lotus Notes-Entwickler Damien Katz geprägt, der später für CouchDB arbeitete.
 
-Jedoch ist die Anzahl der wirklich relevanten dokumentenorientierten Datenbanken relativ gering. Neben MongoDB haben noch Couchbase und CouchDB eine große Bedeutung. [4] 
+Jedoch ist die Anzahl der wirklich relevanten dokumentenorientierten Datenbanken relativ gering. Neben MongoDB haben noch Couchbase und CouchDB eine große Bedeutung. [3] 
 
 ## 2.1 Geschwister von Document Stores
 
@@ -28,7 +28,7 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Ande
 
 - **Graphenorientiert:** 
 
-  Entscheidender Anwendungsfall ist das Traversieren der Objekte, wie z. B. bei Verbindungen in Social Networks oder Produktempfehlungen. Die Daten werden in Knoten (Entitäten) und Kanten (Beziehungen) aufgeteilt, welche mit Attributen versehen werden können. [5]
+  Entscheidender Anwendungsfall ist das Traversieren der Objekte, wie z. B. bei Verbindungen in Social Networks oder Produktempfehlungen. Die Daten werden in Knoten (Entitäten) und Kanten (Beziehungen) aufgeteilt, welche mit Attributen versehen werden können. [4]
 
 
 
@@ -36,13 +36,11 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Ande
 
 [1] whitepaper MongoDB - Top 5 Considerations When Evaluating NoSQL Databases
 
-[2] Oska09
+[2] Edlich, S. (2011). *NoSQL: Einstieg in die Welt nichtrelationaler Web 2.0 Datenbanken*. München: Hanser.
 
-[3] Edlich, S. (2011). *NoSQL: Einstieg in die Welt nichtrelationaler Web 2.0 Datenbanken*. München: Hanser.
+[3] https://db-engines.com/en/ranking/document+store
 
-[4] https://db-engines.com/en/ranking/document+store
-
-[5] https://www.innoq.com/en/articles/2011/01/nosql-einsatzgebiete/
+[4] https://www.innoq.com/en/articles/2011/01/nosql-einsatzgebiete/
 
 
 
