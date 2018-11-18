@@ -285,3 +285,4 @@ Entwicklung zum vollwertigen, produktiv einsetzbaren Datenbankmanagementsystem e
 [5] http://guide.couchdb.org/editions/1/en/index.html <br>
 [6] http://docs.couchdb.org/en/stable/ <br>
 <hr>
+[< Übersicht wichtiger dokumentorientierter Datenbanken](08_Übersicht-wichtiger-dokumentorientierter-Datenbanken)		|   [MongoDB >](10_MongoDB.md)
