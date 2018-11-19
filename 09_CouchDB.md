@@ -21,7 +21,7 @@ Bei CouchDB werden alle Daten als JSON-Datenstrukturen gespeichert. Diese könne
 
 In CouchDB werden Dokumente in Form von JSON-Datenstrukturen abgelegt. Ähnlich wie bei anderen dokumentorientierten Datenbanken geschieht dies schemafrei. Allerdings gibt das JSON Format eine gewisse Struktur durch die Syntax vor. Die Dokumente werden in Unterdatenbanken gespeichert und durch Dokument-IDs bzw. Revisions-IDs indexiert. Die eindeutige Dokument-ID legt der Nutzer selbst fest, die Revisions-ID wird wiederum von CouchDB verwaltet. Sie gibt an, in welcher Version ein Dokument vorhanden ist. Wird eine Instanz aktualisiert, dann lassen sich die Änderungen später anhand der Revisions-ID nachvollziehen. Die einzelnen Dokumente stellen das pendant zu den Tupeln der relationalen Datenbanken dar. Jedes JSON-Objekt wird durch eine Liste von Eigenschaften aufgebaut, wobei jede Eigenschaft durch ein Key/Value-Paar beschrieben wird. Jeder Value kann zusätzlich eine neue Eigenschaft darstellen. Dieses System ermöglicht die beliebige Verschachtelung von Key/Value-Paaren und Listen. [1, 3]
 
-In JSON werden die folgenden Basistypen definiert: Objekte, Arrays, Zeichenketten, Zahlen, Boolesche Werte und null. Sowohl zum Datenaustausch als auch zur Speicherung wird das kompakte JSON-Datenformat genutzt. Damit entfällt die Umwandlung in andere Formate zur Speicherung in einer Datenbank, was sich durch erhöhte Performance bemerkbar machen kann. [1, 4]
+In JSON werden die folgenden Basistypen definiert: Objekte, Arrays, Zeichenketten, Zahlen, Boolesche Werte und null. Neben der Speicherung wird das kompakte JSON Datenformat auch zur Übertragung der Daten genutzt. Damit entfällt die Umwandlung in andere Formate zur Speicherung in einer Datenbank, was sich durch erhöhte Performance bemerkbar machen kann. [1, 4]
 
 In CouchDB findet außerdem eine Unterscheidung diverser Dokumentarten statt. Die folgenden sind von besonderer Bedeutung:
 
@@ -34,7 +34,7 @@ In CouchDB findet außerdem eine Unterscheidung diverser Dokumentarten statt. Di
 
 **Datendokumente**
 
-Datendokumente bilden eine geschlossene Einheit von Informationen. Als zusätzliche Metadaten werden die oben angesprochenen Dokument-IDs und Revisions-IDs gespeichert. Wie bereits erwähnt wird die Dokument-ID durch den Benutzer vergeben. Es wird empfohlen dafür eine Universally Unique Identifier (UUID) zu verwenden, aber auch benutzerdefinierte IDs funktionieren. Diese UUIDs kann CouchDB auch mit Hilfe eines GET-Request selbst generieren. Im folgenden Beispiel ist ein Datendokument zusehen, welches die Dokument-ID bzw. Revisions-ID als Value zu den Keys   `"_id"` und `"_rev"` zuordnet. [3]
+Datendokumente bilden eine geschlossene Einheit von Informationen. Als zusätzliche Metadaten werden die oben angesprochenen Dokument-IDs und Revisions-IDs gespeichert. Wie bereits erwähnt wird die Dokument-ID durch den Benutzer vergeben. Es wird empfohlen dafür eine Universally Unique Identifier (UUID) zu verwenden, aber auch benutzerdefinierte IDs funktionieren. Diese UUIDs kann CouchDB auch mit Hilfe eines speziellen GET-Request selbst generieren. Im folgenden Beispiel ist ein Datendokument zusehen, welches die Dokument-ID bzw. Revisions-ID als Value zu den Keys `"_id"` und `"_rev"` zuordnet. [3]
 
 
 ```
@@ -54,7 +54,7 @@ Datendokumente bilden eine geschlossene Einheit von Informationen. Als zusätzli
 
 **Virtuelle Dokumente**
 
-Grundsätzlich werden zwar alle Informationen in einem Dokument gespeichert, da dies aber auch Nachteile mit sich bringen kann, ist es manchmal notwendig diese in mehrere logische Dokument-Typen aufzuteilen. Als Beispiel werden oft Blogposts und die dazugehörenden Kommentare genannt. Virtuelle Dokumente werden dazu verwendet, um diese verteilten Informationen als zusammengehörendes Dokument darzustellen. Mit Hilfe einer Anfrage lassen diese temporären Views anzeigen, welche auch als Ad-Hoc-Abfragen bezeichnet werden können. [3]
+Grundsätzlich werden zwar alle Informationen in einem Dokument gespeichert, da dies aber auch Nachteile mit sich bringen kann, ist es manchmal notwendig diese in mehrere logische Dokument-Typen aufzuteilen. Als Beispiel werden oft Blogposts und die dazugehörenden Kommentare genannt. Virtuelle Dokumente werden dazu verwendet, um diese verteilten Informationen als zusammengehörendes Dokument darzustellen. Mit Hilfe einer Abfrage lassen sich diese temporären Views anzeigen, welche auch als Ad-Hoc-Abfragen bezeichnet werden können. [3]
 
 **Design Dokumente**
 
@@ -86,7 +86,7 @@ function(doc) {
 }
 ```
 
-Die Map-Funktion bekommt ein Dokument als Parameter "doc" übergeben. Da die Map-Funktion auf alle Dokumente angewendet wird, muss anschließend geprüft werden, ob das übergebene Dokument die Schlüssel "tutor" und "lecture" enthält, um die entsprechenden Dokumente herauszufiltern. Im Anschluss trägt die emit-Funktion ein Key/Value-Paar in die Ergebnismenge ein. Sind mehrere Einträge gewünscht, dann kann die emit-Funktion auch mehrere Male aufgerufen werden. Im Beispiel wird eine Kombination aus den beiden Eigenschaften "tutor" bzw. "lecture" in einem Array als Schlüssel zurückgegeben.
+Im Beispiel bekommt die Map-Funktion ein Dokument als Parameter "doc" übergeben. Da die Map-Funktion auf alle Dokumente angewendet wird, muss anschließend geprüft werden, ob das übergebene Dokument die Schlüssel "tutor" und "lecture" enthält, um die entsprechenden Dokumente herauszufiltern. Im Anschluss trägt die emit-Funktion ein Key/Value-Paar in die Ergebnismenge ein. Sind mehrere Einträge gewünscht, dann kann die emit-Funktion auch mehrere Male aufgerufen werden. Im Beispiel wird eine Kombination aus den beiden Eigenschaften "tutor" bzw. "lecture" in einem Array als Schlüssel zurückgegeben.
 
 Das folgende Beispiel zeigt eine einfache Reduce-Funktion .
 ```
@@ -99,9 +99,9 @@ Zur Betrachtung der Reduce-Funktion ist es wichtig zu wissen, dass die Ergebnism
 
 ### 6.1.6 Replikation
 
-Das Replizieren, also das Übertragen von Daten auf andere Knoten, ist bei CouchDB ein inkrementeller Prozess. Dieser kann sowohl kontinuierlich stattfinden, als auch von der Anwendung selbst ausgelöst werden. CouchDB unterstützt bidirektionale Konflikterkennung und bidirektionales Konfliktmanagement, was eine Parallelisierung der Lesezugriffe ermöglicht. Dokumente werden einzeln bei der Replikation auf verschiedene CouchDB-Knoten verteilt, die sich an verschiedenen Orten befinden können. Dadurch können bessere Zugriffszeiten erreicht werden. Ein weiterer Vorteil ist das Fortsetzen der Übertragung bei Abbruch der Kommunikation. In diesem Fall muss das System nicht neugestartet werden und die Kommunikation kann beim letzten übertragenen Dokument fortgesetzt werden. Dieses Datenbanksystem geht davon aus, dass nicht immer eine Verbindung zwischen den einzelnen Datenbank-Knoten besteht, man spricht auch von "offline by default". Die Synchronisation erfolgt wie geplant, sobald die entsprechenden Knoten wieder verbunden sind. Üblicherweise entstehen dabei jedoch Konflikte, die jedoch von CouchDB markiert und im Anschluss gelöst werden können.
+Das Replizieren, also das Übertragen von Daten auf andere Knoten, ist bei CouchDB ein inkrementeller Prozess. Dieser kann sowohl kontinuierlich stattfinden, als auch von der Anwendung selbst ausgelöst werden. CouchDB unterstützt bidirektionale Konflikterkennung und bidirektionales Konfliktmanagement, was eine Parallelisierung der Lesezugriffe ermöglicht. Dokumente werden einzeln bei der Replikation auf verschiedene CouchDB-Knoten verteilt, die sich an verschiedenen Orten befinden können. Dadurch können bessere Zugriffszeiten erreicht werden. Ein weiterer Vorteil ist das Fortsetzen der Übertragung bei Abbruch der Kommunikation. In diesem Fall muss das System nicht neugestartet werden und die Kommunikation kann beim letzten übertragenen Dokument fortgesetzt werden. Dieses Datenbanksystem geht davon aus, dass nicht immer eine Verbindung zwischen den einzelnen Datenbank-Knoten besteht, man spricht auch von "offline by default". Die Synchronisation erfolgt wie geplant, sobald die entsprechenden Knoten wieder verbunden sind. Üblicherweise entstehen dabei jedoch Konflikte, die allerdings von CouchDB markiert und im Anschluss gelöst werden können.
 
-Findet gerade eine Replikation statt, dann sind die Dokumente nicht für den Zugriff gesperrt und trotzdem weiterhin verfügbar. Da jedes Dokument eine Revisions-ID besitzt kann die Konsistenz jedoch gewährleistet werden, da eventuelle Änderungen anhand dieser ID nachvollzogen werden können.
+Findet gerade eine Replikation statt, dann sind die Dokumente nicht für den Zugriff gesperrt und trotzdem weiterhin verfügbar. Da jedes Dokument eine Revisions-ID besitzt kann die Konsistenz trotzdem gewährleistet werden, da eventuelle Änderungen anhand dieser ID nachvollzogen werden können.
 
 CouchDB erlaubt die bidirektionale Übertragung aller Dokumente über Replikationen, wodurch Datenbankanwendungen in ihrer Gesamtheit, einschließlich Anwendungsdesign, Logik und Daten, repliziert werden können. [1, 3]
 
