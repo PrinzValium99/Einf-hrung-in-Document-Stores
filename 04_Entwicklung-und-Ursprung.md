@@ -1,18 +1,18 @@
 # 2. Entwicklung und Ursprung
 
-Erstaunlicherwesie begann die Geschichte der NoSQL-Datenbank Systeme durchaus schon parallel zu der der relationalen Datenbank Systemen. Bereits 1979 entwickelte Ken Thompson eine Key/Hash-Datenbank namens DBM. Aber erst 1998 tauchte der Begriff NoSQL zum ersten Mal bei einer Datenbank von Carlo Strozzi auf. Seiner Datenbank lag zwar immer noch ein relationales Datenbankmodell zugrunde, er stellte aber keine SQL-API zur Verfügung.
+Erstaunlicherwesie begann die Geschichte der NoSQL-Datenbank Systeme durchaus schon parallel zu der der relationalen Datenbank Systeme. Bereits 1979 entwickelte Ken Thompson eine Key/Hash-Datenbank namens DBM. Aber erst 1998 tauchte der Begriff NoSQL zum ersten Mal im Zusammenhang mit einer Datenbank von Carlo Strozzi auf. Seiner Datenbank lag zwar immer noch ein relationales Datenbankmodell zu Grunde, er stellte aber keine SQL-API zur Verfügung.
 
-Der eigentliche Schub für NoSQL kam aber erst ab 2000 mit der Einführung des Web 2.0 und dem Versuch, auch große Datenmengen zu verarbeiten. Google kann man mit seinem BigTable-Datenbanksystem (2004) als den NoSQL-Vorreiter schlechthin betrachten. Später zogen Firmen wie Yahoo, Amazon und später bald auch alle sozialen Netzwerke wie MySpace, Facebook, LinkedIn usw. nach. 
+Der eigentliche Durchbruch für NoSQL kam aber erst ab 2000, mit der Einführung des Web 2.0 und dem Versuch auch große Datenmengen zu verarbeiten. Google kann man mit seinem BigTable-Datenbanksystem (2004) als den NoSQL-Vorreiter schlechthin betrachten. Später zogen Firmen wie Yahoo, Amazon und darauf bald auch alle sozialen Netzwerke wie MySpace, Facebook, LinkedIn usw. nach. 
 
-Bis 2005 entstanden einige im Vergleich kleinere hochinteressante Datenbanken, die in vielen Facetten schon NoSQL-Charakter aufwiesen. (wie zB. Graphendatenbanken, objektorientierte Datenbanken) [1]
+Bis 2005 entstanden einige, im Vergleich kleinere hochinteressante Datenbanken, die in vielen Facetten schon NoSQL-Charakter (wie zB. Graphendatenbanken, objektorientierte Datenbanken) aufwiesen. [1]
 
 Von 2006 bis 2009 entstanden dann die heutigen klassischen NoSQL-Systeme. Doch erst 2009 tauchte der heutige Begriff "NoSQL" in einem Weblog von Eric Evans zum ersten Mal auf [2].  
 
-Um den Bogen zurück zu  Document Stores zu spannen, ist man allgemein der Auffassung, dass der Bereich der dokumentenorientierten Datenbanken zu den interessantesten Teilen der NoSQL-Bewegung gehört. [2]
+Um den Bogen zurück zu Document Stores zu spannen, ist es wichtig zu wissen, dass der Bereich der dokumentenorientierten Datenbanken für einen der interessantesten Teilen der NoSQL-Bewegung gehalten wird. [2]
 
-Jedoch muss man mit dem Begriff  “Document Stores” vorsichtig sein. Sie sind im eigentlichen Sinne keine echten Dokumentendatenbanken. Der Begriff selbst stammt noch aus der Zeit von Lotus Notes, wo tatsächlich echte Anwenderdokumente gespeichert wurden. Wahrscheinlich wurde der Begriff sogar vom ehemaligen Lotus Notes-Entwickler Damien Katz geprägt, der später für CouchDB arbeitete.
+Jedoch muss man mit dem Begriff “Document Stores” vorsichtig sein. Sie sind im eigentlichen Sinne keine echten Dokumentendatenbanken. Der Begriff selbst stammt noch aus der Zeit von Lotus Notes, wo tatsächlich echte Anwenderdokumente gespeichert wurden. Wahrscheinlich wurde der Begriff sogar vom ehemaligen Lotus Notes-Entwickler Damien Katz geprägt, der später das Datenbanksystem CouchDB entwickelte.
 
-Jedoch ist die Anzahl der wirklich relevanten dokumentenorientierten Datenbanken relativ gering. Neben MongoDB haben noch Couchbase und CouchDB eine große Bedeutung. [3] 
+Jedoch ist die Anzahl der wirklich relevanten dokumentenorientierten Datenbanken relativ gering. Neben MongoDB haben vor allem Couchbase und CouchDB eine große Bedeutung. [3] 
 
 ## 2.1 Geschwister von Document Stores
 
