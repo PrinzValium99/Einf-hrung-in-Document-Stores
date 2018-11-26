@@ -4,13 +4,11 @@ Im Folgenden sind Beispiele aufgeführt, bei denen Document Stores zur Anwendung
 
 ## 5.1 Benutzerprofile
 
-Ein Benutzerprofil hat meist eine Reihe von Attributen, jedoch kann die Menge der vorhandenen Attribute von Benutzer zu Benutzer variieren. Zum Beispiel werden einige Benutzer das Geburtsdatum nicht zur Verfügung stellen, andere möglicherweise keine politische Zugehörigkeit offenbaren, usw. Diese Attribute werden dann beim Neuanlegen erst gar nicht zugewiesen. Zudem gibt es in der häutigen Zeit immer mehr Informationen, die Profilen nachträglichen hinzugefügt werden, was es quasi unmöglich macht, ein vordefiniertes Schema zu benutzen. <!--- Das Beispiel finde ich schwierig, weil das Feld kann ja auch vorhanden, aber leer sein oder? Jessi: ich finde das Beispiel auch schwierig --->
-Benutzer in Twitter werden dann z.B. in einer dokumentenorientierten Datenbank gespeichert, in der jedes Dokument das Profil und einige aktuelle Tweets der entsprechenden Benutzer enthält.  [1]
+Ein Benutzerprofil hat meist eine Reihe von Attributen, jedoch kann die Menge der vorhandenen Attribute von Benutzer zu Benutzer variieren. Zum Beispiel werden einige Benutzer das Geburtsdatum nicht zur Verfügung stellen, andere möglicherweise keine politische Zugehörigkeit offenbaren, usw. Diese Attribute werden dann beim Neuanlegen erst gar nicht zugewiesen. Zudem gibt es in der heutigen Zeit immer mehr Informationen, die Profilen nachträglichen hinzugefügt werden, was es quasi unmöglich macht, ein vordefiniertes Schema zu benutzen. Benutzer in Twitter werden dann z.B. in einer dokumentenorientierten Datenbank gespeichert, in der jedes Dokument das Profil und einige aktuelle Tweets der entsprechenden Benutzer enthält. [1]
 
 ## 5.2 Produkt/Katalog Daten
 
-Dokumentorientiere Datenbanken kommen auch dann zum Einsatz, wenn es darum geht komplizierte Produktinformationen abzubilden. Bestehen Produkte zum Beispiel wiederum aus einer Anzahl aus Produktkomponenten und gibt es zusätzlich noch mehrere Hersteller, oder andere individuelle Attribute, die nicht bei jedem Produkt zu finden sind, lässt sich die gesammelte Information am besten in Document Stores abspeichern. [1]
-<!--- zweimal "Produkte"? Glaube da ist ein Fehler drin? --->
+Dokumentorientiere Datenbanken kommen auch dann zum Einsatz, wenn es darum geht komplizierte Produktinformationen abzubilden. Bestehen Produkte zum Beispiel wiederum aus einer Anzahl von Produktkomponenten und gibt es zusätzlich noch mehrere Hersteller, oder andere individuelle Attribute, die nicht bei jedem Produkt zu finden sind, lässt sich die gesammelte Information am besten in Document Stores abspeichern. [1]
 
 ## 5.3 Geoinformationsdaten
 
