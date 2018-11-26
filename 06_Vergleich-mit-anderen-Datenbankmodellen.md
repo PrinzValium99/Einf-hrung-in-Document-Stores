@@ -4,7 +4,7 @@ Neben dokumentenorientierten Datenbanken gibt es noch weitere Datenbankmodelle. 
 
 ## 4.1 Relationale Datenbanken
 
-Relationale Datenbanken gehören zu den am weitesten verbreiteten Datenbankmodellen. <!-- ist es nicht das am weitesten verbreitet Datenbankmodell? --> Dargestellt werden sie häufig im Entity-Relationship-Modell nach Chen. Entwickelt wurde das relationale Datenbankmodell von Edgar F. Codd in den 1960er/70er Jahren. Oracle veröffentlichte einige Jahre später die erste funktionierende Datenbank nach diesem Modell. [1] Die Daten werden in zwei-dimensionalen Tabellen gespeichert und mithilfe SQL abgefragt. Über einen Schlüssel (Primärschlüssel) und einem Fremdschlüssel (Foreign Key) werden die Tabellen miteinander verknüpft. Ein Datensatz (Record) befindet sich immer innerhalb einer Tabellenzeile (Tupel). Des Weiteren beinhaltet jede Zeile eine Reihe von Merkmalen (Attributen). Diese stellen die Tabellenspalten dar. Anhand des Beispieles Dozenten und Vorlesungen soll eine relationale Datenbank visualisiert werden. Die tutor_id stellt in diesem Beispiel den Foreign Key dar. [2]
+Relationale Datenbanken gehören zu den am weitesten verbreiteten Datenbankmodellen. Dargestellt werden sie häufig im Entity-Relationship-Modell nach Chen. Entwickelt wurde das relationale Datenbankmodell von Edgar F. Codd in den 1960er/70er Jahren. Oracle veröffentlichte einige Jahre später die erste funktionierende Datenbank nach diesem Modell. [1] Die Daten werden in zwei-dimensionalen Tabellen gespeichert und mithilfe SQL abgefragt. Über einen Schlüssel (Primärschlüssel) und einem Fremdschlüssel (Foreign Key) werden die Tabellen miteinander verknüpft. Ein Datensatz (Record) befindet sich immer innerhalb einer Tabellenzeile (Tupel). Des Weiteren beinhaltet jede Zeile eine Reihe von Merkmalen (Attributen). Diese stellen die Tabellenspalten dar. Anhand des Beispieles Dozenten und Vorlesungen soll eine relationale Datenbank visualisiert werden. Die tutor_id stellt in diesem Beispiel den Foreign Key dar. [2]
 
 ### Tutor
 
@@ -49,7 +49,7 @@ Durch im Objekt oTutor hinterlegte Methoden wie z.B. getName, getFirstLecture, u
 `oTutor->getName() liefert: 'Hans Maier'`<br>
 `oTutor->getFirstLecture() liefert: 'Quantencomputer'`
 
-Ein Nachteil der objektorientierten Datenbanken ist die geringe Verbreitung, weshalb die Unterstützung von Schnittstellen und Tools noch recht gering ist. <!-- dies wurde so in etwa 2 sätze vorher schon erwähnt-->Bei einigen Anfragen haben objektorientierte Datenbanken einen Nachteil gegenüber den relationalen. Durch erhöhte Komplexität kann es zu Leistungsproblemen kommen. Dies lässt sich auf die Zugriffspfade, die durch unterschiedliche Pfadarten wie Assoziationen und Vererbung bei den Objekten entstehen, zurückführen. [2]
+Bei einigen Anfragen haben objektorientierte Datenbanken einen Nachteil gegenüber den relationalen. Durch erhöhte Komplexität kann es zu Leistungsproblemen kommen. Dies lässt sich auf die Zugriffspfade, die durch unterschiedliche Pfadarten wie Assoziationen und Vererbung bei den Objekten entstehen, zurückführen. [2]
 
 ## 4.3 Dokuemtenorientierte Datenbanken
 
