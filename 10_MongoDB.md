@@ -74,7 +74,7 @@ Im Zuge der Sicherheit von MongoDB Datenbanken gibt es drei Möglichkeiten.
 
 	Grundsätzlich horcht MongoDB auf alle verfügbaren Interfaces. Es besteht jedoch die Möglichkeit, nur Anfragen zuzulassen, die auf dem localhost (127.0.0.1) ankommen. Damit wird sichergestellt, dass sich nur der lokale Rechner mit MongoDB verbinden kann und kein anderes externes System.
 
-2. **Erstellen von iptables**
+2. **Erstellen von IP-Tables**
 
 	Möchte man Zugriff auch von außerhalb zulassen, kann der Zugriff auch über IP-Tables eingestellt werden, falls keine komplette Freigabe stattfinden soll.
 IP-Tables entfernen alle vordefinierten Regeln, somit auch den Standardport von MongoDB (27017) und Zugriff über das REST-Interface. Damit ein Zugriff auf den MongoDB Server möglich ist, werden den IP-Tables der Reihe nach IP-Adressen zugeschrieben und somit freigeschaltet.
