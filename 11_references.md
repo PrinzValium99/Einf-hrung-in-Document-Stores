@@ -14,6 +14,8 @@ DB-Engines Ranking. (o.D.). Abgerufen 16. November, 2018, von https://db-engines
 
 Edlich, S. (2011). NoSQL. München: Hanser. 
 
+Firebase Realtime Database. (2018, 1. November). Abgerufen 20. Dezember, 2018, von https://firebase.google.com/docs/database/
+
 Kurowski, O. (2012). NoSQL Einführung. Frankfurt am Main: entwickler.press. 
 
 Lapp, A. (2018, 14. November). Big Data – Mehr Durchblick im Datendschungel. Abgerufen 17. November, 2018, von https://blog.adacor.com/big-data-sql-nosql-richtig-einordnen_4308.html
@@ -33,6 +35,8 @@ Top 5 Considerations When Evaluating NoSQL Databases. (2018, Juni). Abgerufen 17
 Vor- und Nachteile von Objektdatenbanken. (o.D.). Abgerufen 15. November, 2018, von https://www.eu-datenbank.de/fachartikel/vor-und-nachteile-von-objektdatenbanken/
 
 What Is MongoDB? (o.D.). Abgerufen 18. November, 2018, von https://www.mongodb.com/de/what-is-mongodb
+
+Wikipedia contributors. (2018, 19. Dezember). Document-oriented database - Wikipedia. Abgerufen 20. Dezember, 2018, von https://en.wikipedia.org/wiki/Document-oriented_database
 
 ------
 
