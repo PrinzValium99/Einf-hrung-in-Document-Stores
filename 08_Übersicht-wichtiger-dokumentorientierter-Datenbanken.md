@@ -22,9 +22,9 @@ In den nachfolgenden Kapiteln wird auf zwei dokumentenorientierte Datenbanken so
 
 ---
 [1] Edlich, S. (2011). NoSQL. München: Hanser.  <br>
-[2] DB-Engines Ranking. (o.D.). Abgerufen 16. November, 2018, von https://db-engines.com/de/ranking/document+store
-[3] Wikipedia contributors. (2018, 19. Dezember). Document-oriented database - Wikipedia. Abgerufen 20. Dezember, 2018, von https://en.wikipedia.org/wiki/Document-oriented_database
-[4] Firebase Realtime Database. (2018, 1. November). Abgerufen 20. Dezember, 2018, von https://firebase.google.com/docs/database/
+[2] DB-Engines Ranking. (o.D.). Abgerufen 16. November, 2018, von https://db-engines.com/de/ranking/document+store <br>
+[3] Wikipedia contributors. (2018, 19. Dezember). Document-oriented database - Wikipedia. Abgerufen 20. Dezember, 2018, von https://en.wikipedia.org/wiki/Document-oriented_database <br>
+[4] Firebase Realtime Database. (2018, 1. November). Abgerufen 20. Dezember, 2018, von https://firebase.google.com/docs/database/ <br>
 [5] What Is MongoDB? (o.D.). Abgerufen 18. November, 2018, von https://www.mongodb.com/de/what-is-mongodb
 
 ---
