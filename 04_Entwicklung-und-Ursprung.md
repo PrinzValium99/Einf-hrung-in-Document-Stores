@@ -34,12 +34,14 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Nach
 
   Beim graphenorientierten Datenbankmodell werden die Daten durch Knoten (Entitäten) und Kanten (Beziehungen) dargestellt bzw. gespeichert. Diese können jeweils mit Eigenschaften oder Attributen beschrieben werden. Ein Graph beginnt normalerweise mit einem Startknoten und durchläuft dann entlang der Kanten die weiteren Knoten. Durch dieses lineare Verfahren werden Verschachtelungen vermieden und gegenüber relationalen SQL-Datenbanken eine höhere Performance erreicht. [4, 5]
 
+In der Nachfolgenden Tabelle wurde ein Vergleich der einzelnen NoSQL Datenbanksysteme mit Hilfe der Kriterien Aufbau, Skalierbarkeit/Performance und Komplexität durchgeführt. Außerdem wurden jedem Modell wichtige Vertreter bzw. verwandte Modelle zugeordnet. 
+
 | | Schlüssel–Wert| Spalten| Dokument | Graph |
 |------|------------------|------------	| ------------|------------------|
 | **Aufbau** | Collections von Schlüssel-Wert-Paaren | Spalten und Spaltenfamilien. Zugriff erfolgt direkt auf die Spaltenwerte (einzeln oder aggregiert) | Schlüssel-Wert-Paare - mit dem Zusatz, dass die Datenstruktur im Value interpretiert wird | Fokus auf Datenverbindungen und schnelles Durchwandern dieser Beziehungen |
 | **Skalierbarkeit/Performance** | +++ | +++ | ++ | ++ |
 | **Komplexität** | + | ++ | ++ | +++ |
-| **Inspiration und Verwandtschaft** | Berkeley-DB, Memcache | Sybase IQ, BigTable | Lotus Notes | Graphen-Theorie |
+| **Inspiration &Verwandtschaft** | Berkeley-DB, Memcache | Sybase IQ, BigTable | Lotus Notes | Graphen-Theorie |
 | **NoSQL-Vertreter** | Voldemort, Redis, Riak | Hbase, Cassandra, Hypertable | CouchDB, Couchbase, MongoDB, Redis | Sones, Neo4j, InfoGrid |
 
 [4]
