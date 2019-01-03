@@ -14,8 +14,7 @@ Darüber hinaus bieten jedoch einige dokumentenorientierte Datenbanken Query-Aus
 
 [2] Top 5 Considerations When Evaluating NoSQL Databases. (2018, Juni). Abgerufen 17. November, 2018, von https://www.mongodb.com/collateral/top-5-considerations-when-evaluating-nosql-databases
 
-[3] Lapp, A. L., & Litzel, N. L. . Big Data, SQL und NoSQL –
-eine kurze Übersicht. Abgerufen 26. Dezember, 2018, von https://www.bigdata-insider.de/big-data-sql-und-nosql-eine-kurze-uebersicht-a-602249/
+[3] Litzel, N., & Lapp, A. (2017, 24. Mai). Big Data, SQL und NoSQL – eine kurze Übersicht. Abgerufen 26. Dezember, 2018, von https://www.bigdata-insider.de/big-data-sql-und-nosql-eine-kurze-uebersicht-a-602249/
 
 [4] Ngoc Ha, T. (2011). Charakteristika und Vergleich von SQL- und NoSQLDatenbanken. Abgerufen 26. Dezember, 2018, von https://dbs.uni-leipzig.de/file/seminar_1112_tran_ausarbeitung.pdf
 
