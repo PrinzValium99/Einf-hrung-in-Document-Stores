@@ -12,7 +12,7 @@ Um den Bogen zurück zu Document Stores zu spannen, ist es wichtig zu wissen, da
 
 Jedoch muss man mit dem Begriff “Document Stores” vorsichtig sein. Sie sind im eigentlichen Sinne keine echten Dokumentendatenbanken. Der Begriff selbst stammt noch aus der Zeit von Lotus Notes, wo tatsächlich echte Anwenderdokumente gespeichert wurden. Wahrscheinlich wurde der Begriff sogar vom ehemaligen Lotus Notes-Entwickler Damien Katz geprägt, der später das Datenbanksystem CouchDB entwickelte.
 
-Jedoch ist die Anzahl der wirklich relevanten dokumentenorientierten Datenbanken relativ gering. Neben MongoDB haben vor allem Couchbase und CouchDB eine große Bedeutung. [3]  
+Jedoch ist die Anzahl der wirklich relevanten dokumentenorientierten Datenbanken relativ gering. Neben MongoDB haben vor allem Couchbase, CouchDB und Redis eine große Bedeutung. [3]  
 
 ## 2.1 Geschwister von Document Stores
 
@@ -34,19 +34,15 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Nach
 
   Beim graphenorientierten Datenbankmodell werden die Daten durch Knoten (Entitäten) und Kanten (Beziehungen) dargestellt bzw. gespeichert. Diese können jeweils mit Eigenschaften oder Attributen beschrieben werden. Ein Graph beginnt normalerweise mit einem Startknoten und durchläuft dann entlang der Kanten die weiteren Knoten. Durch dieses lineare Verfahren werden Verschachtelungen vermieden und gegenüber relationalen SQL-Datenbanken eine höhere Performance erreicht. [4, 5]
 
-
-
 | | Schlüssel–Wert| Spalten| Dokument | Graph |
 |------|------------------|------------	| ------------|------------------|
 | **Aufbau** | Collections von Schlüssel-Wert-Paaren | Spalten und Spaltenfamilien. Zugriff erfolgt direkt auf die Spaltenwerte (einzeln oder aggregiert) | Schlüssel-Wert-Paare - mit dem Zusatz, dass die Datenstruktur im Value interpretiert wird | Fokus auf Datenverbindungen und schnelles Durchwandern dieser Beziehungen |
 | **Skalierbarkeit/Performance** | +++ | +++ | ++ | ++ |
 | **Komplexität** | + | ++ | ++ | +++ |
 | **Inspiration und Verwandtschaft** | Berkeley-DB, Memcache | Sybase IQ, BigTable | Lotus Notes | Graphen-Theorie |
-| **NoSQL-Vertreter** | Voldemort, Redis, Riak | Hbase, Cassandra, Hypertable | CouchDB, MongoDB, Redis | Sones, Neo4j, InfoGrid |
+| **NoSQL-Vertreter** | Voldemort, Redis, Riak | Hbase, Cassandra, Hypertable | CouchDB, Couchbase, MongoDB, Redis | Sones, Neo4j, InfoGrid |
 
 [4]
-
-
 
 ------
 
