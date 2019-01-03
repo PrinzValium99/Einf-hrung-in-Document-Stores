@@ -20,19 +20,19 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Nach
 
 - **Schlüssel/Wert-orientiert (engl. Key/Value):** 
 
-   Abgefragt wird auf den Schlüssel, der einen beliebigen String (z. B. XML oder ein serialisiertes Objekt) zurück liefert.
+   Das Key-Value-Datenbankmodell verwendet ein einfaches Schema zur Verknüpfung von Schlüsseln und Werten. Jeder Schlüssel liefert bei der Abfrage bestimmte Werte zurück. Diese Werte können aus willkürlichen Zeichenketten oder strukturierten Zeichen bestehen, z. B. XML oder ein serialisiertes Objekt. [4, 5]
 
 - **Spaltenorientiert:** 
 
-   Dieser Speichertyp greift über einen Schlüssel gezielt auf Einzelwerte einer Struktur (Spaltenfamilie) zu.
+   Wie der Name bereits verrät, ist die Besonderheit des spaltenorientierten Datenbankmodells die Speicherung der Einträge in Spalten statt in Zeilen. Der Vorteil dieses DBS gegenüber eines zeilenorientierten Modells ist die erhöhte Leistung der Leseprozesse, da keine unnötigen Daten gelesen werden müssen. Über einen Schlüssel wird gezielt auf einen bestimmten Wert einer Spaltenfamilie zugegriffen. [4, 5]
 
 - **Dokumentenorientiert:**
 
-   Als Erweiterung der Schlüssel/Wert-Variante werden die Werte zusätzlich mit einer losen Struktur versehen (z.B. JSON), die von der Datenbank verarbeitet werden kann.
+   Dieses Datenbankmodell setzt auf die Speicherung der Daten in Dokumente. In diesen Dokumenten werden die Daten schemalos gespeichert, sie können jedoch mit einer Struktur (z. B. JSON) versehen werden, die von der Datenbank gelesen werden kann. Mehrere Dokumente besitzen keine Relationen zueinander. [4, 5]
 
 - **Graphenorientiert:** 
 
-  Entscheidender Anwendungsfall ist das Traversieren der Objekte, wie z. B. bei Verbindungen in Social Networks oder Produktempfehlungen. Die Daten werden in Knoten (Entitäten) und Kanten (Beziehungen) aufgeteilt, welche mit Attributen versehen werden können. [4]
+  Beim graphenorientierten Datenbankmodell werden die Daten durch Knoten (Entitäten) und Kanten (Beziehungen) dargestellt bzw. gespeichert. Diese können jeweils mit Eigenschaften oder Attributen beschrieben werden. Ein Graph beginnt normalerweise mit einem Startknoten und durchläuft dann entlang der Kanten die weiteren Knoten. Durch dieses lineare Verfahren werden Verschachtelungen vermieden und gegenüber relationalen SQL-Datenbanken eine höhere Performance erreicht. [4, 5]
 
 
 
@@ -57,6 +57,8 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Nach
 [3] DB-Engines Ranking. (o.D.). Abgerufen 16. November, 2018, von https://db-engines.com/de/ranking/document+store
 
 [4] Lingstädt, D. (2011, 1. Januar). NoSQL - Einsatzgebiete für die neue Datenbank-Generation. Abgerufen 15. November, 2018, von https://www.innoq.com/de/articles/2011/01/nosql-einsatzgebiete/
+
+[5] Litzel, N. (2017, 12. Juni). Was ist NoSQL? Abgerufen 3. Januar, 2019, von https://www.bigdata-insider.de/was-ist-nosql-a-615718/
 
 ------
 
