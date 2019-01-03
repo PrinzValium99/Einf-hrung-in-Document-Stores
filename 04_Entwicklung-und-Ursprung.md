@@ -16,7 +16,7 @@ Jedoch ist die Anzahl der wirklich relevanten dokumentenorientierten Datenbanken
 
 ## 2.1 Geschwister von Document Stores
 
-Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Andere wichtige No-SQL Datenbanken sind:
+Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Nachfolgend findet ein Vergleich mit anderen wichtigen No-SQL Datenbanken statt:
 
 - **Schlüssel/Wert-orientiert (engl. Key/Value):** 
 
@@ -25,6 +25,10 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Ande
 - **Spaltenorientiert:** 
 
    Dieser Speichertyp greift über einen Schlüssel gezielt auf Einzelwerte einer Struktur (Spaltenfamilie) zu.
+
+- **Dokumentenorientiert:**
+
+   Als Erweiterung der Schlüssel/Wert-Variante werden die Werte zusätzlich mit einer losen Struktur versehen (z.B. JSON), die von der Datenbank verarbeitet werden kann.
 
 - **Graphenorientiert:** 
 
@@ -40,7 +44,7 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Ande
 | **Inspiration und Verwandtschaft** | Berkeley-DB, Memcache | Sybase IQ, BigTable | Lotus Notes | Graphen-Theorie |
 | **NoSQL-Vertreter** | Voldemort, Redis, Riak | Hbase, Cassandra, Hypertable | CouchDB, MongoDB, Redis | Sones, Neo4j, InfoGrid |
 
-
+[4]
 
 
 
@@ -52,7 +56,7 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Ande
 
 [3] DB-Engines Ranking. (o.D.). Abgerufen 16. November, 2018, von https://db-engines.com/de/ranking/document+store
 
-[4] NoSQL - Einsatzgebiete für die neue Datenbank-Generation. (2011, 1. Januar). Abgerufen 15. November, 2018, von https://www.innoq.com/en/articles/2011/01/nosql-einsatzgebiete/
+[4] Lingstädt, D. (2011, 1. Januar). NoSQL - Einsatzgebiete für die neue Datenbank-Generation. Abgerufen 15. November, 2018, von https://www.innoq.com/de/articles/2011/01/nosql-einsatzgebiete/
 
 ------
 
