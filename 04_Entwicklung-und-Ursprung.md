@@ -28,7 +28,17 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Ande
 
 - **Graphenorientiert:** 
 
-  Entscheidender Anwendungsfall ist das Traversieren der Objekte, wie z. B. bei Verbindungen in Social Networks oder Produktempfehlungen. Die Daten werden in Knoten (Entitäten) und Kanten (Beziehungen) aufgeteilt, welche mit Attributen versehen werden können. [4] 
+  Entscheidender Anwendungsfall ist das Traversieren der Objekte, wie z. B. bei Verbindungen in Social Networks oder Produktempfehlungen. Die Daten werden in Knoten (Entitäten) und Kanten (Beziehungen) aufgeteilt, welche mit Attributen versehen werden können. [4]
+
+
+
+| | Schlüssel–Wert| Spalten| Dokument | Graph |
+|------|------------------|------------	| ------------|------------------|
+| Aufbau  | C, C++, C#, Java, Perl, PHP, Python, Node.js, Ruby, Rust, Scala   | Ja	| Dokumentdatenbank mit Replikation und Sharding, BSON Store (Binärformat JSON)| Document Store |
+|Skalierbarkeit/Performance |.Net, ColdFusion, Erlang, Groovy, Java, JavaScript, Perl, PHP, Python, Ruby |Ja | Gehosteter, skalierbarer Datenbankservice von Amazon mit den in der Amazons Cloud gespeicherten Daten | Document Store, Key-Value Store |
+| Komplexität |C, .NET, Java, Python, Node.js, PHP, SQL, Go, Spring Framework, LINQ |Ja | Verteilte NoSQL-Dokumenten-Datenbank, JSON-Modell und SQL-basierte Abfragesprache| Document Store |
+| Inspiration und Verwandtschaft |	.NET, Java, Python, Node.js, JavaScript, SQL | Ja | Platform-as-a-Service Angebot, Teil der Microsoft Azure-Plattform. Basiert und erweitert die frühere Azure DocumentDB. | Document Store,  Key-Value Store, Graph DBMS, Wide Colum Store |
+| NoSQL-Vertreter |Jede Sprache, die HTTP-Anfragen stellen kann | Ja  | JSON über REST/HTTP mit Multi-Version Concurrency Control und begrenzten ACID-Eigenschaften. Verwendet map und reduce für views und queries | Document Store |
 
 
 

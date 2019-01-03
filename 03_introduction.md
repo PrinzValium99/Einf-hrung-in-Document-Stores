@@ -15,7 +15,7 @@ Die wichtigsten Vertreter der NoSQL Datenbanken sind:
 - Dokumentorientierte Datenbankmodelle und
 - Graphendatenbankmodelle. [3]
 
-In den folgenden Kapiteln sollen vor allem die dokumentorientierten Datenbankmodelle (engl. Document-Stores) behandelt werden.
+In den folgenden Kapiteln sollen vor allem die dokumentorientierten Datenbankmodelle (engl. Document Stores) behandelt werden.
 
 ------
 
