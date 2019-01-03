@@ -34,12 +34,13 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Ande
 
 ------
 
-[1] Top 5 Considerations When Evaluating NoSQL Databases. (2018, Juni). Abgerufen 17. November, 2018, von https://www.mongodb.com/collateral/top-5-considerations-when-evaluating-nosql-databases <br>
-[2] Edlich, S. (2011). NoSQL. München: Hanser. <br>
-[3] DB-Engines Ranking. (o.D.). Abgerufen 16. November, 2018, von https://db-engines.com/de/ranking/document+store <br>
-[4] NoSQL - Einsatzgebiete für die neue Datenbank-Generation. (2011, 1. Januar). Abgerufen 15. November, 2018, von https://www.innoq.com/en/articles/2011/01/nosql-einsatzgebiete/ <br>
+[1] Top 5 Considerations When Evaluating NoSQL Databases. (2018, Juni). Abgerufen 17. November, 2018, von https://www.mongodb.com/collateral/top-5-considerations-when-evaluating-nosql-databases
 
+[2] Edlich, S. (2011). NoSQL. München: Hanser.
 
+[3] DB-Engines Ranking. (o.D.). Abgerufen 16. November, 2018, von https://db-engines.com/de/ranking/document+store
+
+[4] NoSQL - Einsatzgebiete für die neue Datenbank-Generation. (2011, 1. Januar). Abgerufen 15. November, 2018, von https://www.innoq.com/en/articles/2011/01/nosql-einsatzgebiete/
 
 ------
 

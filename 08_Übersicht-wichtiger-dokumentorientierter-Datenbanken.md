@@ -21,10 +21,15 @@ Im Gegensatz zu beispielsweise relationalen Datenbanken gibt es für dokumenteno
 In den nachfolgenden Kapiteln wird auf zwei dokumentenorientierte Datenbanken sowie deren technische Umsetzung näher eingegangen. Hier wurde sich für den wichtigsten Vertreter MongoDB, sowie für den fünft platzierten CouchDB entschieden. 
 
 ---
-[1] Edlich, S. (2011). NoSQL. München: Hanser.  <br>
-[2] DB-Engines Ranking. (o.D.). Abgerufen 16. November, 2018, von https://db-engines.com/de/ranking/document+store <br>
-[3] Wikipedia contributors. (2018, 19. Dezember). Document-oriented database - Wikipedia. Abgerufen 20. Dezember, 2018, von https://en.wikipedia.org/wiki/Document-oriented_database <br>
-[4] Firebase Realtime Database. (2018, 1. November). Abgerufen 20. Dezember, 2018, von https://firebase.google.com/docs/database/ <br>
+
+[1] Edlich, S. (2011). NoSQL. München: Hanser.
+
+[2] DB-Engines Ranking. (o.D.). Abgerufen 16. November, 2018, von https://db-engines.com/de/ranking/document+store
+
+[3] Wikipedia contributors. (2018, 19. Dezember). Document-oriented database - Wikipedia. Abgerufen 20. Dezember, 2018, von https://en.wikipedia.org/wiki/Document-oriented_database
+
+[4] Firebase Realtime Database. (2018, 1. November). Abgerufen 20. Dezember, 2018, von https://firebase.google.com/docs/database/
+
 [5] What Is MongoDB? (o.D.). Abgerufen 18. November, 2018, von https://www.mongodb.com/de/what-is-mongodb
 
 ---
