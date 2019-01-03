@@ -16,7 +16,7 @@ Im Gegensatz zu beispielsweise relationalen Datenbanken gibt es für dokumenteno
 |RethinkDB |C++, Python, JavaScript, Ruby, Java | Nein | Verteilte dokumentenorientierte JSON-Datenbank mit Replikation und Sharding | Document Store |
 |ArangoDB |C, .NET, Java, Python, Node.js, PHP, Scala, Go, Ruby, Elixir | Ja | Das Datenbanksystem unterstützt die Dokumentenablage sowie Schlüssel/Wert- und Diagrammdatenmodelle mit einem Datenbankkern und einer einheitlichen Abfragesprache AQL (ArangoDB Query Language) | Document Store,  Key-Value Store, Graph DBMS |
 
-[2], [3], [4], [5]
+[2, 3, 4, 5]
 
 In den nachfolgenden Kapiteln wird auf zwei dokumentenorientierte Datenbanken sowie deren technische Umsetzung näher eingegangen. Hier wurde sich für den wichtigsten Vertreter MongoDB, sowie für den fünft platzierten CouchDB entschieden. 
 
