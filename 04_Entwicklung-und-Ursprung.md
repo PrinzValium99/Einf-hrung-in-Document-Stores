@@ -24,7 +24,7 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Nach
 
 - **Spaltenorientiert:** 
 
-   Wie der Name bereits verrät, ist die Besonderheit des spaltenorientierten Datenbankmodells die Speicherung der Einträge in Spalten statt in Zeilen. Der Vorteil dieses DBS gegenüber eines zeilenorientierten Modells ist die erhöhte Leistung der Leseprozesse, da keine unnötigen Daten gelesen werden müssen. Über einen Schlüssel wird gezielt auf einen bestimmten Wert einer Spaltenfamilie zugegriffen. [4, 5]
+   Wie der Name bereits verrät, ist die Besonderheit des spaltenorientierten Datenbankmodells die Speicherung der Einträge in Spalten statt in Zeilen. Der Vorteil dieses Datenbanksystems (DBS) gegenüber eines zeilenorientierten Modells ist die erhöhte Leistung der Leseprozesse, da keine unnötigen Daten gelesen werden müssen. Über einen Schlüssel wird gezielt auf einen bestimmten Wert einer Spaltenfamilie zugegriffen. [4, 5]
 
 - **Dokumentenorientiert:**
 
@@ -34,7 +34,7 @@ Document Stores gehören zweifelsohne zu den wichtigsten NoSQL Datenbanken. Nach
 
   Beim graphenorientierten Datenbankmodell werden die Daten durch Knoten (Entitäten) und Kanten (Beziehungen) dargestellt bzw. gespeichert. Diese können jeweils mit Eigenschaften oder Attributen beschrieben werden. Ein Graph beginnt normalerweise mit einem Startknoten und durchläuft dann entlang der Kanten die weiteren Knoten. Durch dieses lineare Verfahren werden Verschachtelungen vermieden und gegenüber relationalen SQL-Datenbanken eine höhere Performance erreicht. [4, 5]
 
-In der nachfolgenden Tabelle wurde ein Vergleich der einzelnen NoSQL Datenbanksysteme (DBS) mit Hilfe der Kriterien Aufbau, Skalierbarkeit/Performance und Komplexität durchgeführt. Außerdem wurden jedem Modell wichtige Vertreter bzw. verwandte Modelle zugeordnet. 
+In der nachfolgenden Tabelle wurde ein Vergleich der einzelnen NoSQL Datenbanksysteme mit Hilfe der Kriterien Aufbau, Skalierbarkeit/Performance und Komplexität durchgeführt. Außerdem wurden jedem Modell wichtige Vertreter bzw. verwandte Modelle zugeordnet. 
 
 | | Schlüssel–Wert| Spalten| Dokument | Graph |
 |------|------------------|------------	| ------------|------------------|
