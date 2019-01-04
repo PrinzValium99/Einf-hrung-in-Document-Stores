@@ -2,7 +2,7 @@
 
 Nicht immer macht es Sinn das bewährte Modell der relationalen Datenbanken zu nutzen, da man mit diesem in einigen Situationen auf große Probleme stoßen kann. Die Masse an zu speichernden Informationen wird immer mehr. Müssen dann noch Hunderttausende oder Millionen von Nutzern mit diesen Daten versorgt werden, dann ist dies nur noch über verteilte Datenspeichersysteme möglich, um eine entsprechende Performance zu gewährleisten. Genau hier liegt allerdings das Problem der relationalen Datenbanken. [1]
 
-NoSQL Datenbanken stellen die am weitesten verbreitete und beliebteste Alternative zu den klassischen relationalen Datenbanken dar. Sie können sich überall dort wiederfinden, wo die Abfrage und Speicherung großer Datenmengen mit hoher Performance benötigt wird  [2, 3] 
+NoSQL Datenbanken stellen die am weitesten verbreitete und beliebteste Alternative zu den klassischen relationalen Datenbanken dar. Ist die Abfrage und Speicherung großer Datenmengen mit einer hohen Performance notwendig, dann können NoSQL Datenbanken von großem Nutzen sein. [2, 3] 
 
 Das "No" in NoSQL kann leicht falsch verstanden werden, es darf bei der Übersetzung ins Deutsche nicht einfach mit „kein“ gleichgesetzt werden. Für die meisten bedeutet NoSQL „Not only SQL“ – es steht somit nicht für ein Ende der Abfragesprache SQL. [4]
 
