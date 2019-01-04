@@ -1,6 +1,6 @@
 # 1. Einleitung
 
-Nicht immer macht es Sinn relationale Datenbanken zu nutzen, da man mit diesen in einigen Situationen auf große Probleme stoßen kann. Die Masse an zu speichernden Informationen wird immer mehr. Müssen dann noch Hunderttausende oder Millionen von Nutzern mit diesen Daten versorgt werden, dann ist dies nur noch über verteilte Datenspeichersysteme möglich, um eine entsprechende Performance zu gewährleisten. Genau hier liegt allerdings das Problem der relationalen Datenbanken. [1]
+Nicht immer macht es Sinn das bewährte Datenbanksystem der relationalen Datenbanken zu nutzen, da man mit diesen in einigen Situationen auf große Probleme stoßen kann. Die Masse an zu speichernden Informationen wird immer mehr. Müssen dann noch Hunderttausende oder Millionen von Nutzern mit diesen Daten versorgt werden, dann ist dies nur noch über verteilte Datenspeichersysteme möglich, um eine entsprechende Performance zu gewährleisten. Genau hier liegt allerdings das Problem der relationalen Datenbanken. [1]
 
 NoSQL Datenbanken stellen die am weitesten verbreitete und beliebteste Alternative zu den klassischen relationalen Datenbanken dar. Sie können sich überall dort wiederfinden, wo die Abfrage und Speicherung großer Datenmengen mit hoher Performance benötigt wird  [2, 3] 
 
