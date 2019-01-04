@@ -49,7 +49,7 @@ Durch im Objekt oTutor hinterlegte Methoden wie z.B. getName, getFirstLecture, u
 `oTutor->getName() liefert: 'Hans Maier'`<br>
 `oTutor->getFirstLecture() liefert: 'Quantencomputer'`
 
-Bei einigen Anfragen haben objektorientierte Datenbanken einen Nachteil gegenüber den relationalen. Durch erhöhte Komplexität kann es zu Leistungsproblemen kommen. Dies lässt sich auf die Zugriffspfade, die durch unterschiedliche Pfadarten wie Assoziationen und Vererbung bei den Objekten entstehen, zurückführen. [2], [4]
+Bei einigen Anfragen haben objektorientierte Datenbanken einen Nachteil gegenüber den relationalen. Durch erhöhte Komplexität kann es zu Leistungsproblemen kommen. Dies lässt sich auf die Zugriffspfade, die durch unterschiedliche Pfadarten wie Assoziationen und Vererbung bei den Objekten entstehen, zurückführen. [2, 4]
 
 ## 4.3 Dokuemtenorientierte Datenbanken
 
